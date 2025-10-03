@@ -28,42 +28,36 @@ title: Home
 </section>
 
 <!-- Why Travel with Kota Travels -->
-<section class="py-16 bg-white">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Why Travel with Kota Travels</h2>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div class="text-center">
-        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+<section class="px-8 py-16 bg-white">
+  <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Why Kota Travels ? </h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+    <div class="p-6 bg-white rounded-xl shadow-md">
+    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
           <span class="text-2xl">🌏</span>
         </div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Local expertise with a global perspective</h3>
-        <p class="text-gray-600">We bring worldwide experiences to authentic Bhutanese adventures</p>
-      </div>
-      
-      <div class="text-center">
-        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+      <h4 class="font-bold text-xl mb-2">Local expertise with a global perspective</h4>
+      <p>We bring worldwide experiences to authentic Bhutanese adventures</p>
+    </div>
+    <div class="p-6 bg-white rounded-xl shadow-md">
+     <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
           <span class="text-2xl">🏔️</span>
         </div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Adventure, sports & wellness tourism</h3>
-        <p class="text-gray-600">From cultural immersion to mountain adventures and peaceful retreats</p>
-      </div>
-      
-      <div class="text-center">
-        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+      <h4 class="font-bold text-xl mb-2">Adventure, sports & wellness tourism</h4>
+      <p>From cultural immersion to mountain adventures and peaceful retreats</p>
+    </div>
+    <div class="p-6 bg-white rounded-xl shadow-md">
+    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
           <span class="text-2xl">🌱</span>
         </div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Sustainability and cultural respect</h3>
-        <p class="text-gray-600">Responsible tourism that preserves Bhutan's pristine environment and traditions</p>
-      </div>
-      
-      <div class="text-center">
-        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+      <h4 class="font-bold text-xl mb-2">Sustainability and cultural respect</h4>
+      <p>Responsible tourism that preserves Bhutan's pristine environment and traditions</p>
+    </div>
+    <div class="p-6 bg-white rounded-xl shadow-md">
+    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
           <span class="text-2xl">🏡</span>
         </div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Hospitality you can trust</h3>
-        <p class="text-gray-600">Family-run business treating every guest like family</p>
-      </div>
+      <h4 class="font-bold text-xl mb-2">Hospitality you can trust</h4>
+      <p>Family-run business treating every guest like family</p>
     </div>
   </div>
 </section>
