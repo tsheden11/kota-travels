@@ -2,19 +2,20 @@
   {
     "title": "Cultural Tour",
     "description": "Experience Bhutanese culture with local guides, visiting monasteries, temples, and local villages.",
-    "image": "/images/cultural-tour.jpg",
+    "image": "/images/cultural-tour.webp",
     "link": "/packages/cultural-tour"
   },
+
   {
     "title": "Mountain Biking Tour",
     "description": "Explore Bhutan's scenic mountain trails on a guided biking adventure suitable for all skill levels.",
-    "image": "/images/mountain-biking.jpg",
+    "image": "/images/bike-tour.webp",
     "link": "/packages/mountain-biking"
   },
   {
     "title": "Relaxation Tour",
     "description": "Unwind and recharge in Bhutan's serene landscapes with spa treatments, meditation, and yoga sessions.",
-    "image": "/images/relaxation-tour.jpg",
+    "image": "/images/relaxation.webp",
     "link": "/packages/relaxation-tour"
   }
 ]
