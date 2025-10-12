@@ -1,31 +1,140 @@
 <header class="bg-white shadow-lg sticky top-0 z-50">
-  <div class="container mx-auto px-6">
-    <nav class="flex justify-between items-center py-4">
+  <div class="container mx-auto px-6 relative">
+    <nav class="flex items-center justify-between py-4 relative">
+
+      <!-- Logo -->
       <div class="flex items-center">
         <h1 class="text-2xl font-bold text-yellow-600">Kota Travels</h1>
-        <span class="ml-3 text-sm text-gray-600 hidden md:inline">Authentic Bhutanese Journeys</span>
       </div>
-      
-      <ul class="hidden md:flex space-x-8">
+
+      <!-- Desktop Nav links (centered) -->
+      <ul class="hidden md:flex space-x-8 absolute left-1/2 transform -translate-x-1/2">
         <li><a href="/" class="text-gray-700 hover:text-yellow-600 transition-colors duration-200 font-medium">Home</a></li>
         <li><a href="/packages/" class="text-gray-700 hover:text-yellow-600 transition-colors duration-200 font-medium">Packages</a></li>
         <li><a href="/about/" class="text-gray-700 hover:text-yellow-600 transition-colors duration-200 font-medium">About</a></li>
         <li><a href="/contact/" class="text-gray-700 hover:text-yellow-600 transition-colors duration-200 font-medium">Contact</a></li>
       </ul>
-      
-      <!-- Button that opens the Tally form in a modal -->
-      <button 
-        data-tally-open="w76qEZ" 
-        data-tally-layout="modal" 
-        data-tally-align-left="1"
-        data-tally-hide-title="1"
-        data-tally-width="700"
-        class="bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-2 rounded-full transition-colors duration-200">
-        Plan Your Journey
+
+      <!-- Desktop Tagline -->
+      <div class="flex items-center">
+        <span class="ml-3 text-sm text-gray-600 hidden md:inline">Authentic Bhutanese Journeys</span>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-yellow-600 focus:outline-none z-50 relative" aria-label="Toggle menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
       </button>
     </nav>
   </div>
 </header>
 
-<!-- Tally embed script -->
+<!-- Backdrop Overlay (appears when menu is open) -->
+<div id="mobile-menu-backdrop" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden transition-opacity duration-300"></div>
+
+<!-- Mobile Menu Overlay (slides in from right) -->
+<div id="mobile-menu" class="fixed top-0 right-0 h-full w-80 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 md:hidden">
+  <div class="flex flex-col h-full">
+
+    <!-- Menu Header with Close Button -->
+    <div class="flex items-center justify-between p-6 border-b border-gray-100">
+      <h2 class="text-xl font-bold text-yellow-600">Menu</h2>
+      <button id="mobile-menu-close" class="text-gray-700 hover:text-yellow-600 focus:outline-none" aria-label="Close menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menu Items -->
+    <nav class="flex-1 overflow-y-auto p-6">
+      <ul class="space-y-2">
+        <li>
+          <a href="/" class="block text-gray-700 hover:text-yellow-600 hover:bg-yellow-50 transition-colors duration-200 font-medium py-3 px-4 rounded-lg">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="/packages/" class="block text-gray-700 hover:text-yellow-600 hover:bg-yellow-50 transition-colors duration-200 font-medium py-3 px-4 rounded-lg">
+            Packages
+          </a>
+        </li>
+        <li>
+          <a href="/about/" class="block text-gray-700 hover:text-yellow-600 hover:bg-yellow-50 transition-colors duration-200 font-medium py-3 px-4 rounded-lg">
+            About
+          </a>
+        </li>
+        <li>
+          <a href="/contact/" class="block text-gray-700 hover:text-yellow-600 hover:bg-yellow-50 transition-colors duration-200 font-medium py-3 px-4 rounded-lg">
+            Contact
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Menu Footer with Tagline -->
+    <div class="p-6 border-t border-gray-100 bg-gradient-to-r from-yellow-50 to-orange-50">
+      <p class="text-sm text-gray-600 text-center font-medium">Authentic Bhutanese Journeys</p>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile Menu Toggle Script -->
+<script>
+  (function() {
+    const menuButton = document.getElementById('mobile-menu-button');
+    const closeButton = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const backdrop = document.getElementById('mobile-menu-backdrop');
+
+    function openMenu() {
+      // Show backdrop
+      backdrop.classList.remove('hidden');
+      setTimeout(() => backdrop.classList.add('opacity-100'), 10);
+
+      // Slide in menu
+      mobileMenu.classList.remove('translate-x-full');
+
+      // Prevent body scroll
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      // Hide backdrop
+      backdrop.classList.remove('opacity-100');
+      setTimeout(() => backdrop.classList.add('hidden'), 300);
+
+      // Slide out menu
+      mobileMenu.classList.add('translate-x-full');
+
+      // Restore body scroll
+      document.body.style.overflow = '';
+    }
+
+    // Open menu on hamburger click
+    if (menuButton) {
+      menuButton.addEventListener('click', openMenu);
+    }
+
+    // Close menu on close button click
+    if (closeButton) {
+      closeButton.addEventListener('click', closeMenu);
+    }
+
+    // Close menu on backdrop click
+    if (backdrop) {
+      backdrop.addEventListener('click', closeMenu);
+    }
+
+    // Close menu when clicking on a link
+    if (mobileMenu) {
+      const menuLinks = mobileMenu.querySelectorAll('a');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+    }
+  })();
+</script>
+
 <script async src="https://tally.so/widgets/embed.js"></script>

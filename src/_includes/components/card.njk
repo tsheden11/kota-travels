@@ -2,9 +2,6 @@
   <a href="{{ package.link }}" class="block">
     <div class="relative">
       <img src="{{ package.image }}" alt="{{ package.title }}" class="w-full h-48 object-cover">
-      <div class="absolute top-4 left-4 bg-yellow-500 text-gray-900 px-3 py-1 rounded-full text-sm font-medium">
-        Featured
-      </div>
     </div>
     
     <div class="p-6">
@@ -23,7 +20,7 @@
           <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
           </svg>
-          Multi-day
+          {{ package.duration }}
         </div>
       </div>
     </div>
