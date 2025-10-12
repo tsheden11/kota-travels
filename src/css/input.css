@@ -2,118 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Kota Travels Custom Color System */
-:root {
-  /* Brand Colors from prototype */
-  --color-saffron: #D49A1E;
-  --color-maroon: #7A1E26;
-  --color-sage: #7DA37D;
-  --color-turquoise: #4CA7A9;
-  --color-sky-blue: #3A7CA5;
-  --color-sunset-orange: #F27C38;
-  --color-stone-grey: #E5E5E0;
-  --color-charcoal: #2E2E2E;
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ============================================
+   KOTA TRAVELS - MINIMAL DESIGN SYSTEM
+   Only the most repeated patterns from actual code
+   ============================================ */
+
+@layer base {
+  body {
+    @apply font-sans antialiased;
+  }
 }
 
 @layer components {
-  /* Hero Section Styling */
-  .hero-gradient {
-    @apply bg-gradient-to-br from-blue-600 via-teal-500 to-blue-700;
+
+  /* ==========================================
+     CONTAINER - Most repeated pattern
+     Used in EVERY page multiple times
+     ========================================== */
+  .container-content {
+    @apply container mx-auto px-6;
   }
-  
-  /* Card Components */
+
+  /* ==========================================
+     CARDS - Exact pattern from your code
+     ========================================== */
   .package-card {
     @apply bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border border-gray-100;
   }
-  
-  /* Button Variants */
+
+  /* ==========================================
+     BUTTONS - Already in your code, keeping them
+     ========================================== */
   .btn-primary {
-    @apply bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold px-6 py-3 rounded-full transition-colors duration-200;
+    @apply inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold px-8 py-3 rounded-full transition-colors duration-200;
   }
-  
+
   .btn-secondary {
-    @apply bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-full transition-colors duration-200;
+    @apply inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-3 rounded-full transition-colors duration-200;
   }
-  
+
   .btn-outline {
-    @apply bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white font-semibold px-6 py-3 rounded-full transition-all duration-200;
+    @apply inline-block bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white font-semibold px-8 py-3 rounded-full transition-all duration-200;
   }
-  
-  /* Icon Circles */
+
+  /* ==========================================
+     ICON CIRCLES - Very common in your code
+     ========================================== */
   .icon-circle {
     @apply w-16 h-16 rounded-full flex items-center justify-center text-2xl;
   }
-  
+
   .icon-circle-blue {
     @apply icon-circle bg-blue-100;
   }
-  
+
   .icon-circle-orange {
     @apply icon-circle bg-orange-100;
   }
-  
+
   .icon-circle-green {
     @apply icon-circle bg-green-100;
   }
-  
+
   .icon-circle-yellow {
     @apply icon-circle bg-yellow-100;
   }
-  
-  /* Section Backgrounds */
-  .section-light {
-    @apply bg-stone-50;
-  }
-  
-  .section-gradient {
-    @apply bg-gradient-to-r from-orange-500 to-yellow-500;
-  }
-  
-  /* Navigation */
-  .nav-link {
-    @apply text-gray-700 hover:text-yellow-600 transition-colors duration-200 font-medium;
-  }
-  
-  .nav-link-active {
-    @apply text-yellow-600;
-  }
-  
-  /* Typography */
-  .heading-primary {
-    @apply text-4xl md:text-6xl font-bold;
-  }
-  
-  .heading-secondary {
-    @apply text-3xl font-bold text-gray-900;
-  }
-  
-  .text-brand-primary {
-    @apply text-yellow-600;
-  }
-  
-  .text-brand-secondary {
-    @apply text-orange-500;
-  }
+
 }
 
 @layer utilities {
-  /* Text clamp for card descriptions */
+  /* Line clamp for package descriptions */
   .line-clamp-3 {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-  
-  /* Smooth scroll behavior */
-  .smooth-scroll {
-    scroll-behavior: smooth;
-  }
-}
-
-/* Custom font loading */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
