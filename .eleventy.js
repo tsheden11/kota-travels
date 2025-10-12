@@ -11,7 +11,6 @@ module.exports = function(eleventyConfig) {
 
   // Reusable date filter
   eleventyConfig.addFilter("date", (dateObj, format = "yyyy") => {
-    // If no date provided, use current date
     if (!dateObj) {
       dateObj = new Date();
     }
@@ -23,6 +22,7 @@ module.exports = function(eleventyConfig) {
     dir: {
       input: "src",
       includes: "_includes",
+      data: "_data",
       output: "_site"
     },
     markdownTemplateEngine: "njk",
