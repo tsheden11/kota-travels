@@ -1,0 +1,248 @@
+<!-- Booking Form Popup Modal -->
+<div id="bookingModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+    <div class="sticky top-0 bg-gradient-to-r from-orange-500 to-yellow-500 p-6 rounded-t-2xl">
+      <div class="flex justify-between items-center">
+        <h2 class="text-2xl font-bold text-white">Book Your Journey</h2>
+        <button id="closeBookingBtn" class="text-white hover:text-gray-200 text-3xl font-bold leading-none">&times;</button>
+      </div>
+      <p class="text-white text-sm mt-2">Complete your booking details and we'll get back to you shortly</p>
+    </div>
+
+    <form id="bookingForm" class="p-6 space-y-5">
+      <!-- Hidden field for package name -->
+      <input type="hidden" id="packageName" name="packageName" value="">
+
+      <!-- Package Display (Read-only) -->
+      <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+        <div class="flex items-center">
+          <svg class="w-6 h-6 text-yellow-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+          </svg>
+          <div>
+            <div class="text-sm text-gray-600">Selected Package</div>
+            <div id="packageNameDisplay" class="font-bold text-gray-900 text-lg"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Name and Email Row -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label for="bookingName" class="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
+          <input type="text" id="bookingName" name="bookingName" required
+                 class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all">
+        </div>
+        <div>
+          <label for="bookingEmail" class="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label>
+          <input type="email" id="bookingEmail" name="bookingEmail" required
+                 class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all">
+        </div>
+      </div>
+
+      <!-- Phone and Number of People -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label for="bookingPhone" class="block text-sm font-semibold text-gray-700 mb-2">Phone Number (WhatsApp) *</label>
+          <input type="tel" id="bookingPhone" name="bookingPhone" required
+                 placeholder="+975 or +66..."
+                 class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all">
+        </div>
+        <div>
+          <label for="numberOfPeople" class="block text-sm font-semibold text-gray-700 mb-2">Number of Travelers *</label>
+          <input type="number" id="numberOfPeople" name="numberOfPeople" required min="1" max="50" value="2"
+                 class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all">
+        </div>
+      </div>
+
+      <!-- Departure Date and Duration -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label for="bookingDepartureDate" class="block text-sm font-semibold text-gray-700 mb-2">Preferred Departure Date *</label>
+          <input type="date" id="bookingDepartureDate" name="bookingDepartureDate" required
+                 class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all">
+        </div>
+        <div>
+          <label for="bookingDuration" class="block text-sm font-semibold text-gray-700 mb-2">Tour Duration</label>
+          <input type="text" id="bookingDuration" name="bookingDuration" readonly
+                 class="w-full px-4 py-2.5 border border-gray-300 rounded-lg bg-gray-50 text-gray-600">
+        </div>
+      </div>
+
+      <!-- Accommodation Preference -->
+      <div>
+        <label for="accommodationPreference" class="block text-sm font-semibold text-gray-700 mb-2">Accommodation Preference</label>
+        <select id="accommodationPreference" name="accommodationPreference"
+                class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all">
+          <option value="Standard">Standard (as per itinerary)</option>
+          <option value="Upgrade to Luxury">Upgrade to Luxury Hotels</option>
+          <option value="Budget Friendly">Budget Friendly Options</option>
+          <option value="Mix of Both">Mix of Standard and Luxury</option>
+        </select>
+      </div>
+
+      <!-- Special Requests -->
+      <div>
+        <label for="specialRequests" class="block text-sm font-semibold text-gray-700 mb-2">Special Requests or Dietary Requirements</label>
+        <textarea id="specialRequests" name="specialRequests" rows="3"
+                  placeholder="Any dietary restrictions, accessibility needs, celebration occasions, or special requests..."
+                  class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"></textarea>
+      </div>
+
+      <!-- How Did You Hear -->
+      <div>
+        <label for="bookingHowDidYouHear" class="block text-sm font-semibold text-gray-700 mb-2">How did you hear about us?</label>
+        <select id="bookingHowDidYouHear" name="bookingHowDidYouHear"
+                class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all">
+          <option value="">Select...</option>
+          <option value="Google Search">Google Search</option>
+          <option value="Instagram">Instagram</option>
+          <option value="Facebook">Facebook</option>
+          <option value="Friend/Family Referral">Friend/Family Referral</option>
+          <option value="Travel Blog/Website">Travel Blog/Website</option>
+          <option value="TripAdvisor">TripAdvisor</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" id="bookingSubmitBtn"
+              class="w-full bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105">
+        Submit Booking Request
+      </button>
+
+      <div id="bookingFormMessage" class="hidden text-center p-4 rounded-lg"></div>
+    </form>
+  </div>
+</div>
+
+<!-- Booking Form Script -->
+<script>
+  // Only initialize once
+  if (!window.bookingFormInitialized) {
+    window.bookingFormInitialized = true;
+
+    // Google Apps Script Web App URL for bookings
+    const BOOKING_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzb070buf2pGDCf9yzqf1gHCrYeyVEXH9qE98JBEqSnv4RyIx-lQTUFAPoAhY37-yHN/exec';
+
+    // Get modal elements
+    const bookingModal = document.getElementById('bookingModal');
+    const closeBookingBtn = document.getElementById('closeBookingBtn');
+
+    // Function to open booking modal with package data
+    window.openBookingForm = function(packageData) {
+      // Pre-fill package information
+      document.getElementById('packageName').value = packageData.name || '';
+      document.getElementById('packageNameDisplay').textContent = packageData.name || '';
+      document.getElementById('bookingDuration').value = packageData.duration || '';
+
+      // Set minimum date to today
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('bookingDepartureDate').setAttribute('min', today);
+
+      // Show modal
+      bookingModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    };
+
+    // Function to close modal
+    function closeBookingModal() {
+      bookingModal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Listen for clicks on elements with 'open-booking-form' class
+    document.addEventListener('click', function(e) {
+      const trigger = e.target.closest('.open-booking-form');
+      if (trigger) {
+        e.preventDefault();
+
+        // Get package data from data attributes
+        const packageData = {
+          name: trigger.getAttribute('data-package-name') || '',
+          duration: trigger.getAttribute('data-package-duration') || ''
+        };
+
+        window.openBookingForm(packageData);
+      }
+    });
+
+    // Close button
+    closeBookingBtn.addEventListener('click', closeBookingModal);
+
+    // Close on outside click
+    bookingModal.addEventListener('click', function(e) {
+      if (e.target === bookingModal) {
+        closeBookingModal();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !bookingModal.classList.contains('hidden')) {
+        closeBookingModal();
+      }
+    });
+
+    // Form submission
+    document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const submitBtn = document.getElementById('bookingSubmitBtn');
+      const formMessage = document.getElementById('bookingFormMessage');
+      const originalBtnText = submitBtn.innerHTML;
+
+      // Disable button and show loading
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '✈️ Submitting...';
+
+      const formData = {
+        packageName: document.getElementById('packageName').value,
+        name: document.getElementById('bookingName').value,
+        email: document.getElementById('bookingEmail').value,
+        phone: document.getElementById('bookingPhone').value,
+        numberOfPeople: document.getElementById('numberOfPeople').value,
+        departureDate: document.getElementById('bookingDepartureDate').value,
+        duration: document.getElementById('bookingDuration').value,
+        accommodationPreference: document.getElementById('accommodationPreference').value,
+        specialRequests: document.getElementById('specialRequests').value,
+        howDidYouHear: document.getElementById('bookingHowDidYouHear').value
+      };
+
+      try {
+        const response = await fetch(BOOKING_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData)
+        });
+
+        // Show success message
+        formMessage.className = 'text-center p-4 rounded-lg bg-green-50 border border-green-200 text-green-800 font-medium';
+        formMessage.innerHTML = '✓ Booking request submitted successfully!<br>We\'ll contact you within 24 hours to confirm your journey.';
+        formMessage.classList.remove('hidden');
+
+        // Reset form
+        document.getElementById('bookingForm').reset();
+
+        // Close modal after 3 seconds
+        setTimeout(function() {
+          closeBookingModal();
+          formMessage.classList.add('hidden');
+        }, 3000);
+
+      } catch (error) {
+        // Show error message
+        formMessage.className = 'text-center p-4 rounded-lg bg-red-50 border border-red-200 text-red-800 font-medium';
+        formMessage.innerHTML = '✗ Something went wrong.<br>Please try again or contact us directly.';
+        formMessage.classList.remove('hidden');
+      }
+
+      // Re-enable button
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnText;
+    });
+  }
+</script>

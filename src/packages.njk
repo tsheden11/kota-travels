@@ -31,15 +31,12 @@ layout: base
     <h2 class="heading-2 mb-4">Don't See What You're Looking For?</h2>
     <p class="text-xl mb-8 text-orange-100">Design a Bhutan experience that fits your pace, passions, and purpose.</p>
     <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
-     <button
-            data-tally-open="w76qEZ"
-            data-tally-layout="modal"
-            data-tally-align-left="1"
-            data-tally-hide-title="1"
-            data-tally-width="700"
-            class="btn-white-orange">
-            Customize your tour
-          </button>
+      <button class="btn-white-orange open-trip-planner">
+        Customize your tour
+      </button>
     </div>
   </div>
 </section>
+
+<!-- Include Customize Form Modal -->
+{% include "components/customizeForm.njk" %}
