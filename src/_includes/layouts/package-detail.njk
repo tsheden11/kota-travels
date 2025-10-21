@@ -110,6 +110,8 @@ layout: base
             <p class="text-lead leading-relaxed">{{ packageDetail.description }}</p>
           </div>
 
+          
+
           <!-- Highlights -->
           <div>
             <h2 class="heading-2 mb-6">Tour Highlights</h2>
@@ -143,9 +145,9 @@ layout: base
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
                       <div class="flex items-center text-body">
-                        <svg class="w-4 h-4 mr-2 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
+<svg class="w-6 h-6 mr-2 text-yellow-600" fill="currentColor" viewBox="0 0 24 24">
+  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM9 7v3c0 .55.45 1 1 1v5h1v-5c.55 0 1-.45 1-1V7h-1v3h-1V7H9zm6 0c.55 0 1 .45 1 1v2c0 .55-.45 1-1 1v5h-1v-5c-.55 0-1-.45-1-1V8c0-.55.45-1 1-1h1z"/>
+</svg>
                         {{ day.meals }}
                       </div>
                       <div class="flex items-center text-body">
@@ -214,8 +216,7 @@ layout: base
 
         <!-- RIGHT: Sidebar (1 column) -->
         <div class="lg:col-span-1">
-          <div class="sticky top-24 space-y-6">
-
+          <div class="space-y-6">
             <!-- Quick Info Card -->
                           <div class="card-base bg-gradient-to-br from-yellow-50 to-orange-50 border border-yellow-200 relative">
                             <!-- Price Tag in Corner -->
@@ -277,6 +278,18 @@ layout: base
                               </div>
                           </div>
                         </div>
+                        <!-- ADD CUSTOMIZATION NOTE HERE -->
+<div class="card-base bg-gradient-to-br from-purple-50 to-pink-50 border-l-4 border-purple-500">
+  <div class="flex items-start gap-3">
+    <svg class="w-6 h-6 text-purple-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+    </svg>
+    <div>
+      <h4 class="font-bold text-purple-900 mb-1">Fully Customizable</h4>
+      <p class="text-sm text-gray-700">This itinerary is flexible! We can adjust days, activities, and accommodations to match your preferences.</p>
+    </div>
+  </div>
+</div>
                             <!-- Booking CTA -->
                                                           <div class="card-base bg-gradient-to-br from-orange-500 to-yellow-500 text-white border-0">
                                                             <h3 class="text-2xl font-bold mb-4">Ready to Book?</h3>
@@ -316,7 +329,6 @@ layout: base
               <h3 class="heading-4 mb-3">Important Information</h3>
               <div class="space-y-2 text-sm text-body-dark">
                 <p><strong>Deposit:</strong> {{ packageDetail.bookingInfo.deposit }}</p>
-                <p><strong>Cancellation:</strong> {{ packageDetail.bookingInfo.cancellation }}</p>
                 <p><strong>Minimum Age:</strong> {{ packageDetail.bookingInfo.minimumAge }}</p>
                 <p><strong>Fitness:</strong> {{ packageDetail.bookingInfo.fitnessLevel }}</p>
               </div>
@@ -333,7 +345,7 @@ layout: base
 <!-- Related Packages / CTA -->
 <section class="section-cta">
   <div class="container-content text-center">
-    <h2 class="heading-2 mb-4">Explore More Adventures</h2>
+    <h2 class="heading-2 mb-4 text-white">Explore More Adventures</h2>
     <p class="text-xl mb-8 text-orange-100">Discover other unique experiences in Bhutan</p>
     <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
       <a href="/packages/" class="btn-white-orange">
