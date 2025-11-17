@@ -124,7 +124,7 @@
     "pricing": {
       "highSeason": "$3,860 per person",
       "lowSeason": "$3,540 per person",
-      "note": "Based on double occupancy. Bike and gear included."
+      "note": "Based on double occupancy, Single supplement available at an additional cost of $240. Mountain bike and helmet included, E-bike upgrade available at an additional cost of $350. "
     },
     "highlights": [
       "Cycle through Paro and Punakha Valleys with breathtaking views",
@@ -240,7 +240,7 @@
     },
     "pricing": {
       "highSeason": "$3,500 per person",
-      "lowSeason": "$3,200 per person",
+      "lowSeason": "$3,190 per person",
       "note": "Based on double occupancy. Spa treatments included."
     },
     "highlights": [
@@ -262,49 +262,49 @@
       {
         "day": 2,
         "title": "Wellness Program Begins",
-        "description": "Morning yoga, afternoon meditation,evening sound bath.",
+        "description": "Morning yoga, Afternoon meditation, Mindful walk in nature.",
         "meals": "Breakfast, Lunch, Dinner",
         "accommodation": "Botique Hotel in Thimphu"
       },
       {
         "day": 3,
         "title": "Mindfulness Day",
-        "description": "Guided meditation, mindfulness walk in nature, healthy cooking class.",
+        "description": "Early morning hike for sunrise, Healthy cooking class, Evening sound bath.",
         "meals": "Breakfast, Lunch, Dinner",
         "accommodation": "Botique Hotel in Thimphu"
       },
       {
         "day": 4,
-        "title": "Cultural Wellness Travel to Punakha",
-        "description": "Visit peaceful temples, blessing ceremony.",
+        "title": "Cultural Wellness and Travel to Punakha",
+        "description": "Visit peaceful temples, Blessing ceremony, Guided meditation.",
         "meals": "Breakfast, Lunch, Dinner",
         "accommodation": "Farmhouse / Homestay in Punakha"
       },
       {
         "day": 5,
+        "title": "Travel Day to Punakha",
+        "description": "Walking meditation through rice terraces of Sopsokha Village, Visit Chimi Lhakhang.",
+        "meals": "Breakfast, Lunch, Dinner",
+        "accommodation": "Homestay / Farmhouse in punakha"
+      },
+      {
+        "day": 6,
         "title": "Nature Immersion",
         "description": "Gentle forest walk, riverside meditation, herbal hot stone bath.",
         "meals": "Breakfast, Lunch, Dinner",
         "accommodation": "Farmhouse / Homestay in Punakha"
       },
       {
-        "day": 6,
-        "title": "Experience quite village life",
-        "description": "Full day of experiencing observing village life. Silent reflection time in nature.",
-        "meals": "Breakfast, Lunch, Dinner",
-        "accommodation": "Homestay / Farmhouse"
-      },
-      {
         "day": 7,
         "title": "Travel To Paro",
-        "description": "Transfer to Botique Hotel in paro, quite evening oberserving paro town.",
+        "description": "Transfer to Botique Hotel in paro, Spend a quite evening exploring paro town.",
         "meals": "Breakfast, Lunch, Dinner",
-        "accommodation": "Botique Hotel"
+        "accommodation": "Botique Hotel in Paro"
       },
       {
         "day": 8,
         "title": "Hike Day to Tigers Nest",
-        "description": "Hike to Tigers Nest, Short meditation, farewell ceremony.",
+        "description": "Hike to Tigers Nest, farewell ceremony.",
         "meals": "Breakfast, Lunch, Dinner",
         "accommodation": "Botique Hotel"
       },
