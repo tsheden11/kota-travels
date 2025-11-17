@@ -17,6 +17,12 @@ module.exports = function(eleventyConfig) {
     return DateTime.fromJSDate(dateObj).toFormat(format);
   });
 
+  // Custom bold markers filter
+  eleventyConfig.addFilter('boldMarkers', function(str) {
+    if (!str) return '';
+    return str.replace(/\{([^}]+)\}/g, '<strong>$1</strong>');
+  });
+
   // Eleventy directory config
   return {
     dir: {

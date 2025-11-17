@@ -11,14 +11,13 @@
     ],
     "quickInfo": {
       "duration": "7 Days / 6 Nights",
-      "difficulty": "Easy",
-      "groupSize": "2-12 people",
-      "bestTime": "March - May , September - November",
-      "accommodation": "3-4 Star Hotels + Homestay and Farmhouse"
+      "bestTime": "MAR-MAY | SEP-NOV",
+      "accommodation": "3-4 Star Hotels + Homestay and Farmhouse",
+      "elevation": "1250 M - 3100 M"
     },
     "pricing": {
-      "highSeason": "$2,670 per person",
-      "lowSeason": "$2,390 per person",
+      "highSeason": "$2,740 per person",
+      "lowSeason": "$2,420 per person",
       "note": "Based on double occupancy. Single supplement available at an additional cost of $240."
     },
     "highlights": [
@@ -31,165 +30,51 @@
       {
         "day": 1,
         "title": "Arrival in Paro, Travel to Thimphu",
-        "description": "Arrive at Paro International Airport and drive to the capital city - Thimphu. Visit the Takin Preservation Centre and Sangaygang viewpoint for a scenic view of the Thimphu valley, if time permits. Enjoy a welcome dinner featuring traditional Bhutanese cuisine.",
+        "description": "Arrive at Paro International Airport and drive to the capital city - Thimphu. Visit the {Takin Preservation Centre} and {Sangaygang viewpoint} for a scenic view of the Thimphu valley, if time permits. Enjoy a welcome dinner featuring traditional Bhutanese cuisine.",
         "meals": "Dinner",
         "accommodation": "3 - 4 star Hotel in Thimphu"
       },
       {
         "day": 2,
         "title": "Journey to Punakha Valley",
-        "description": "Begin the day with a visit to the towering Buddha Dordenma before traveling over the scenic Dochula Pass, where 108 chortens crown the mountain ridge. Continue to Punakha and take a gentle walk through Sopsokha village, past rice terraces and mustard fields, to reach the sacred Chimi Lhakhang Temple.",
+        "description": "Begin the day with a visit to the towering {Buddha Dordenma} before traveling over the scenic {Dochula Pass}, where 108 chortens crown the mountain ridge. Continue to Punakha and take a gentle walk through {Sopsokha village}, past rice terraces and mustard fields, to reach the sacred {Chimi Lhakhang} Temple.",
         "meals": "Breakfast, Lunch, Dinner",
         "accommodation": "Farmhouse in Punakha"
       },
       {
         "day": 3,
         "title": "Farm to Heart: Life in Punakha",
-        "description": "Spend the day embracing the simple rhythms of rural life in Punakha. Join your hosts in daily farm activities, from milking cows and tending to paddy fields (seasonal) to learning how to cook a traditional Bhutanese meal.",
+        "description": "Spend the day embracing the simple rhythms of { rural life in Punakha }. Join your hosts in daily farm activities, from milking cows and tending to paddy fields (seasonal) to learning how to cook a traditional Bhutanese meal.",
         "meals": "Breakfast, Lunch, Dinner",
-        "accommodation": "Farm house in Punakha"
+        "accommodation": "Farm house in Punakha",
+        "workshop": "Yes"
       },
       {
         "day": 4,
         "title": "Colors of Village Life in Punakha",
-        "description": "Go on a slow guided stroll through the villages and witness the rhythm of everyday life of farmers tending rice fields to artisans weaving traditional textiles. In the afternoon, take part in a hands-on natural dyeing workshop where you’ll learn how locals use plants and minerals to create vibrant colors. Craft your own dyed fabric or scarf to take home as a unique Bhutanese souvenir.",
+        "description": "Go on a slow guided stroll through the villages and witness the rhythm of everyday life of farmers tending rice fields to artisans weaving traditional textiles. In the afternoon, take part in a {hands-on natural dyeing workshop} where you’ll learn how locals use plants and minerals to create vibrant colors. Craft your own dyed fabric or scarf to {take home as a unique Bhutanese souvenir}.",
         "meals": "Breakfast, Lunch, Dinner",
-        "accommodation": "Farm house in Punakha"
+        "accommodation": "Farm house in Punakha",
+        "workshop": "Yes"
       },
       {
         "day": 5,
         "title": "Discover Paro Town",
-        "description": "Travel from Punakha to Paro and enjoy a leisurely day exploring the town’s charming streets, traditional arts and crafts stores, and cozy local cafés. Take time to relax and prepare for tomorrow’s iconic Tiger’s Nest hike.",
+        "description": "Travel from Punakha to Paro and enjoy a leisure day exploring the town’s charming streets, traditional arts and crafts stores, and cozy local cafés. Take time to relax and prepare for tomorrow’s iconic Tiger’s Nest hike.",
         "meals": "Breakfast, Lunch, Dinner",
         "accommodation": "3 - 4 star hotel in Paro"
       },
       {
         "day": 6,
         "title": "Tiger’s Nest Adventure & Hot Stone Bath",
-        "description": "Rise early for the iconic hike to Tiger’s Nest Monastery, perched dramatically on the cliffside. After descending, unwind with a soothing traditional hot stone bath, a perfect way to relax and reflect on your journey through Bhutan.",
+        "description": "Rise early for the iconic hike to {Tiger’s Nest Monastery}, perched dramatically on the cliffside. After descending, unwind with a soothing {traditional hot stone bath}, a perfect way to relax and reflect on your journey through Bhutan.",
         "meals": "Breakfast, Lunch, Dinner",
         "accommodation": "3 - 4 star hotel in Paro"
       },
       {
         "day": 7,
         "title": "Farewell Bhutan",
-        "description": "After breakfast, transfer to Paro Airport for your departure, carrying unforgettable memories of Bhutan’s culture, landscapes, and warm hospitality.",
-        "meals": "Breakfast",
-        "accommodation": "N/A"
-      }
-    ],
-    "included": [
-      "All accommodation (hotels and homestay)",
-      "All meals (breakfast, lunch, dinner)",
-      "English-speaking licensed guide",
-      "Private transportation throughout",
-      "All entrance fees and permits",
-      "Airport transfers",
-      "Sustainable Development Fee (SDF)",
-      "Visa fees ($40 USD)",
-      "Traditional welcome and farewell dinner"
-    ],
-    "notIncluded": [
-      "International flights to/from Bhutan",
-      "Travel insurance (highly recommended)",
-      "Personal expenses and souvenirs",
-      "Alcoholic beverages",
-      "Tips for guide and driver (optional but appreciated)",
-      "Single room supplement"
-    ],
-    "whatToBring": [
-      "Comfortable hiking shoes",
-      "Warm layers (evenings can be cool)",
-      "Rain jacket or waterproof layer",
-      "Sun protection (hat, sunglasses, sunscreen)",
-      "Camera and extra batteries",
-      "Personal medications",
-      "Modest clothing for temple visits",
-      "Small daypack for hikes",
-      "Reusable water bottle",
-      "Power adapter (Type D/F/G/M)"
-    ],
-    "bookingInfo": {
-      "deposit": "30% deposit required to confirm booking",
-      "minimumAge": "Suitable for ages 12 and above",
-      "fitnessLevel": "Moderate fitness required for hiking activities"
-    }
-  },
-  "cultural-tour": {
-    "title": "A Glimpse Of Bhutan",
-    "slug": "cultural-tour",
-    "tagline": "Immerse yourself in Bhutan's rich cultural heritage",
-    "description": "Experience the spiritual heart of Bhutan through its ancient monasteries, vibrant festivals, and deeply rooted Buddhist traditions. This carefully crafted journey takes you through the kingdom's most sacred sites while connecting you with local communities and their timeless way of life.",
-    "images": [
-      "/images/cultural-tour.webp",
-      "/images/cycling-tour.webp",
-      "/images/relaxation.webp"
-    ],
-    "quickInfo": {
-      "duration": "7 Days / 6 Nights",
-      "difficulty": "Easy",
-      "groupSize": "2-12 people",
-      "bestTime": "March - May , September - November",
-      "accommodation": "3-4 Star Hotels + Homestay and Farmhouse"
-    },
-    "pricing": {
-      "highSeason": "$2,650 per person",
-      "lowSeason": "$3600 per person",
-      "note": "Based on double occupancy. Single supplement available at an additional cost of $240."
-    },
-    "highlights": [
-      "Visit iconic Tiger's Nest Monastery (Taktsang)",
-      "Explore ancient dzongs and fortresses",
-      "Experience local village life and homestay",
-      "Walk through pristine pine forests to remote temples"
-    ],
-    "itinerary": [
-      {
-        "day": 1,
-        "title": "Arrival in Paro, Travel to Thimphu",
-        "description": "Arrive at Paro International Airport and take a 45 mins - 1hr ride to the capital city - Thimphu. Evening orientation and welcome dinner with traditional Bhutanese cuisine.",
-        "meals": "Dinner",
-        "accommodation": "3 - 4 star Hotel in Thimphu"
-      },
-      {
-        "day": 2,
-        "title": "Paro Exploration",
-        "description": "Visit Paro Dzong, one of Bhutan's most impressive fortresses, and explore the National Museum. Afternoon visit to Kyichu Lhakhang, one of the oldest temples in Bhutan.",
-        "meals": "Breakfast, Lunch, Dinner",
-        "accommodation": "Hotel in Paro"
-      },
-      {
-        "day": 3,
-        "title": "Tiger's Nest Monastery Hike",
-        "description": "Embark on the iconic hike to Taktsang Monastery (Tiger's Nest), perched on a cliff 900m above the valley. This spiritual journey takes 4-5 hours round trip with breathtaking views.",
-        "meals": "Breakfast, Lunch, Dinner",
-        "accommodation": "Hotel in Paro"
-      },
-      {
-        "day": 4,
-        "title": "Paro to Thimphu",
-        "description": "Drive to Thimphu, Bhutan's capital. Visit the Memorial Chorten, Buddha Dordenma statue, and explore the weekend market if traveling Friday-Sunday.",
-        "meals": "Breakfast, Lunch, Dinner",
-        "accommodation": "Hotel in Thimphu"
-      },
-      {
-        "day": 5,
-        "title": "Thimphu Cultural Experience",
-        "description": "Deep dive into Bhutanese culture with visits to traditional arts and crafts schools, papermaking factory, and textile museums. Evening cultural show with mask dances.",
-        "meals": "Breakfast, Lunch, Dinner",
-        "accommodation": "Hotel in Thimphu"
-      },
-      {
-        "day": 6,
-        "title": "Village Homestay Experience",
-        "description": "Travel to a traditional Bhutanese village for an authentic homestay experience. Participate in daily activities, learn to cook local dishes, and connect with your host family.",
-        "meals": "Breakfast, Lunch, Dinner",
-        "accommodation": "Traditional homestay"
-      },
-      {
-        "day": 7,
-        "title": "Departure",
-        "description": "After breakfast, transfer to Paro Airport for your departure flight, carrying memories of Bhutan's rich cultural heritage.",
+        "description": "After breakfast, transfer to Paro Airport for your departure, carrying {unforgettable memories} of Bhutan’s culture, landscapes, and warm hospitality.",
         "meals": "Breakfast",
         "accommodation": "N/A"
       }
@@ -202,34 +87,20 @@
       "All entrance fees and permits",
       "Airport transfers",
       "Sustainable Development Fee (SDF $100 per day)",
-      "Visa fee ($40)",
-      "Village workshop experience",
-      "1 hot stone bath session"
+      "Visa fees ($40 USD)",
+      "Traditional welcome and farewell dinner"
     ],
     "notIncluded": [
       "International flights to/from Bhutan",
       "Travel insurance (highly recommended)",
-      "Personal expenses and souvenirs",
+      "Personal purchases",
       "Alcoholic beverages",
-      "Tips for guide and driver",
+      "Tips for guide and driver (optional but appreciated)",
       "Single room supplement"
-    ],
-    "whatToBring": [
-      "Comfortable hiking shoes",
-      "Warm layers (evenings can be cool)",
-      "Rain jacket or waterproof layer",
-      "Sun protection (hat, sunglasses, sunscreen)",
-      "Camera and extra batteries",
-      "Personal medications",
-      "Modest clothing for temple visits",
-      "Small daypack for hikes",
-      "Reusable water bottle",
-      "Power adapter (Type D/F/G/M)"
     ],
     "bookingInfo": {
       "deposit": "30% deposit required to confirm booking",
-      "cancellation": "Free cancellation up to 30 days before departure",
-      "minimumAge": "Suitable for all ages",
+      "minimumAge": "Suitable for ages 12 and above",
       "fitnessLevel": "Moderate fitness required for hiking activities"
     }
   },
@@ -246,9 +117,9 @@
     "quickInfo": {
       "duration": "8 Days / 7 Nights",
       "difficulty": "Advanced",
-      "groupSize": "2-10 people",
-      "bestTime": "March-May, September-November",
-      "accommodation": "3 - 4 Star Hotels and Homestays"
+      "bestTime": "MAR-MAY | SEP-NOV",
+      "accommodation": "3 - 4 Star Hotels and Homestays",
+      "elevation": "1250 M - 3988 M"
     },
     "pricing": {
       "highSeason": "$3,860 per person",
@@ -257,7 +128,7 @@
     },
     "highlights": [
       "Cycle through Paro and Punakha Valleys with breathtaking views",
-      "Ride over scenic mountain passes including Dochula Pass",
+      "Ride over scenic mountain passes - Chelela and Dochula Pass",
       "Participate in village homestay and traditional cooking workshop",
       "Experience Bhutanese culture, temples, and dzongs along the way",
       "Professional cycling guide with support vehicle",
@@ -267,28 +138,28 @@
       {
         "day": 1,
         "title": "Arrival in Paro & Bike Orientation",
-        "description": "Arrive at Paro International Airport and meet your cycling guide. Get fitted for your mountain bike and take a short test ride around Paro Valley (~5km, minimal elevation, 30-45 minutes) to get familiar with your bike and surroundings. Enjoy a welcome dinner featuring traditional Bhutanese cuisine.",
+        "description": "Arrive at Paro International Airport and meet your cycling guide. Get fitted for your mountain bike and take a short test ride around {Paro Valley} (~5km, minimal elevation, 30-45 minutes) to get familiar with your bike and surroundings. Enjoy a welcome dinner featuring traditional Bhutanese cuisine.",
         "meals": "Dinner",
         "accommodation": "3 - 4 star Hotel in Paro"
       },
       {
         "day": 2,
         "title": "Paro Valley Ride",
-        "description": "Warm-up ride through the scenic Paro Valley (~25km, ~300m elevation gain, 3-4 hours). Visit cultural landmarks including Paro Dzong and local temples, while soaking in panoramic views of the valley and surrounding mountains.",
+        "description": "Warm-up ride through the scenic Paro Valley (~25km, ~300m elevation gain, 3-4 hours). Visit cultural landmarks including {Paro Dzong} and local temples, while soaking in panoramic views of the valley and surrounding mountains.",
         "meals": "Breakfast, Lunch, Dinner",
         "accommodation": "3 - 4 star Hotel in Paro"
       },
       {
         "day": 3,
         "title": "Paro to Thimphu via Chele La Pass",
-        "description": "Cycle from Paro to Thimphu (~40km, ~1,000m ascent to Chele La Pass at 3,988m, ~900m descent to Thimphu, 6-7 hours). Experience breathtaking Himalayan vistas on the ascent and a thrilling downhill ride to Thimphu. This is the most challenging ride of the tour, suited for cyclists with good stamina.",
+        "description": "Cycle from Paro to Thimphu (~40km, ~1,700m ascent to {Chele La Pass} at 3,988m, ~1500m descent to Thimphu, 6-7 hours). Experience breathtaking Himalayan vistas on the ascent and a thrilling downhill ride to Thimphu. This is the most challenging ride of the tour, suited for cyclists with good stamina.",
         "meals": "Breakfast, Lunch, Dinner",
         "accommodation": "3 - 4 star Hotel in Thimphu"
       },
       {
         "day": 4,
         "title": "Thimphu to Punakha Ride",
-        "description": "Enjoy a scenic ride from Thimphu to Punakha (~35km, ~600m ascent to Dochula Pass, ~600m descent to Punakha, 5-6 hours). Pause at Dochula Pass for photos and panoramic views. If time permits, take a short detour through Sopsokha village to Chimi Lhakhang before reaching your homestay.",
+        "description": "Enjoy a scenic ride from Thimphu to Punakha (~35km, ~600m ascent to {Dochula Pass}, ~600m descent to Punakha, 5-6 hours). Pause at Dochula Pass for photos and panoramic views. If time permits, take a short detour through {Sopsokha village} to {Chimi Lhakhang} before reaching your homestay.",
         "meals": "Breakfast, Lunch, Dinner",
         "accommodation": "Homestay in Punakha"
       },
@@ -297,7 +168,8 @@
         "title": "Punakha Village Experience",
         "description": "A restful day of authentic village immersion. Participate in farm activities and enjoy a hands-on cooking workshop, preparing a traditional Bhutanese dish with your host family. Gentle village cycling optional (~15-20km, minimal elevation, 2-3 hours).",
         "meals": "Breakfast, Lunch, Dinner",
-        "accommodation": "Homestay in Punakha"
+        "accommodation": "Homestay in Punakha",
+        "workshop": "Yes"
       },
       {
         "day": 6,
@@ -309,7 +181,7 @@
       {
         "day": 7,
         "title": "Tiger’s Nest Hike",
-        "description": "Rise early for the legendary hike to Tiger’s Nest Monastery (~10km round trip, ~900m elevation gain, 4-5 hours). After the hike, relax with an optional hot stone bath or a gentle stroll around Paro town.",
+        "description": "Rise early for the legendary hike to Tiger’s Nest Monastery}(~10km round trip, ~900m elevation gain, 4-5 hours). After the hike, relax with an optional hot stone bath or a gentle stroll around Paro town.",
         "meals": "Breakfast, Lunch, Dinner",
         "accommodation": "3 - 4 star hotel in Paro"
       },
@@ -337,21 +209,11 @@
     "notIncluded": [
       "International flights to/from Bhutan",
       "Travel insurance (highly recommended)",
+      "Personal purchases",
       "Personal cycling gear",
       "Alcoholic beverages",
-      "Tips for guide and driver",
+      "Tips for guide and driver (Optional but appreciated)",
       "Single room supplement"
-    ],
-    "whatToBring": [
-      "Cycling shoes or sturdy sneakers",
-      "Padded cycling shorts",
-      "Moisture-wicking clothing",
-      "Sunglasses and sun protection",
-      "Camera",
-      "Light rain jacket",
-      "Water bottles and energy snacks",
-      "Warm layers for mornings and evenings",
-      "Small daypack for rides"
     ],
     "bookingInfo": {
       "deposit": "30% deposit required to confirm booking",
@@ -372,9 +234,9 @@
     "quickInfo": {
       "duration": "9 Days / 8 Nights",
       "difficulty": "Easy",
-      "groupSize": "2-8 people",
       "bestTime": "Year-round",
-      "accommodation": "Luxury Wellness Resorts"
+      "accommodation": "Luxury Wellness Resorts",
+      "elevation": "1250 M - 3100 M"
     },
     "pricing": {
       "highSeason": "$3,500 per person",
@@ -384,7 +246,6 @@
     "highlights": [
       "Daily yoga and meditation sessions",
       "Traditional hot stone bath therapy",
-      "Spa treatments with local herbs",
       "Gentle nature walks",
       "Mindfulness workshops",
       "Healthy Bhutanese cuisine",
@@ -394,58 +255,58 @@
       {
         "day": 1,
         "title": "Arrival and Welcome",
-        "description": "Arrive in Paro, transfer to wellness resort. Welcome tea and orientation.",
+        "description": "Arrive in Paro, transfer to Botique Hotel in Thimphu. Welcome tea and orientation.",
         "meals": "Dinner",
-        "accommodation": "Wellness Resort"
+        "accommodation": "Botique Hotel in Thimphu"
       },
       {
         "day": 2,
         "title": "Wellness Program Begins",
-        "description": "Morning yoga, spa consultation, afternoon meditation, evening hot stone bath.",
+        "description": "Morning yoga, afternoon meditation,evening sound bath.",
         "meals": "Breakfast, Lunch, Dinner",
-        "accommodation": "Wellness Resort"
+        "accommodation": "Botique Hotel in Thimphu"
       },
       {
         "day": 3,
         "title": "Mindfulness Day",
-        "description": "Guided meditation, mindfulness walk in nature, spa treatment, healthy cooking class.",
+        "description": "Guided meditation, mindfulness walk in nature, healthy cooking class.",
         "meals": "Breakfast, Lunch, Dinner",
-        "accommodation": "Wellness Resort"
+        "accommodation": "Botique Hotel in Thimphu"
       },
       {
         "day": 4,
-        "title": "Cultural Wellness",
-        "description": "Visit peaceful temples, blessing ceremony, traditional medicine consultation.",
+        "title": "Cultural Wellness Travel to Punakha",
+        "description": "Visit peaceful temples, blessing ceremony.",
         "meals": "Breakfast, Lunch, Dinner",
-        "accommodation": "Wellness Resort"
+        "accommodation": "Farmhouse / Homestay in Punakha"
       },
       {
         "day": 5,
         "title": "Nature Immersion",
-        "description": "Gentle forest walk, riverside meditation, herbal spa treatment.",
+        "description": "Gentle forest walk, riverside meditation, herbal hot stone bath.",
         "meals": "Breakfast, Lunch, Dinner",
-        "accommodation": "Wellness Resort"
+        "accommodation": "Farmhouse / Homestay in Punakha"
       },
       {
         "day": 6,
-        "title": "Deep Relaxation",
-        "description": "Full day of spa treatments, yoga nidra, silent reflection time.",
+        "title": "Experience quite village life",
+        "description": "Full day of experiencing observing village life. Silent reflection time in nature.",
         "meals": "Breakfast, Lunch, Dinner",
-        "accommodation": "Wellness Resort"
+        "accommodation": "Homestay / Farmhouse"
       },
       {
         "day": 7,
-        "title": "Thimphu Wellness",
-        "description": "Transfer to Thimphu wellness center, traditional massage, meditation.",
+        "title": "Travel To Paro",
+        "description": "Transfer to Botique Hotel in paro, quite evening oberserving paro town.",
         "meals": "Breakfast, Lunch, Dinner",
-        "accommodation": "Wellness Resort Thimphu"
+        "accommodation": "Botique Hotel"
       },
       {
         "day": 8,
-        "title": "Integration Day",
-        "description": "Morning yoga, create personal wellness plan, farewell ceremony.",
+        "title": "Hike Day to Tigers Nest",
+        "description": "Hike to Tigers Nest, Short meditation, farewell ceremony.",
         "meals": "Breakfast, Lunch, Dinner",
-        "accommodation": "Wellness Resort"
+        "accommodation": "Botique Hotel"
       },
       {
         "day": 9,
@@ -456,40 +317,23 @@
       }
     ],
     "included": [
-      "Luxury wellness resort accommodation",
-      "All organic meals",
+      "All accommodation (hotels and homestay)",
+      "All meals (breakfast, lunch, dinner)",
       "Daily yoga and meditation",
-      "Spa treatments (3 sessions)",
-      "Hot stone baths",
+      "1 Hot stone bath session",
       "Wellness consultations",
-      "All transfers",
+      "Sustainable Development Fee (SDF $100 per day)",
+      "Visa fees ($40 USD)",
       "Entrance fees"
     ],
     "notIncluded": [
       "International flights",
-      "Travel insurance",
-      "Additional spa treatments",
+      "Travel insurance (highly recommended)",
       "Personal purchases",
-      "Tips",
-      "Visa fees"
-    ],
-    "whatToBring": [
-      "Comfortable yoga clothing",
-      "Meditation cushion (optional)",
-      "Journal for reflections",
-      "Light walking shoes",
-      "Swimwear",
-      "Personal toiletries",
-      "Sun protection",
-      "Warm layers for evenings",
-      "Camera (optional)",
-      "Open mind and peaceful heart"
-    ],
-    "bookingInfo": {
-      "deposit": "30% deposit required",
-      "cancellation": "Free cancellation up to 30 days before",
-      "minimumAge": "18 years old",
-      "fitnessLevel": "All fitness levels welcome"
-    }
+      "Additional spa treatments",
+      "Alcoholic beverages",
+      "Tips for guide and driver (optional but appreciated)",
+      "Single room supplement"
+    ]
   }
 }
