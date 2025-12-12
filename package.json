@@ -9,8 +9,8 @@
     "start:tailwind": "tailwindcss -i src/css/styles.css -o _site/css/styles.css --watch",
     "build:tailwind": "tailwindcss -i src/css/styles.css -o _site/css/styles.css --minify",
     "build:eleventy": "eleventy",
-    "dev": "eleventy --serve & npx tailwindcss -i ./src/css/styles.css -o ./src/css/styles.css --watch",
-    "build": "npx tailwindcss -i ./src/css/styles.css -o ./_site/css/styles.css && eleventy"
+    "dev": "npm run start",
+     "build": "npm-run-all build:*"
   },
   "keywords": [],
   "author": "",
