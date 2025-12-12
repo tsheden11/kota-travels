@@ -6,12 +6,11 @@
   "scripts": {
     "start": "npm-run-all --parallel start:*",
     "start:eleventy": "eleventy --serve",
-    "start:tailwind": "tailwindcss -i src/css/input.css -o _site/css/style.css --watch",
-    "build": "npm-run-all build:*",
-    "build:tailwind": "tailwindcss -i src/css/input.css -o _site/css/style.css --minify",
+    "start:tailwind": "tailwindcss -i src/css/input.css -o _site/css/input.css --watch",
+    "build:tailwind": "tailwindcss -i src/css/input.css -o _site/css/input.css --minify",
     "build:eleventy": "eleventy",
-    "dev": "npm run start",
-    "debug": "DEBUG=Eleventy* eleventy"
+    "dev": "eleventy --serve & npx tailwindcss -i ./src/css/input.css -o ./src/css/input.css --watch",
+    "build": "npx tailwindcss -i ./src/css/input.css -o ./_site/css/input.css && eleventy"
   },
   "keywords": [],
   "author": "",

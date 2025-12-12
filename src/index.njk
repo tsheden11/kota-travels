@@ -9,7 +9,7 @@ title: Home
   <!-- TEXT CONTENT FIRST -->
   <div class="container-content mx-auto">
     <h1 class="heading-display mb-6 font-medium">
-      Explore Bhutan with <span style="color: #108773;">Kota Travels</span>
+      Explore Bhutan with <span class="text-kota-dark-green">Kota Travels</span>
     </h1>
 
     <p class="text-xl md:text-2xl mb-4 text-gray-700">
@@ -26,7 +26,7 @@ title: Home
       <a href="/packages/" class="btn-primary">
         Explore Our Packages
       </a>
-      <a href="/contact/" class="btn-outline open-trip-planner">
+      <a href="/contact/" class="btn-secondary open-trip-planner">
         Customize Your Journey
       </a>
     </div>
@@ -45,5 +45,73 @@ title: Home
       >
     </picture>
   </div>
+  <!-- Include Customize Form Modal -->
+{% include "components/customizeForm.njk" %}
 
+<!-- Why Travel with Kota Travels -->
+<section class="py-16 bg-white">
+  <div class="container-content">
+    <h2 class="heading-2 text-center mb-12">Why Kota Travels?</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+
+      <!-- Card 1 -->
+      <div class="package-card">
+        <div class="p-6 text-center">
+          <div class="icon-circle-blue mx-auto mb-4">
+            <span>🌏</span>
+          </div>
+          <h4 class="heading-4 mb-3">Local expertise with a global perspective</h4>
+          <p class="text-body text-sm">We blend local knowledge with global standards in authentic Bhutanese adventures</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="package-card">
+        <div class="p-6 text-center">
+          <div class="icon-circle-orange mx-auto mb-4">
+            <span>🏔️</span>
+          </div>
+          <h4 class="heading-4 mb-3">Adventure, sports & wellness tourism</h4>
+          <p class="text-body text-sm">From cultural immersion to mountain adventures and peaceful retreats, every journey is designed to awaken your spirit of exploration</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="package-card">
+        <div class="p-6 text-center">
+          <div class="icon-circle-green mx-auto mb-4">
+            <span>🌱</span>
+          </div>
+          <h4 class="heading-4 mb-3">Sustainability and cultural respect</h4>
+          <p class="text-body text-sm">Responsible tourism that preserves Bhutan's pristine environment and traditions</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="package-card">
+        <div class="p-6 text-center">
+          <div class="icon-circle-yellow mx-auto mb-4">
+            <span>🏡</span>
+          </div>
+          <h4 class="heading-4 mb-3">Hospitality you can trust</h4>
+          <p class="text-body text-sm">Family-run business treating every guest like family</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section class="section-cta">
+    <h2 class="heading-2 mb-4">Ready to Plan Your Bhutan Journey?</h2>
+    <p class="text-xl mb-8 text-orange-100">An adventure of a lifetime awaits</p>
+    <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
+      <a href="/packages/" class="btn-white-orange">
+        Explore Packages
+      </a>
+      <a href="/contact/" class="btn-outline">
+        Contact Us Today
+      </a>
+    </div>
 </section>

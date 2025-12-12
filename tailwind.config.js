@@ -4,6 +4,13 @@ module.exports = {
     "./src/**/*.{html,md,njk,js}",
     "./src/_includes/**/*.{html,md,njk}"
   ],
+  safelist: [
+    'bg-gradient-to-r',
+    'from-kota-red',
+    'to-kota-orange',
+    'hover:from-kota-orange',
+    'hover:to-kota-red'
+  ],
   theme: {
     extend: {
       colors: {
