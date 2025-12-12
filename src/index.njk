@@ -4,160 +4,46 @@ title: Home
 ---
 
 <!-- Hero Section -->
-<section class="relative bg-gradient-to-br from-blue-600 to-teal-500 text-white">
-  <div class="absolute inset-0 bg-black bg-opacity-30"></div>
-  <div class="relative z-10 container-content py-24 text-center">
-    <h1 class="heading-display mb-6">
-      Explore Bhutan with <span class="text-yellow-300">Kota Travels</span>
+<section class="pt-20 pb-10 text-center">
+
+  <!-- TEXT CONTENT FIRST -->
+  <div class="container-content mx-auto">
+    <h1 class="heading-display mb-6 font-medium">
+      Explore Bhutan with <span style="color: #108773;">Kota Travels</span>
     </h1>
-    <p class="text-xl md:text-2xl mb-4 text-blue-100">
+
+    <p class="text-xl md:text-2xl mb-4 text-gray-700">
       AS GOOD AS BHUTAN GETS!
     </p>
-    <p class="text-lg mb-8 max-w-2xl mx-auto text-blue-50">
-        Founded in loving memory of our late father, Kota, Kota Travels is a Bhutanese family-run travel agency. Having lived abroad and seen the world, we’ve come to appreciate that there’s truly no place like Bhutan — and we’re honored to share its beauty and spirit with you.
+
+    <p class="text-lg mb-8 text-gray-600">
+      Founded in loving memory of our late father, Kota, Kota Travels is a Bhutanese family-run travel agency.
+      Having lived abroad and seen the world, we’ve come to appreciate that there’s truly no place like Bhutan —
+      and we’re honored to share its beauty and spirit with you.
     </p>
-    <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
+
+    <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center mb-10">
       <a href="/packages/" class="btn-primary">
         Explore Our Packages
       </a>
       <a href="/contact/" class="btn-outline open-trip-planner">
-        Customize You Journey
+        Customize Your Journey
       </a>
     </div>
   </div>
-</section>
 
-<!-- Include Customize Form Modal -->
-{% include "components/customizeForm.njk" %}
-
-<!-- Why Travel with Kota Travels -->
-<section class="py-16 bg-white">
-  <div class="container-content">
-    <h2 class="heading-2 text-center mb-12">Why Kota Travels?</h2>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-
-      <!-- Card 1 -->
-      <div class="package-card">
-        <div class="p-6 text-center">
-          <div class="icon-circle-blue mx-auto mb-4">
-            <span>🌏</span>
-          </div>
-          <h4 class="heading-4 mb-3">Local expertise with a global perspective</h4>
-          <p class="text-body text-sm">We blend local knowledge with global standards in authentic Bhutanese adventures</p>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="package-card">
-        <div class="p-6 text-center">
-          <div class="icon-circle-orange mx-auto mb-4">
-            <span>🏔️</span>
-          </div>
-          <h4 class="heading-4 mb-3">Adventure, sports & wellness tourism</h4>
-          <p class="text-body text-sm">From cultural immersion to mountain adventures and peaceful retreats, every journey is designed to awaken your spirit of exploration</p>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="package-card">
-        <div class="p-6 text-center">
-          <div class="icon-circle-green mx-auto mb-4">
-            <span>🌱</span>
-          </div>
-          <h4 class="heading-4 mb-3">Sustainability and cultural respect</h4>
-          <p class="text-body text-sm">Responsible tourism that preserves Bhutan's pristine environment and traditions</p>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="package-card">
-        <div class="p-6 text-center">
-          <div class="icon-circle-yellow mx-auto mb-4">
-            <span>🏡</span>
-          </div>
-          <h4 class="heading-4 mb-3">Hospitality you can trust</h4>
-          <p class="text-body text-sm">Family-run business treating every guest like family</p>
-        </div>
-      </div>
-    </div>
+  <!-- IMAGE BELOW TEXT -->
+  <div class="mt-12">
+    <picture>
+      <source srcset="/images/hero-1600.webp" media="(min-width: 1024px)">
+      <source srcset="/images/hero-800.webp" media="(min-width: 640px)">
+      <img 
+        src="/images/hero-400.webp"
+        alt="Bhutan landscape"
+        class="w-full h-[70vh] object-cover rounded-xl shadow-lg"
+        fetchpriority="high"
+      >
+    </picture>
   </div>
-</section>
 
-<!-- Our Story - ENHANCED with Mini Stats -->
-<section class="section-light py-16">
-  <div class="container-content">
-    <div class="max-w-6xl mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-
-        <!-- Text Column -->
-        <div class="space-y-6">
-          <h2 class="heading-2">Our Story</h2>
-          <p class="text-lead leading-relaxed">
-            We are a Bhutanese family who lived abroad, saw the world, and came back home with a deeper appreciation for our homeland's unique beauty and culture.
-          </p>
-          <p class="text-body leading-relaxed">
-            Now, we invite you to experience Bhutan with the same open perspective — rooted in authenticity, sustainability, and the joy of discovery. Every journey we craft honors our late father's memory and our family's commitment to sharing Bhutan's magic with the world.
-          </p>
-
-          <!-- Mini Stats (adds visual interest) -->
-          <div class="grid grid-cols-3 gap-4 pt-4">
-            <div class="text-center">
-              <div class="text-2xl font-bold text-yellow-600">2024</div>
-              <div class="text-xs text-gray-500 uppercase">Founded</div>
-            </div>
-            <div class="text-center">
-              <div class="text-2xl font-bold text-yellow-600">100%</div>
-              <div class="text-xs text-gray-500 uppercase">Family-Run</div>
-            </div>
-            <div class="text-center">
-              <div class="text-2xl font-bold text-yellow-600">∞</div>
-              <div class="text-xs text-gray-500 uppercase">Memories</div>
-            </div>
-          </div>
-
-          <a href="/about/" class="inline-flex items-center text-yellow-600 hover:text-yellow-700 font-semibold transition-colors group">
-            Learn more about our journey
-            <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
-          </a>
-        </div>
-
-        <!-- Card Column -->
-        <div>
-          <div class="bg-gradient-to-br from-yellow-100 to-orange-100 rounded-2xl shadow-lg p-10 border border-yellow-200 hover:shadow-xl transition-shadow">
-            <div class="text-center">
-              <div class="icon-circle-xl icon-circle-yellow-solid mx-auto mb-6 shadow-lg">
-                <span>🏔️</span>
-              </div>
-              <h3 class="heading-3 mb-3">Founded in 2024</h3>
-              <p class="text-body-dark mb-4">In Loving Memory of Our Father</p>
-              <div class="pt-4 border-t border-yellow-300">
-                <p class="text-sm text-body italic">
-                  Inspired by his adventures in Bhutan, we share its magic with the world
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Call to Action -->
-<section class="section-cta py-16">
-  <div class="container-content text-center">
-    <h2 class="heading-2 mb-4 text-white">Ready to Plan Your Journey To Bhutan?</h2>
-    <p class="text-xl mb-8 text-orange-100">An adventure of a lifetime awaits</p>
-    <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
-      <a href="/packages/" class="btn-white-orange">
-        Explore Packages
-      </a>
-      <a href="/contact/" class="btn-outline">
-        Contact Us Today
-      </a>
-    </div>
-  </div>
 </section>

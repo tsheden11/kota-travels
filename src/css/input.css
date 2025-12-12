@@ -29,23 +29,23 @@
      TYPOGRAPHY - Headings
      ========================================== */
   .heading-display {
-    @apply text-4xl md:text-6xl font-bold;
+    @apply text-4xl md:text-6x;
   }
 
   .heading-1 {
-    @apply text-4xl font-bold text-gray-900;
+    @apply text-4xl text-gray-900;
   }
 
   .heading-2 {
-    @apply text-3xl font-bold text-gray-900;
+    @apply text-3xl text-gray-900;
   }
 
   .heading-3 {
-    @apply text-2xl font-bold text-gray-900;
+    @apply text-2xl text-gray-900;
   }
 
   .heading-4 {
-    @apply text-xl font-bold text-gray-900;
+    @apply text-xl text-gray-900;
   }
 
   /* ==========================================
@@ -97,7 +97,7 @@
      BUTTONS
      ========================================== */
   .btn-primary {
-    @apply inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold px-8 py-3 rounded-full transition-colors duration-200;
+    @apply inline-block bg-kota-red hover:bg-kota-orange text-white font-semibold px-8 py-3 rounded-full transition-colors duration-200;
   }
 
   .btn-secondary {
