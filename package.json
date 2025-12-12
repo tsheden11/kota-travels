@@ -3,15 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "start": "npm-run-all --parallel start:*",
-    "start:eleventy": "eleventy --serve",
-    "start:tailwind": "tailwindcss -i src/css/styles.css -o _site/css/styles.css --watch",
-    "build:tailwind": "tailwindcss -i src/css/styles.css -o _site/css/styles.css --minify",
-    "build:eleventy": "eleventy",
-    "dev": "npm run start",
-     "build": "npm-run-all build:*"
-  },
+"scripts": {
+  "start": "npm-run-all --parallel start:*",
+  "start:eleventy": "eleventy --serve",
+  "start:tailwind": "tailwindcss -i src/css/styles.css -o _site/css/styles.css --watch",
+
+  "build:tailwind": "tailwindcss -i src/css/styles.css -o _site/css/styles.css --minify",
+  "build:eleventy": "eleventy",
+
+  "dev": "npm run start",
+  "build": "npm-run-all build:tailwind build:eleventy"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
