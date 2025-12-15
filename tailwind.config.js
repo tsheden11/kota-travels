@@ -1,10 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{html,md,njk,js}",
-    "./_includes/**/*.{html,md,njk,js}"
+    "./src/**/*.{html,njk,md,js}",
+    "./src/_includes/**/*.{html,njk}",
+    "./src/_layouts/**/*.{html,njk}",
   ],
   safelist: [
+    'text-kota-red',
+    'text-kota-orange',
+    'text-kota-blue',
+    'text-kota-light-green',
+    'text-kota-dark-green',
     'bg-gradient-to-r',
     'from-kota-red',
     'to-kota-orange',
