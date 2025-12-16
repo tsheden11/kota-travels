@@ -640,42 +640,47 @@ body {
 }
 
 /* ==========================================
-     HEADER
-     ========================================== */
-
-@layer components {
-  .logo-responsive {
-    width: clamp(9rem, 18vw, 16rem);
-  }
-}
-
-/* ==========================================
      TYPOGRAPHY - Headings
      ========================================== */
 
 .heading-display {
-  font-size: clamp(2.25rem, 5vw, 5rem);
-  line-height: 1.1;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .heading-display {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
 }
 
 .heading-1 {
   font-size: 2.25rem;
   line-height: 2.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity, 1));
 }
 
 .heading-2 {
   font-size: 1.875rem;
   line-height: 2.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity, 1));
 }
 
 .heading-3 {
   font-size: 1.5rem;
   line-height: 2rem;
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity, 1));
 }
 
 .heading-4 {
   font-size: 1.25rem;
   line-height: 1.75rem;
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity, 1));
 }
 
 /* ==========================================

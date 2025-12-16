@@ -7,12 +7,12 @@ title: Home
 <section class="pt-20 pb-10 text-center">
 
   <!-- TEXT CONTENT FIRST -->
-  <div class="container-content mx-auto text-center">
+  <div class="container-content mx-auto">
     <h1 class="heading-display mb-6 font-medium">
       Explore Bhutan with <span class="text-kota-dark-green">Kota Travels</span>
     </h1>
 
-    <p class="heading-1 heading-display mb-4">
+    <p class="text-xl md:text-2xl mb-4 text-gray-700">
       AS GOOD AS BHUTAN GETS!
     </p>
 
@@ -34,30 +34,24 @@ title: Home
 
   <!-- IMAGE BELOW TEXT -->
   <div class="mt-12">
-  <picture>
-    <!-- WebP for modern browsers -->
-    <source
-      srcset="
-        /images/hero-600.webp 600w,
-        /images/hero-1200.webp 1200w,
-        /images/hero-2000.webp 2000w
-      "type="image/webp">
-
-    <!-- Fallback for older browsers -->
-    <img 
-      src="/images/hero.jpg"
-      alt="Bhutan Tiger's Nest"
-      class="w-full h-full object-cover shadow-lg"
-      fetchpriority="high"
-    </div>
-
+    <picture>
+      <source srcset="/images/hero-1600.webp" media="(min-width: 1024px)">
+      <source srcset="/images/hero-800.webp" media="(min-width: 640px)">
+      <img 
+        src="/images/hero-400.webp"
+        alt="Bhutan landscape"
+        class="w-full h-[70vh] object-cover rounded-xl shadow-lg"
+        fetchpriority="high"
+      >
+    </picture>
+  </div>
   <!-- Include Customize Form Modal -->
 {% include "components/customizeForm.njk" %}
 
 <!-- Why Travel with Kota Travels -->
 <section class="py-16 bg-white">
   <div class="container-content">
-    <h2 class="heading-1 text-center mb-12">WHY TRAVEL WITH US?</h2>
+    <h2 class="heading-2 text-center mb-12">Why Kota Travels?</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
 
