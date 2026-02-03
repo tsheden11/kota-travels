@@ -1,3 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ============================================
+   KOTA TRAVELS - EXPANDED DESIGN SYSTEM
+   Common typography, colors, and components
+   ============================================ */
+
+@layer base {
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -644,22 +657,14 @@ body {
      ========================================== */
 
 .heading-display {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
-@media (min-width: 768px) {
-  .heading-display {
-    font-size: 3.75rem;
-    line-height: 1;
-  }
+  font-size: 3.75rem;
+  line-height: 4rem;
 }
 
 .heading-1 {
   font-size: 2.25rem;
   line-height: 2.5rem;
   --tw-text-opacity: 1;
-  color: rgb(17 24 39 / var(--tw-text-opacity, 1));
 }
 
 .heading-2 {
@@ -2403,4 +2408,5 @@ body {
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+}
 }
