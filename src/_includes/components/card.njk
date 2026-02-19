@@ -1,28 +1,7 @@
-<div class="package-card">
-  <a href="{{ package.link }}" class="block">
-    <div class="relative">
-      <img src="{{ package.image }}" alt="{{ package.title }}" class="w-full h-48 object-cover">
-    </div>
-    
-    <div class="p-6">
-      <h3 class="heading-4 mb-3 hover:text-yellow-600 transition-colors">
-        {{ package.title }}
-      </h3>
-      <p class="text-body mb-4 line-clamp-3">
-        {{ package.description }}
-      </p>
-      
-      <div class="flex items-center justify-between">
-        <span class="text-yellow-600 font-semibold hover:text-yellow-700 transition-colors">
-          Learn More →
-        </span>
-        <div class="flex items-center text-sm text-gray-500">
-          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
-          {{ package.duration }}
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
+{# Card component #}
+{%- macro card(title='', variant='default') -%}
+  <div class="card card-{{ variant }}">
+    {% if title %}<h3>{{ title }}</h3>{% endif %}
+    {{ caller() if caller }}
+  </div>
+{%- endmacro -%}
