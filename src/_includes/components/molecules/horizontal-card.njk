@@ -1,0 +1,34 @@
+{% from "components/atoms/button.njk" import button %}
+{% from "components/atoms/tag.njk" import tag %}
+
+{% macro horizontalCard(card) %}
+<div class="card-horizontal">
+
+  <div class="card-horizontal__image">
+    <img src="{{ card.image }}" alt="{{ card.title }}">
+  </div>
+
+  <div class="card-horizontal__content">
+
+    <h3 class="card-horizontal__title">
+      {{ card.title }}
+    </h3>
+
+    <p class="card-horizontal__description">
+      {{ card.description }}
+    </p>
+
+    <div class="card-horizontal__tags">
+      {% for t in card.tags %}
+        {{ tag(t) }}
+      {% endfor %}
+    </div>
+
+    <div class="card-horizontal__action">
+      {{ button(card.buttonText, "primary") }}
+    </div>
+
+  </div>
+
+</div>
+{% endmacro %}

@@ -1,50 +1,113 @@
-/** Tailwind config scaffolded from Figma tokens (replace values with your exact tokens) */
 module.exports = {
   content: [
     "./src/**/*.{html,js,njk,md}",
-    "./_site/**/*.{html,js}" /* adjust if your build output differs */
+    "./_site/**/*.{html,js}"
   ],
+
   theme: {
     extend: {
+
+      /* ========================
+         COLORS
+      ======================== */
+
       colors: {
-        // Replace these with your Figma palette
-        primary: "#F59E0B",    // example amber
-        secondary: "#0EA5A4",  // example teal
-        accent: "#10B981",
-        neutral: {
-          50:  "#F9FAFB",
-          100: "#F3F4F6",
-          200: "#E5E7EB",
-          300: "#D1D5DB",
-          400: "#9CA3AF",
-          500: "#6B7280",
-          600: "#4B5563",
-          700: "#374151",
-          800: "#1F2937",
-        },
-        success: "#059669",
-        warning: "#F59E0B",
-        danger:  "#EF4444",
+        primary: "var(--color-primary)",
+        primaryLight: "var(--color-primary-light)",
+        primarySoft: "var(--color-primary-soft)",
+
+        accentBlue: "var(--color-accent-blue)",
+        accentOrange: "var(--color-accent-orange)",
+
+        success: "var(--color-success)",
+        danger: "var(--color-danger)",
+        warning: "var(--color-warning)",
+
+        text: "var(--color-text)",
+        textMuted: "var(--color-text-muted)",
+
+        border: "var(--color-border)",
+
+        surface: "var(--color-surface)",
+        background: "var(--color-bg)",
+
+        grey: "var(--color-grey)",
+        greyLight: "var(--color-grey-light)",
       },
+
+      /* ========================
+         TYPOGRAPHY
+      ======================== */
+
       fontFamily: {
-        // Ensure you load the 'Outfit' font (or change to your Figma font)
-        sans: ["Outfit", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial"],
+        sans: ["Outfit", "system-ui"]
       },
-      borderRadius: {
-        sm: "4px",
-        md: "8px",
-        lg: "16px",
-        full: "9999px",
+
+      fontSize: {
+        xs: "var(--text-xs)",
+        sm: "var(--text-sm)",
+        base: "var(--text-md)",
+        lg: "var(--text-lg)",
+        xl: "var(--text-xl)",
+        "2xl": "var(--text-2xl)",
+        "3xl": "var(--text-3xl)",
       },
-      boxShadow: {
-        sm: "0 1px 2px rgba(16,24,40,0.05)",
-        md: "0 6px 20px rgba(2,6,23,0.08)",
-      },
+
+      /* ========================
+         SPACING
+      ======================== */
+
       spacing: {
-        18: "4.5rem",
-        22: "5.5rem",
+        xxs: "var(--space-xxs)",
+        xs: "var(--space-xs)",
+        sm: "var(--space-sm)",
+        md: "var(--space-md)",
+        lg: "var(--space-lg)",
+        xl: "var(--space-xl)",
+        "2xl": "var(--space-2xl)",
+        "3xl": "var(--space-3xl)",
+      },
+
+      /* ========================
+         RADIUS
+      ======================== */
+
+      borderRadius: {
+        xs: "var(--radius-xs)",
+        sm: "var(--radius-sm)",
+        md: "var(--radius-md)",
+        lg: "var(--radius-lg)",
+        xl: "var(--radius-xl)",
+        pill: "var(--radius-pill)",
+      },
+
+      /* ========================
+         SHADOWS
+      ======================== */
+
+      boxShadow: {
+        sm: "var(--shadow-sm)",
+        md: "var(--shadow-md)",
+        lg: "var(--shadow-lg)",
+      },
+
+      /* ========================
+         HEIGHT
+      ======================== */
+
+      height: {
+        input: "var(--input-height)",
+        buttonSm: "var(--button-height-sm)",
+        buttonMd: "var(--button-height-md)",
+        buttonLg: "var(--button-height-lg)",
+      },
+
+      maxWidth: {
+        container: "var(--container-max-width)"
       }
+
     },
   },
+
   plugins: [],
 };

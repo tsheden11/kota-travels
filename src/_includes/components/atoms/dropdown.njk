@@ -1,0 +1,10 @@
+{# Dropdown component #}
+{% macro dropdown(name, options=[]) %}
+  <select class="dropdown" name="{{ name }}">
+    {% for option in options %}
+      <option value="{{ option.value }}">
+        {{ option.label }}
+      </option>
+    {% endfor %}
+  </select>
+{% endmacro %}

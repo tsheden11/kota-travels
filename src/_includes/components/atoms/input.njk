@@ -1,0 +1,11 @@
+{# Input component #}
+{% macro input(name, placeholder="", type="text", value="", disabled=false) %}
+  <input
+    class="input"
+    type="{{ type }}"
+    name="{{ name }}"
+    placeholder="{{ placeholder }}"
+    value="{{ value }}"
+    {% if disabled %}disabled{% endif %}
+  />
+{% endmacro %}

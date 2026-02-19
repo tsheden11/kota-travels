@@ -1,0 +1,35 @@
+{# Button Atom Component #}
+{%- macro button({
+  text = "",
+  variant = "primary",
+  size = "md",
+  type = "button",
+  disabled = false,
+  icon = "",
+  fullWidth = false
+}) -%}
+
+<button
+  type="{{ type }}"
+  class="
+    btn
+    btn--{{ variant }}
+    btn--{{ size }}
+    {% if fullWidth %}btn--full{% endif %}
+  "
+  {% if disabled %}disabled{% endif %}
+>
+  
+  {% if icon %}
+    <span class="btn__icon">
+      {{ icon | safe }}
+    </span>
+  {% endif %}
+
+  <span class="btn__text">
+    {{ text }}
+  </span>
+
+</button>
+
+{%- endmacro -%}
