@@ -1,0 +1,6 @@
+{# Button component #}
+{%- macro button(text, variant='primary', size='md', disabled=false) -%}
+  <button class="btn btn-{{ variant }} btn-{{ size }}" {% if disabled %}disabled{% endif %}>
+    {{ text }}
+  </button>
+{%- endmacro -%}
