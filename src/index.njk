@@ -1,117 +1,68 @@
----
-layout: base
-title: Home
----
+{% extends 'base.njk' %}
 
-<!-- Hero Section -->
-<section class="pt-18 pb-10 text-center">
-
-  <!-- TEXT CONTENT FIRST -->
-  <div class="container-content mx-auto">
-    <h1 class="heading-display mb-6 font-medium">
-      BHUTAN, DONE <span class="text-kota-dark-green">RIGHT.</span>
-    </h1>
-
-    <p class="heading-1 font-medium mb-4 text-body-gray">
-      AS GOOD AS BHUTAN GETS!
-    </p>
-
-    <p class="text-lg mb-8 text-body-gray">
-      Founded in loving memory of our late father, Kota, Kota Travels is a Bhutanese family-run travel agency.
-      Having lived abroad and seen the world, we’ve come to appreciate that there’s truly no place like Bhutan —
-      and we’re honored to share its beauty and spirit with you.
-    </p>
-
-    <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center mb-20">
-      <a href="/packages/" class="btn-primary">
-        Explore Our Packages
-      </a>
-      <a href="/contact/" class="btn-secondary open-trip-planner">
-        Customize Your Journey
-      </a>
-    </div>
+{% block hero %}
+<section class="hero">
+  <div class="container">
+    <h1>Welcome to Kota Travels</h1>
+    <p>Discover your next adventure with us!</p>
+    <a href="#features" class="btn btn-primary">Explore Now</a>
   </div>
+</section>
+{% endblock %}
 
-  <!-- IMAGE BELOW TEXT -->
-  <div class="mt-12">
-    <picture>
-      <source srcset="/images/hero-1600.webp" media="(min-width: 1024px)">
-      <source srcset="/images/hero-800.webp" media="(min-width: 640px)">
-      <img 
-        src="/images/hero-400.webp"
-        alt="Bhutan landscape"
-        class="w-full h-[70vh] object-cover rounded-xl shadow-lg"
-        fetchpriority="high"
-      >
-    </picture>
-  </div>
-  <!-- Include Customize Form Modal -->
-{% include "components/customizeForm.njk" %}
-
-<!-- Why Travel with Kota Travels -->
-<section class="py-16 bg-white">
-  <div class="container-content">
-    <h2 class="heading-2 text-center mb-12">Why Kota Travels?</h2>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-
-      <!-- Card 1 -->
-      <div class="package-card">
-        <div class="p-6 text-center">
-          <div class="icon-circle-blue mx-auto mb-4">
-            <span>🌏</span>
-          </div>
-          <h4 class="heading-4 mb-3">Local expertise with a global perspective</h4>
-          <p class="text-body text-sm">We blend local knowledge with global standards in authentic Bhutanese adventures</p>
-        </div>
+{% block features %}
+<section id="features" class="features">
+  <div class="container">
+    <h2>Our Features</h2>
+    <div class="feature-cards">
+      <div class="card">
+        <h3>Easy Booking</h3>
+        <p>Book your travels in just a few clicks!</p>
       </div>
-
-      <!-- Card 2 -->
-      <div class="package-card">
-        <div class="p-6 text-center">
-          <div class="icon-circle-orange mx-auto mb-4">
-            <span>🏔️</span>
-          </div>
-          <h4 class="heading-4 mb-3">Adventure, sports & wellness tourism</h4>
-          <p class="text-body text-sm">From cultural immersion to mountain adventures and peaceful retreats, every journey is designed to awaken your spirit of exploration</p>
-        </div>
+      <div class="card">
+        <h3>24/7 Support</h3>
+        <p>We're here to help you anytime, anywhere.</p>
       </div>
-
-      <!-- Card 3 -->
-      <div class="package-card">
-        <div class="p-6 text-center">
-          <div class="icon-circle-green mx-auto mb-4">
-            <span>🌱</span>
-          </div>
-          <h4 class="heading-4 mb-3">Sustainability and cultural respect</h4>
-          <p class="text-body text-sm">Responsible tourism that preserves Bhutan's pristine environment and traditions</p>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="package-card">
-        <div class="p-6 text-center">
-          <div class="icon-circle-yellow mx-auto mb-4">
-            <span>🏡</span>
-          </div>
-          <h4 class="heading-4 mb-3">Hospitality you can trust</h4>
-          <p class="text-body text-sm">Family-run business treating every guest like family</p>
-        </div>
+      <div class="card">
+        <h3>Custom Packages</h3>
+        <p>Tailor your travel experience just for you.</p>
       </div>
     </div>
   </div>
 </section>
+{% endblock %}
 
-<!-- Call to Action -->
-<section class="section-cta">
-    <h2 class="heading-2 mb-4">Ready to Plan Your Bhutan Journey?</h2>
-    <p class="text-xl mb-8 text-orange-100">An adventure of a lifetime awaits</p>
-    <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
-      <a href="/packages/" class="btn-white-orange">
-        Explore Packages
-      </a>
-      <a href="/contact/" class="btn-outline">
-        Contact Us Today
-      </a>
+{% block benefits %}
+<section class="benefits">
+  <div class="container">
+    <h2>Why Choose Us?</h2>
+    <div class="benefit-cards">
+      <div class="card benefit-card">
+        <h3>Affordable Rates</h3>
+        <p>We offer competitive pricing for all travelers.</p>
+      </div>
+      <div class="card benefit-card">
+        <h3>Quality Service</h3>
+        <p>Your satisfaction is our top priority.</p>
+      </div>
+      <div class="card benefit-card">
+        <h3>Eco-Friendly</h3>
+        <p>We care about the planet and your footprint.</p>
+      </div>
     </div>
+  </div>
 </section>
+{% endblock %}
+
+{% block footer %}
+<footer>
+  <div class="container">
+    <p>&copy; 2026 Kota Travels. All rights reserved.</p>
+    <p>Follow us on social media!</p>
+  </div>
+</footer>
+{% endblock %}
+
+{% import 'components/button.njk' as Button %}
+{% import 'components/card.njk' as Card %}
+{% import 'components/badge.njk' as Badge %}
