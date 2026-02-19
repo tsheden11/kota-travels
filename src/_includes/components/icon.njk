@@ -1,0 +1,8 @@
+{% macro icon(name, className = '', title = '') %}  
+  <svg class="icon {{ className }}" aria-hidden="{{ title ? 'false' : 'true' }}" role="img">  
+    <use xlink:href="{{ '../images/icons/' ~ name ~ '.svg' }}#icon"></use>  
+    {% if title %}  
+      <title>{{ title }}</title>  
+    {% endif %}  
+  </svg>  
+{% endmacro %}
