@@ -1,31 +1,23 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{html,md,njk,js}",
-    "./_includes/**/*.{html,md,njk,js}"
-  ],
-  safelist: [
-    'bg-gradient-to-r',
-    'from-kota-red',
-    'to-kota-orange',
-    'hover:from-kota-orange',
-    'hover:to-kota-red'
-  ],
   theme: {
     extend: {
       colors: {
-        'kota-red': '#ff0000',
-        'kota-orange': '#ff7900',
-        'kota-blue': '#80ddd6',
-        'kota-light-green': '#23c9a9',
-        'kota-dark-green': '#108773',
+        // Add your extended colors here
       },
       fontFamily: {
-        'sans': ['Outfit', 'system-ui', 'sans-serif'],
+        // Add your font families here
+      },
+      borderRadius: {
+        // Add your border radius values here
+      },
+      boxShadow: {
+        // Add your box shadows here
+      },
+      spacing: {
+        // Add your spacing values here
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
-}
+  variants: {},
+  plugins: [],
+};
