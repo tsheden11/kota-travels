@@ -1,121 +1,161 @@
-/* =========================
-   Button Base
-========================= */
+/* =============================================================
+   BUTTON ATOM — button.css
+   Source of truth: Figma CSS export (Components page)
+   Variants:  primary | secondary | tertiary
+   Sizes:     lg | md
+   ============================================================= */
+
+
+/* ─────────────────────────────────────────────────────────────
+   BASE
+   Shared across all variants and sizes.
+───────────────────────────────────────────────────────────── */
 
 .btn {
   display: inline-flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: var(--space-xs);
 
   font-family: var(--font-primary);
-  font-weight: 500;
+  font-weight: var(--font-medium);   /* 500 — all button text is medium weight */
 
-  border-radius: var(--radius-md);
   border: none;
+  border-radius: var(--radius-pill); /* 30px — all buttons are pill-shaped */
 
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: opacity 0.2s ease, box-shadow 0.2s ease;
+
+  white-space: nowrap;
 }
 
-/* =========================
-   Sizes
-========================= */
-
-.btn--sm {
-  padding: var(--space-xs) var(--space-sm);
-  font-size: 0.875rem;
+/* Remove default button styles that could bleed through */
+.btn:focus {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
 }
-
-.btn--md {
-  padding: var(--space-sm) var(--space-md);
-  font-size: 1rem;
-}
-
-.btn--lg {
-  padding: var(--space-md) var(--space-lg);
-  font-size: 1.125rem;
-}
-
-/* Large button SVG alignment */
-.btn--xl {
-  padding: var(--space-md) var(--space-xl);
-  font-size: 1.25rem;
-}
-
-/* =========================
-   Variants
-========================= */
-
-/* Primary (Green) */
-.btn--primary {
-  background-color: var(--kota-dark-green);
-  color: var(--kota-white);
-}
-
-.btn--primary:hover {
-  background-color: var(--kota-light-dark-green);
-}
-
-/* Secondary */
-.btn--secondary {
-  background-color: var(--kota-light-green);
-  color: var(--kota-black);
-}
-
-/* Outline */
-.btn--outline {
-  background: transparent;
-  border: 2px solid var(--kota-dark-green);
-  color: var(--kota-dark-green);
-}
-
-.btn--outline:hover {
-  background: var(--kota-light-light-green);
-}
-
-/* Accent (Orange) */
-.btn--accent {
-  background: var(--kota-orange);
-  color: var(--kota-white);
-}
-
-.btn--accent:hover {
-  background: var(--kota-light-orange);
-}
-
-/* =========================
-   States
-========================= */
 
 .btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-.btn:focus {
-  outline: 2px solid var(--kota-blue);
-  outline-offset: 2px;
-}
-
-/* =========================
-   Layout
-========================= */
-
 .btn--full {
   width: 100%;
 }
 
-/* =========================
-   Icon
-========================= */
+
+/* ─────────────────────────────────────────────────────────────
+   SIZES
+   Figma defines exactly two button sizes.
+
+   lg  → Large button:   260×60px, padding:16px 20px, gap:10px, font:24px/30lh
+   md  → Regular button: 220×40px, padding:16px,      gap:4px,  font:20px/25lh
+
+   Note: Figma specifies fixed widths but those are frame widths,
+   not min-widths — we let content + padding determine width naturally.
+───────────────────────────────────────────────────────────── */
+
+.btn--lg {
+  height: var(--btn-height-lg);     /* 60px */
+  padding: var(--space-btn-y) var(--space-btn-x-lg); /* 16px 20px */
+  gap: var(--space-icon-pad);       /* 10px */
+  font-size: var(--text-md);        /* 24px */
+  line-height: var(--lh-md);        /* 30px */
+}
+
+.btn--md {
+  height: var(--btn-height-md);     /* 40px */
+  padding: var(--space-btn-y);      /* 16px all sides */
+  gap: var(--space-icon-gap);       /* 4px */
+  font-size: var(--text-sm);        /* 20px */
+  line-height: var(--lh-sm);        /* 25px */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   VARIANTS
+
+   primary   → gradient background, white text
+   secondary → white background, gradient text (via background-clip)
+   tertiary  → no background, no border, gradient text (text + icon only)
+
+   GRADIENT TEXT TECHNIQUE (secondary + tertiary):
+   Applied to .btn__text child span, not the .btn container.
+   This lets secondary keep its white container background
+   while only the text itself shows the gradient.
+───────────────────────────────────────────────────────────── */
+
+/* ── Primary ── */
+
+.btn--primary {
+  background: var(--kota-gradient);       /* linear-gradient(90deg, #FF0000, #FF7900) */
+  color: var(--color-text-light);         /* #FFFFFF */
+}
+
+.btn--primary:hover:not(:disabled) {
+  opacity: 0.9;
+  box-shadow: 0 4px 16px rgba(255, 0, 0, 0.25);
+}
+
+
+/* ── Secondary ── */
+
+.btn--secondary {
+  background: var(--color-surface);       /* #FFFFFF */
+}
+
+.btn--secondary .btn__text {
+  background: var(--kota-gradient-vertical); /* linear-gradient(180deg, #FF0000, #FF7900) */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn--secondary:hover:not(:disabled) {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ── Tertiary ── */
+
+/* No background, no border — gradient text inline with optional icon */
+.btn--tertiary {
+  background: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  height: auto;                           /* text-only, no fixed height */
+}
+
+.btn--tertiary .btn__text {
+  background: var(--kota-gradient-vertical); /* linear-gradient(180deg, #FF0000, #FF7900) */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn--tertiary:hover:not(:disabled) .btn__text {
+  opacity: 0.8;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   INNER ELEMENTS
+───────────────────────────────────────────────────────────── */
+
+.btn__text {
+  flex: none;
+}
 
 .btn__icon {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
+  width: var(--icon-size);   /* 24px */
+  height: var(--icon-size);  /* 24px */
 }
 
 .btn__icon svg {
-  width: 1rem;
-  height: 1rem;
+  width: 100%;
+  height: 100%;
 }

@@ -1,0 +1,110 @@
+/* =============================================================
+   Multi-select Atom — multi-select.css
+   Source of truth: Figma CSS export (Multiple Selection component)
+
+   Figma specs:
+     Each option: 220×50px, padding: 12px, gap: 8px, radius: 10px
+     Unselected:  bg #FFFFFF, border: 1px solid #BABABA
+     Selected:    bg #FFEDE3, no border
+     Text:        Outfit 400 20px/25px
+     Unselected text color: #4B5563
+     Selected text color:   gradient (180deg #FF0000 → #FF7900)
+     Icon:        24×24px, left of text
+============================================================= */
+
+
+/* ─────────────────────────────────────────────────────────────
+   CONTAINER
+───────────────────────────────────────────────────────────── */
+
+.multi-select {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--space-tag-gap);            /* 8px */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   OPTION — wraps checkbox + icon + text
+   The real <input> is visually hidden — the label is the
+   clickable styled element.
+───────────────────────────────────────────────────────────── */
+
+.multi-select__option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-tag-gap);            /* 8px */
+
+  height: var(--input-height);          /* 50px */
+  padding: var(--space-input-pad);      /* 12px */
+
+  background: var(--color-surface);     /* #FFFFFF */
+  border: 1px solid var(--color-border); /* #BABABA */
+  border-radius: var(--radius-input);   /* 10px */
+
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+/* Selected state */
+.multi-select__option--selected {
+  background: var(--color-selected-bg); /* #FFEDE3 */
+  border-color: transparent;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   HIDDEN CHECKBOX
+   Keeps native functionality (keyboard, form submit) without
+   showing the default checkbox UI.
+───────────────────────────────────────────────────────────── */
+
+.multi-select__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   TEXT
+───────────────────────────────────────────────────────────── */
+
+.multi-select__text {
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);     /* 400 */
+  font-size: var(--text-sm);            /* 20px */
+  line-height: var(--lh-sm);            /* 25px */
+  color: var(--color-text);             /* #4B5563 — unselected */
+}
+
+/* Gradient text when selected */
+.multi-select__option--selected .multi-select__text {
+  background: var(--kota-gradient-vertical);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   ICON
+───────────────────────────────────────────────────────────── */
+
+.multi-select__icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: var(--icon-size);              /* 24px */
+  height: var(--icon-size);            /* 24px */
+}
+
+.multi-select__icon svg {
+  width: 100%;
+  height: 100%;
+}

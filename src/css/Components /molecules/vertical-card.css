@@ -1,0 +1,108 @@
+/* =============================================================
+   Vertical Card Molecule — vertical-card.css
+   Source of truth: Figma CSS export
+
+   Figma specs:
+     Size:          300×300px, padding: 20px, gap: 10px
+     Background:    #FFFFFF
+     Border-radius: 20px
+
+   accentColor "blue"  → border #80DDD6, icon bg #80DDD6
+   accentColor "green" → border #23C9A9, icon bg #23C9A9
+
+   Title:  Outfit 600 24px/30px, color #000000 — subtitle-2
+   Body:   Outfit 400 20px/25px, color #4B5563 — body-2
+============================================================= */
+
+
+/* ─────────────────────────────────────────────────────────────
+   CARD BASE
+───────────────────────────────────────────────────────────── */
+
+.card-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-icon-pad);             /* 10px */
+
+  padding: var(--space-card-pad);         /* 20px */
+  width: 300px;
+
+  background: var(--color-surface);       /* #FFFFFF */
+  border-radius: var(--radius-card);      /* 20px */
+
+  /* Default border — overridden by modifier below */
+  border: 1px solid var(--color-border-blue);
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   ACCENT COLOR MODIFIERS
+───────────────────────────────────────────────────────────── */
+
+.card-vertical--blue {
+  border-color: var(--color-border-blue);   /* #80DDD6 */
+}
+
+.card-vertical--blue .card-vertical__icon-container {
+  background: var(--color-border-blue);     /* #80DDD6 */
+}
+
+.card-vertical--green {
+  border-color: var(--color-border-green);  /* #23C9A9 */
+}
+
+.card-vertical--green .card-vertical__icon-container {
+  background: var(--color-border-green);    /* #23C9A9 */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   ICON CONTAINER
+───────────────────────────────────────────────────────────── */
+
+.card-vertical__icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: var(--icon-container);            /* 44px */
+  height: var(--icon-container);           /* 44px */
+  padding: var(--space-icon-pad);          /* 10px */
+
+  border-radius: var(--radius-card);       /* 20px */
+}
+
+.card-vertical__icon-container svg {
+  width: var(--icon-size);                 /* 24px */
+  height: var(--icon-size);               /* 24px */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   TITLE — subtitle-2
+───────────────────────────────────────────────────────────── */
+
+.card-vertical__title {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);       /* 600 */
+  font-size: var(--text-md);              /* 24px */
+  line-height: var(--lh-md);              /* 30px */
+  color: var(--color-text-dark);          /* #000000 */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   DESCRIPTION — body-2
+───────────────────────────────────────────────────────────── */
+
+.card-vertical__description {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);        /* 400 */
+  font-size: var(--text-sm);              /* 20px */
+  line-height: var(--lh-sm);             /* 25px */
+  color: var(--color-text);              /* #4B5563 */
+}

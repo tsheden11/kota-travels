@@ -1,0 +1,193 @@
+/* =============================================================
+   Itinerary Molecule — itinerary.css
+============================================================= */
+
+.itinerary {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* ── Each day row ── */
+.itinerary__item {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Clickable header ── */
+.itinerary__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 20px 0;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.itinerary__header-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+/* ── Day label ── */
+.itinerary__day {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 25px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+/* ── Title ── */
+.itinerary__title {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  color: var(--color-text-muted);
+  transition: color 0.2s ease;
+}
+
+/* ── Active state — header turns green ── */
+.itinerary__item.is-open .itinerary__day,
+.itinerary__item.is-open .itinerary__title {
+  color: var(--kota-dark-green);
+}
+
+/* ── Chevron icon ── */
+.itinerary__chevron {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  transition: transform 0.25s ease, color 0.2s ease;
+}
+
+.itinerary__item.is-open .itinerary__chevron {
+  transform: rotate(180deg);
+  color: var(--kota-dark-green);
+}
+
+/* ── Workshop tag ── */
+.itinerary__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(255, 121, 0, 0.05);
+  border-radius: 30px;
+  white-space: nowrap;
+}
+
+.itinerary__tag span {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 1;
+  background: linear-gradient(180deg, #FF0000 0%, #FF7900 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Expanded body ── */
+.itinerary__body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 20px;
+}
+
+.itinerary__body[hidden] {
+  display: none;
+}
+
+.itinerary__description {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ── Generic stats row ── */
+.itinerary__stats {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.itinerary__stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--kota-light-green, rgba(16, 135, 115, 0.06));
+  border-radius: 30px;
+}
+
+.itinerary__stat-icon {
+  color: var(--kota-dark-green);
+  flex-shrink: 0;
+}
+
+.itinerary__stat-value {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--kota-dark-green);
+  white-space: nowrap;
+}
+
+/* ── Elevation / activity profile image ── */
+.itinerary__stats-image-wrap {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.itinerary__stats-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* ── Meta row (Meals / Accommodation) ── */
+.itinerary__meta {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.itinerary__meta-item {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+}
+
+.itinerary__meta-item strong {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* ── Divider line ── */
+.itinerary__divider {
+  width: 100%;
+  height: 1px;
+  background: var(--kota-light-green);
+}

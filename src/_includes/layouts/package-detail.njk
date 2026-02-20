@@ -1,319 +1,226 @@
 ---
-layout: base
+layout: layouts/base.njk
 ---
-{% set packageDetail = packageDetails[packageSlug] %}
-<!-- Hero Section with Image Carousel -->
-<!-- Hero Section with Image Carousel -->
-<section class="relative bg-gray-900 overflow-hidden">
-   <!-- Image Carousel -->
-   <div class="relative h-96 md:h-[500px]">
-      <!-- Images -->
-      {% for image in packageDetail.images %}
-      <div class="carousel-item absolute inset-0 transition-opacity duration-700 {% if loop.index0 == 0 %}opacity-100{% else %}opacity-0{% endif %}">
-         <img src="{{ image }}" alt="{{ packageDetail.title }} - Image {{ loop.index }}" class="w-full h-full object-cover">
-         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+
+{% from "components/molecules/hero-carousel.njk" import heroCarousel %}
+{% from "components/molecules/itinerary.njk" import itinerary %}
+{% from "components/atoms/button.njk" import button %}
+{% from "components/organisms/cta-section.njk" import ctaSection %}
+
+{% set package = packages[packageSlug] %}
+
+<div class="page-package-detail">
+
+  {# ============================================================
+     SECTION 1 - HERO CAROUSEL
+  ============================================================ #}
+
+  {{ heroCarousel({
+    images: package.images,
+    alt: package.title
+  }) }}
+
+
+  {# ============================================================
+     SECTION 2 - TWO COLUMN LAYOUT
+  ============================================================ #}
+
+  <section class="package-detail__body">
+    <div class="package-detail__body-inner">
+
+      {#  LEFT COLUMN  #}
+      <div class="package-detail__main">
+
+        {# Title + description #}
+        <div class="package-detail__heading">
+          <h1 class="package-detail__title">{{ package.title }}</h1>
+          <p class="package-detail__description">{{ package.description }}</p>
+        </div>
+
+        {#  Tour Overview stat bar - only renders if tourOverview exists  #}
+        {% if package.tourOverview and package.tourOverview.length %}
+          <div class="package-detail__tour-overview">
+            {% for stat in package.tourOverview %}
+              <div class="package-detail__overview-stat">
+                <span class="package-detail__overview-value">{{ stat.value }}</span>
+                <span class="package-detail__overview-label">{{ stat.label }}</span>
+              </div>
+              {# Vertical divider between stats (not after last) #}
+              {% if not loop.last %}
+                <div class="package-detail__overview-divider" aria-hidden="true"></div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {# Highlights #}
+        <div class="package-detail__highlights">
+          <h2 class="package-detail__section-title">Tour Highlights</h2>
+          <ul class="package-detail__highlights-list">
+            {% for highlight in package.highlights %}
+              <li class="package-detail__highlight-item">{{ highlight }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        {# Included / Not Included - two columns #}
+        <div class="package-detail__inclusions">
+          <div class="package-detail__inclusion-col">
+            <h2 class="package-detail__section-title">What's Included?</h2>
+            <ul class="package-detail__inclusion-list package-detail__inclusion-list--included">
+              {% for item in package.included %}
+                <li class="package-detail__inclusion-item">{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="package-detail__inclusion-col">
+            <h2 class="package-detail__section-title">What's Excluded?</h2>
+            <ul class="package-detail__inclusion-list package-detail__inclusion-list--excluded">
+              {% for item in package.notIncluded %}
+                <li class="package-detail__inclusion-item">{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        {# Itinerary #}
+        <div class="package-detail__itinerary">
+          <h2 class="package-detail__section-title">Itinerary</h2>
+
+          {% if package.quickInfo.destinations %}
+            <p class="package-detail__route">{{ package.quickInfo.destinations }}</p>
+          {% endif %}
+
+          {{ itinerary({ items: package.itinerary }) }}
+        </div>
+
       </div>
-      {% endfor %}
-      <!-- Text Overlay -->
-      <div class="absolute inset-0 flex items-center justify-center z-10">
-         <div class="container-content text-center text-white">
-            <h1 class="heading-display mb-4 drop-shadow-lg">{{ packageDetail.title }}</h1>
-            <p class="text-xl md:text-2xl drop-shadow-lg">{{ packageDetail.tagline }}</p>
-         </div>
+
+      {#  RIGHT COLUMN  #}
+      <div class="package-detail__sidebar">
+
+        {# Quick Info panel #}
+        <div class="package-detail__quick-info">
+
+          <h2 class="package-detail__panel-title">Quick Info</h2>
+
+          <div class="package-detail__info-rows">
+
+            {% if package.quickInfo.duration %}
+              <div class="package-detail__info-row">
+                <span class="package-detail__info-label">Duration</span>
+                <span class="package-detail__info-value">{{ package.quickInfo.duration }}</span>
+              </div>
+            {% endif %}
+
+            {% if package.quickInfo.price %}
+              <div class="package-detail__info-row">
+                <span class="package-detail__info-label">Price (Varies by group size & season)</span>
+                <span class="package-detail__info-value">{{ package.quickInfo.price }}</span>
+              </div>
+            {% endif %}
+
+            {% if package.quickInfo.destinations %}
+              <div class="package-detail__info-row">
+                <span class="package-detail__info-label">Destinations</span>
+                <span class="package-detail__info-value">{{ package.quickInfo.destinations }}</span>
+              </div>
+            {% endif %}
+
+            {% if package.quickInfo.accommodation %}
+              <div class="package-detail__info-row">
+                <span class="package-detail__info-label">Accommodation (Upgrades available)</span>
+                <span class="package-detail__info-value">{{ package.quickInfo.accommodation }}</span>
+              </div>
+            {% endif %}
+
+            {% if package.quickInfo.availability %}
+              <div class="package-detail__info-row">
+                <span class="package-detail__info-label">Tour Availability</span>
+                <span class="package-detail__info-value">{{ package.quickInfo.availability }}</span>
+              </div>
+            {% endif %}
+
+            {% if package.quickInfo.difficulty %}
+              <div class="package-detail__info-row">
+                <span class="package-detail__info-label">Difficulty</span>
+                <span class="package-detail__info-value">{{ package.quickInfo.difficulty }}</span>
+              </div>
+            {% endif %}
+
+            {% if package.quickInfo.bestTime %}
+              <div class="package-detail__info-row">
+                <span class="package-detail__info-label">Best Time to Visit</span>
+                <span class="package-detail__info-value">{{ package.quickInfo.bestTime }}</span>
+              </div>
+            {% endif %}
+
+            {% if package.quickInfo.elevation %}
+              <div class="package-detail__info-row">
+                <span class="package-detail__info-label">Elevation</span>
+                <span class="package-detail__info-value">{{ package.quickInfo.elevation }}</span>
+              </div>
+            {% endif %}
+
+          </div>
+
+          {# Buttons #}
+          <div class="package-detail__panel-actions">
+            {{ button({
+              text: "Book This Tour",
+              variant: "primary",
+              size: "lg",
+              fullWidth: true,
+              attrs: 'data-open-modal="book" data-package-title="' + package.title + '" data-package-duration="' + package.quickInfo.duration + '"'
+            }) }}
+
+            {{ button({
+              text: "Customize Your Own",
+              variant: "secondary",
+              size: "lg",
+              fullWidth: true,
+              attrs: 'data-open-modal="customize"'
+            }) }}
+          </div>
+
+          {% if package.pricing.note %}
+            <p class="package-detail__panel-note">{{ package.pricing.note }}</p>
+          {% endif %}
+
+        </div>
+
+        {# Got Questions panel #}
+        <div class="package-detail__questions">
+          <div class="package-detail__questions-content">
+            <h2 class="package-detail__panel-title">Got Questions?</h2>
+            <p class="package-detail__questions-body">We're happy to help!</p>
+          </div>
+          {{ button({
+            text: "Contact Us ",
+            variant: "secondary",
+            size: "lg",
+            fullWidth: true
+          }) }}
+        </div>
+
       </div>
-      <!-- Navigation Arrows -->
-      <button onclick="changeSlide(-1)" class="carousel-btn absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all">
-         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-         </svg>
-      </button>
-      <button onclick="changeSlide(1)" class="carousel-btn absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all">
-         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-         </svg>
-      </button>
-      <!-- Dots Navigation -->
-      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-         {% for image in packageDetail.images %}
-         <button onclick="goToSlide({{ loop.index0 }})" class="carousel-dot w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all {% if loop.index0 == 0 %}bg-white{% endif %}"></button>
-         {% endfor %}
-      </div>
-   </div>
-   <!-- Carousel Script -->
-   <script>
-      let currentSlide = 0;
-      const slides = document.querySelectorAll('.carousel-item');
-      const dots = document.querySelectorAll('.carousel-dot');
-      const totalSlides = slides.length;
-      
-      function showSlide(index) {
-        // Wrap around
-        if (index >= totalSlides) currentSlide = 0;
-        else if (index < 0) currentSlide = totalSlides - 1;
-        else currentSlide = index;
-      
-        // Update slides
-        slides.forEach((slide, i) => {
-          slide.classList.toggle('opacity-100', i === currentSlide);
-          slide.classList.toggle('opacity-0', i !== currentSlide);
-        });
-      
-        // Update dots
-        dots.forEach((dot, i) => {
-          dot.classList.toggle('bg-white', i === currentSlide);
-          dot.classList.toggle('bg-white/50', i !== currentSlide);
-        });
-      }
-      
-      function changeSlide(direction) {
-        showSlide(currentSlide + direction);
-      }
-      
-      function goToSlide(index) {
-        showSlide(index);
-      }
-      
-      // Auto-advance every 5 seconds
-      let autoSlide = setInterval(() => changeSlide(1), 5000);
-      
-      // Pause auto-advance when user interacts
-      document.querySelectorAll('.carousel-btn, .carousel-dot').forEach(btn => {
-        btn.addEventListener('click', () => {
-          clearInterval(autoSlide);
-          autoSlide = setInterval(() => changeSlide(1), 5000);
-        });
-      });
-   </script>
-</section>
-<!-- Main Content Grid -->
-<section class="section-white">
-   <div class="container-content">
-   <div class="max-w-7xl mx-auto">
-   <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-      <!-- LEFT: Main Content (2 columns) -->
-      <div class="lg:col-span-2 space-y-12">
-         <!-- Overview -->
-         <div>
-            <h2 class="heading-2 mb-4">Overview</h2>
-            <p class="text-lead leading-relaxed">{{ packageDetail.description }}</p>
-         </div>
-         <!-- Highlights -->
-         <div>
-            <h2 class="heading-2 mb-6">Tour Highlights</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-               {% for highlight in packageDetail.highlights %}
-               <div class="flex items-start">
-                  <svg class="w-6 h-6 text-yellow-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  <span class="text-body-dark">{{ highlight }}</span>
-               </div>
-               {% endfor %}
-            </div>
-         </div>
-         <!-- Detailed Itinerary -->
-         <div>
-            <h2 class="heading-2 mb-6">Day-by-Day Itinerary</h2>
-            <div class="space-y-6">
-               {% for day in packageDetail.itinerary %}
-               <div class="card-base border-l-4 border-yellow-500">
-                  <div class="flex items-start gap-4">
-                     <div class="flex-shrink-0">
-                        <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center text-white font-bold">
-                           {{ day.day }}
-                        </div>
-                     </div>
-                     <div class="flex-1">
-                        <h3 class="heading-4 mb-2">{{ day.title | replace("{", "<strong>") | replace("}", "</strong>") | safe }}</h3>
-                        <p class="text-body mb-3">{{ day.description | replace("{", "<strong>") | replace("}", "</strong>") | safe }}</p>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
-                           <div class="flex items-center text-body">
-                              <svg class="w-6 h-6 mr-2 text-yellow-600" fill="currentColor" viewBox="0 0 24 24">
-                                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM9 7v3c0 .55.45 1 1 1v5h1v-5c.55 0 1-.45 1-1V7h-1v3h-1V7H9zm6 0c.55 0 1 .45 1 1v2c0 .55-.45 1-1 1v5h-1v-5c-.55 0-1-.45-1-1V8c0-.55.45-1 1-1h1z"/>
-                              </svg>
-                              {{ day.meals | replace("{", "<strong>") | replace("}", "</strong>") | safe }}
-                           </div>
-                           <div class="flex items-center text-body">
-                              <svg class="w-4 h-4 mr-2 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                              </svg>
-                              {{ day.accommodation | replace("{", "<strong>") | replace("}", "</strong>") | safe }}
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               {% endfor %}
-            </div>
-         </div>
-         <!-- What's Included / Not Included -->
-         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="card-base bg-green-50 border border-green-200">
-               <h3 class="heading-3 mb-4 text-green-900">What's Included</h3>
-               <ul class="space-y-2">
-                  {% for item in packageDetail.included %}
-                  <li class="flex items-start text-body-dark">
-                     <svg class="w-5 h-5 text-green-600 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                     </svg>
-                     {{ item }}
-                  </li>
-                  {% endfor %}
-               </ul>
-            </div>
-            <div class="card-base bg-red-50 border border-red-200">
-               <h3 class="heading-3 mb-4 text-red-900">What's Not Included</h3>
-               <ul class="space-y-2">
-                  {% for item in packageDetail.notIncluded %}
-                  <li class="flex items-start text-body-dark">
-                     <svg class="w-5 h-5 text-red-600 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                     </svg>
-                     {{ item }}
-                  </li>
-                  {% endfor %}
-               </ul>
-            </div>
-         </div>
-      </div>
-      <!-- RIGHT: Sidebar (1 column) -->
-      <div class="lg:col-span-1">
-         <div class="space-y-6">
-            <!-- Quick Info Card -->
-            <div class="card-base bg-gradient-to-br from-yellow-50 to-orange-50 border border-yellow-200 relative">
-               <!-- Price Tag in Corner -->
-               <div class="absolute -top-3 -right-3 bg-gradient-to-r from-orange-500 to-yellow-500 text-white rounded-full px-4 py-2 shadow-lg">
-                  <div class="text-xs font-medium">From</div>
-                  <div class="text-lg font-bold leading-none">{{ packageDetail.pricing.lowSeason }}</div>
-               </div>
-               <h3 class="heading-3 mb-4">Quick Info</h3>
-               <div class="space-y-3">
-                  <div class="flex items-start">
-                     <svg class="w-5 h-5 text-yellow-600 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                     </svg>
-                     <div>
-                        <div class="text-sm text-gray-600">Duration</div>
-                        <div class="font-semibold text-gray-900">{{ packageDetail.quickInfo.duration }}</div>
-                     </div>
-                  </div>
-                  {% if packageDetail.quickInfo.difficulty %}
-                  <div class="flex items-start">
-                     <svg class="w-5 h-5 text-yellow-600 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                     </svg>
-                     <div>
-                        <div class="text-sm text-gray-600">Difficulty</div>
-                        <div class="font-semibold text-gray-900">{{ packageDetail.quickInfo.difficulty }}</div>
-                     </div>
-                  </div>
-                  {% endif %}
-                  <div class="flex items-start">
-                     <svg class="w-5 h-5 text-yellow-600 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                     </svg>
-                     <div>
-                        <div class="text-sm text-gray-600">Best Time</div>
-                        <div class="font-semibold text-gray-900">{{ packageDetail.quickInfo.bestTime }}</div>
-                     </div>
-                  </div>
-                  <div class="flex items-start">
-                     <svg class="w-5 h-5 text-yellow-600 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M14 6l-4.22 5.63 1.25 1.67L14 9.33 19 16h-8.46l-4.01-5.37L1 18h22L14 6zM5 16l1.52-2.03L8.04 16H5z"></path>
-                     </svg>
-                     <div>
-                        <div class="text-sm text-gray-600">Elevation</div>
-                        <div class="font-semibold text-gray-900">{{ packageDetail.quickInfo.elevation }}</div>
-                     </div>
-                  </div>
-                  <div class="flex items-start">
-                     <svg class="w-5 h-5 text-yellow-600 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                     </svg>
-                     <div>
-                        <div class="text-sm text-gray-600">Accommodation</div>
-                        <div class="font-semibold text-gray-900">{{ packageDetail.quickInfo.accommodation }}</div>
-                     </div>
-                  </div>
-                  <p class="text-sm text-body italic">{{ packageDetail.pricing.note }}</p>
-               </div>
-            </div>
-            <!-- Booking CTA -->
-            <div class="card-base bg-gradient-to-br from-orange-500 to-yellow-500 text-white border-0">
-               <h3 class="text-2xl font-bold mb-4">Ready to Book?</h3>
-               <p class="mb-6 text-orange-50">Start planning your dream journey to Bhutan today!</p>
-               <button
-                  class="w-full bg-white text-orange-600 hover:bg-gray-100 font-semibold py-3 px-6 rounded-full transition-colors duration-200 open-booking-form"
-                  data-package-name="{{ packageDetail.title }}"
-                  data-package-duration="{{ packageDetail.quickInfo.duration }}">
-               Book This Tour
-               </button>
-               <a href="/contact/" class="block text-center mt-3 text-white hover:text-orange-100 transition-colors open-trip-planner">
-               Or Customize Your Own →
-               </a>
-            </div>
-            <!-- ADD CUSTOMIZATION NOTE HERE -->
-            <div class="card-base bg-gradient-to-br from-purple-50 to-pink-50 border-l-4 border-purple-500">
-               <div class="flex items-start gap-3">
-                  <svg class="w-6 h-6 text-purple-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-                  </svg>
-                  <div>
-                     <h4 class="font-bold text-purple-900 mb-1">Fully Customizable</h4>
-                     <p class="text-sm text-gray-700">This itinerary is flexible! We can adjust days, activities, and accommodations to match your preferences.</p>
-                  </div>
-               </div>
-            </div>
-            <!-- Include Booking Form Modal -->
-            {% include "components/bookingForm.njk" %}
-            <!-- Include Customize Form Modal -->
-            {% include "components/customizeForm.njk" %}
-            <!-- Contact Info -->
-            <div class="card-base bg-gray-50 border border-gray-200">
-               <h3 class="heading-4 mb-3 p-4">Quick Contact</h3>
-               <div class="space-y-4 text-sm text-body-dark items-center justify-center">
-                  <div class="flex items-start">
-                     <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                        </svg>
-                     </div>
-                     <div class="ml-3">
-                        <h4 class="text-sm font-semibold text-gray-900">
-                           <a href="https://wa.me/66650082600" class="hover:text-green-600">WhatsApp</a>
-                        </h4>
-                     </div>
-                  </div>
-                  <div class="flex items-start">
-                     <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                        </svg>
-                     </div>
-                     <div class="ml-3">
-                        <h4 class="text-sm font-semibold text-gray-900">
-                           <a href="mailto:info@kotatravelsbhutan.com" class="hover:text-blue-600">Email</a>
-                        </h4>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-</section>
-<!-- Related Packages / CTA -->
-<section class="section-cta">
-   <div class="container-content text-center">
-      <h2 class="heading-2 mb-4 text-white">Explore More Adventures</h2>
-      <p class="text-xl mb-8 text-orange-100">Discover other unique experiences in Bhutan</p>
-      <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
-         <a href="/packages/" class="btn-white-orange">
-         View All Packages
-         </a>
-         <a href="/contact/" class="btn-outline">
-         Customize Your Journey
-         </a>
-      </div>
-   </div>
-</section>
+
+    </div>
+  </section>
+
+
+  {# ============================================================
+     SECTION 3 - CTA
+  ============================================================ #}
+
+  {{ ctaSection({
+    heading: "Don't see what you're Looking for?",
+    primaryBtn: "Customize Your Own",
+    primaryModal: "customize",
+    secondaryBtn: "Contact Us",
+    secondaryHref: "/contact",
+    image: "/images/rice-fields.jpg"
+  }) }}
+
+
+</div>

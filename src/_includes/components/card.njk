@@ -1,7 +1,0 @@
-{# Card component #}
-{%- macro card(title='', variant='default') -%}
-  <div class="card card-{{ variant }}">
-    {% if title %}<h3>{{ title }}</h3>{% endif %}
-    {{ caller() if caller }}
-  </div>
-{%- endmacro -%}

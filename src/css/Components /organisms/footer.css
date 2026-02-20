@@ -1,0 +1,93 @@
+/* =============================================================
+   Footer Organism — footer.css
+   Source of truth: Figma CSS export (footer component)
+
+   Figma specs:
+     Size:    1512×210px
+     Padding: 0 100px
+     Gap:     120px
+     Layout:  row, justify-content: space-between, align-items: flex-start
+
+   Logo:           200×123px
+   Column gap:     20px between each item in a column
+   Section header: Outfit 600 24px/30px, color #000000 — subtitle-2
+   Links:          Outfit 400 20px/25px, color #4B5563 — body-2
+============================================================= */
+
+
+/* ─────────────────────────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────────────────────────── */
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  padding: 0 var(--space-footer-x);     /* 0 100px */
+  gap: var(--space-footer-gap);         /* 120px */
+
+  background: var(--color-surface);     /* #FFFFFF */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   LOGO
+───────────────────────────────────────────────────────────── */
+
+.footer__logo {
+  flex-shrink: 0;
+}
+
+.footer__logo img {
+  width: var(--nav-logo-w);             /* 200px */
+  height: var(--nav-logo-h);            /* 123px */
+  object-fit: contain;
+  display: block;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   COLUMNS
+───────────────────────────────────────────────────────────── */
+
+.footer__col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-card-pad);           /* 20px */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   HEADING — subtitle-2
+───────────────────────────────────────────────────────────── */
+
+.footer__heading {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);    /* 600 — subtitle-2 */
+  font-size: var(--text-md);            /* 24px */
+  line-height: var(--lh-md);            /* 30px */
+  color: var(--color-text-dark);        /* #000000 */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   LINKS — body-2
+───────────────────────────────────────────────────────────── */
+
+.footer__link {
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);     /* 400 — body-2 */
+  font-size: var(--text-sm);            /* 20px */
+  line-height: var(--lh-sm);            /* 25px */
+  color: var(--color-text);             /* #4B5563 */
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.footer__link:hover {
+  opacity: 0.7;
+}

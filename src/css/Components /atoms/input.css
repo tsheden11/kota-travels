@@ -1,43 +1,194 @@
-.input {
-  width: 100%;
-  height: var(--input-height);
+/* =============================================================
+   Input Atom — input.css
+   Source of truth: Figma CSS export (Text Box component)
 
-  padding: 0 var(--space-md);
+   Figma specs:
+     Size:         220×50px, padding: 12px, gap: 4px
+     Border:       1px solid #BABABA (light-grey)
+     Border-radius: 10px
+     Font:         Outfit 400 20px/25px, color #4B5563
+     Placeholder:  color #BABABA
+     Focused:      border removed, focus ring via CSS (inferred)
+     Label:        Outfit 400 20px/25px, color #4B5563
+     Required (*): gradient text (180deg #FF0000 → #FF7900)
+============================================================= */
 
-  font-family: var(--font-primary);
-  font-size: var(--text-sm);
 
-  color: var(--color-text);
-  background: var(--color-surface);
+/* ─────────────────────────────────────────────────────────────
+   FIELD WRAPPER
+───────────────────────────────────────────────────────────── */
 
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-
-  outline: none;
-
-  transition: border-color 0.2s ease,
-              box-shadow 0.2s ease;
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-icon-pad);           /* 10px */
 }
 
 
-/* Placeholder */
+/* ─────────────────────────────────────────────────────────────
+   LABEL ROW
+───────────────────────────────────────────────────────────── */
+
+.input-field__label-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.input-field__label {
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);     /* 400 — body-2 */
+  font-size: var(--text-sm);            /* 20px */
+  line-height: var(--lh-sm);            /* 25px */
+  color: var(--color-text);             /* #4B5563 */
+}
+
+.input-field__required {
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);
+  font-size: var(--text-sm);
+  line-height: var(--lh-sm);
+
+  background: var(--kota-gradient-vertical);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   INPUT WRAPPER
+   Wraps the <input> and optional icon together.
+───────────────────────────────────────────────────────────── */
+
+.input-field__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-icon-gap);           /* 4px */
+
+  height: var(--input-height);          /* 50px */
+  padding: var(--space-input-pad);      /* 12px */
+
+  background: var(--color-surface);     /* #FFFFFF */
+  border: 1px solid var(--color-border); /* #BABABA */
+  border-radius: var(--radius-input);   /* 10px */
+
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-field__wrapper:focus-within {
+  border-color: transparent;
+  box-shadow: 0 0 0 2px var(--color-focus-ring);
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   INPUT ELEMENT
+───────────────────────────────────────────────────────────── */
+
+.input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);     /* 400 — body-2 */
+  font-size: var(--text-sm);            /* 20px */
+  line-height: var(--lh-sm);            /* 25px */
+  color: var(--color-text);             /* #4B5563 */
+}
 
 .input::placeholder {
+  color: var(--color-text-muted);       /* #BABABA */
+}
+
+.input:disabled {
+  cursor: not-allowed;
+}
+
+.input-field__wrapper:has(.input:disabled) {
+  opacity: 0.5;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   ICON
+───────────────────────────────────────────────────────────── */
+
+.input-field__icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: var(--icon-size);              /* 24px */
+  height: var(--icon-size);             /* 24px */
   color: var(--color-text-muted);
 }
 
-
-/* Focus */
-
-.input:focus {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px var(--color-primary-soft);
+.input-field__icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 
-/* Disabled */
+/* ─────────────────────────────────────────────────────────────
+   TEXTAREA VARIANT
+   Same visual style as input wrapper but taller and resizable.
+   Height is set inline via the rows param in the macro.
+───────────────────────────────────────────────────────────── */
 
-.input:disabled {
-  background: var(--color-bg-soft);
+.input--textarea {
+  width: 100%;
+  padding: var(--space-input-pad);      /* 12px */
+
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);     /* 400 */
+  font-size: var(--text-sm);            /* 20px */
+  line-height: var(--lh-sm);            /* 25px */
+  color: var(--color-text);             /* #4B5563 */
+
+  background: var(--color-surface);     /* #FFFFFF */
+  border: 1px solid var(--color-border); /* #BABABA */
+  border-radius: var(--radius-input);   /* 10px */
+
+  outline: none;
+  resize: none;
+
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input--textarea::placeholder {
+  color: var(--color-text-muted);       /* #BABABA */
+}
+
+.input--textarea:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 2px var(--color-focus-ring);
+}
+
+.input--textarea:disabled {
+  opacity: 0.5;
   cursor: not-allowed;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   VALIDATION ERROR STATE
+   Applied via JS when required field is empty on submit
+───────────────────────────────────────────────────────────── */
+
+.input-field--error .input-field__wrapper {
+  border-color: var(--kota-red);
+  box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.15);
+}
+
+.input-field--error .input--textarea {
+  border-color: var(--kota-red);
+  box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.15);
+}
+
+.input-field--error .input-field__label {
+  color: var(--kota-red);
 }

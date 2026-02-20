@@ -1,68 +1,118 @@
+/* =============================================================
+   Horizontal Card Atom — horizontal-card.css
+   Source of truth: Figma CSS export (Horizontal Card component)
+
+   Figma specs:
+     Size:          340×98px, padding: 20px, gap: 20px
+     Background:    #FFFFFF
+     Border:        1px solid #23C9A9 — kota-green (NOT a shadow)
+     Border-radius: 10px
+
+   Icon container:
+     Size:     44×44px, padding: 10px, border-radius: 20px
+     Bg:       #23C9A9 (kota-green)
+     Icon SVG: 24×24px, border: 2px solid #FFFFFF
+
+   Content:
+     Gap:    8px
+     Title:  Outfit 500 20px/25px — subtitle-3
+     Text:   Outfit 400 20px/25px — body-2
+     Color:  #4B5563 for both
+
+   CHANGES FROM PREVIOUS VERSION:
+     - Removed image, tags, button (wrong component)
+     - box-shadow → border: 1px solid #23C9A9
+     - --radius-lg → --radius-input (10px)
+     - Added icon container with kota-green bg
+     - Content gap updated to 8px
+============================================================= */
+
+
+/* ─────────────────────────────────────────────────────────────
+   CARD
+───────────────────────────────────────────────────────────── */
+
 .card-horizontal {
   display: flex;
-  gap: var(--space-lg);
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-card-pad);          /* 20px */
 
-  background: var(--color-surface);
+  padding: var(--space-card-pad);      /* 20px */
 
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-
-  overflow: hidden;
+  background: var(--color-surface);    /* #FFFFFF */
+  border: 1px solid var(--color-border-green); /* #23C9A9 */
+  border-radius: var(--radius-input);  /* 10px */
 }
 
 
-/* Image */
+/* ─────────────────────────────────────────────────────────────
+   ICON CONTAINER
+   44×44px green circle — holds the SVG icon inside.
+   The white border on the SVG itself is set via the icon's
+   own stroke, not on this container.
+───────────────────────────────────────────────────────────── */
 
-.card-horizontal__image {
-  width: 280px;
-  flex-shrink: 0;
-}
-
-.card-horizontal__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-/* Content */
-
-.card-horizontal__content {
-  padding: var(--space-lg);
+.card-horizontal__icon-container {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  align-items: flex-start;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: var(--icon-container);        /* 44px */
+  height: var(--icon-container);       /* 44px */
+  padding: var(--space-icon-pad);      /* 10px */
+
+  background: var(--color-border-green); /* #23C9A9 */
+  border-radius: var(--radius-card);   /* 20px */
+}
+
+.card-horizontal__icon-container svg {
+  width: var(--icon-size);             /* 24px */
+  height: var(--icon-size);            /* 24px */
 }
 
 
-/* Title */
+/* ─────────────────────────────────────────────────────────────
+   CONTENT
+───────────────────────────────────────────────────────────── */
+
+.card-horizontal__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-tag-gap);           /* 8px */
+
+  flex: 1;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   TITLE
+   subtitle-3 style: Outfit 500 20px/25px
+───────────────────────────────────────────────────────────── */
 
 .card-horizontal__title {
-  font-size: var(--text-lg);
-  font-weight: var(--font-semibold);
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-medium);     /* 500 — subtitle-3 */
+  font-size: var(--text-sm);           /* 20px */
+  line-height: var(--lh-sm);           /* 25px */
+  color: var(--color-text);            /* #4B5563 */
 }
 
 
-/* Description */
+/* ─────────────────────────────────────────────────────────────
+   TEXT
+   body-2 style: Outfit 400 20px/25px
+───────────────────────────────────────────────────────────── */
 
-.card-horizontal__description {
-  color: var(--color-text-muted);
-  font-size: var(--text-sm);
+.card-horizontal__text {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);    /* 400 — body-2 */
+  font-size: var(--text-sm);           /* 20px */
+  line-height: var(--lh-sm);           /* 25px */
+  color: var(--color-text);            /* #4B5563 */
 }
-
-
-/* Tags */
-
-.card-horizontal__tags {
-  display: flex;
-  gap: var(--space-xs);
-  flex-wrap: wrap;
-}
-
-
-/* Button */
-
-.card-horizontal__action {
-  margin-top: auto;
-}
-

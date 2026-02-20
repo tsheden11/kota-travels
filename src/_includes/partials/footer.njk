@@ -1,52 +1,46 @@
-<footer class="bg-gray-800 text-white py-12">
-  <div class="container mx-auto px-6">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      
-      <!-- Company Info -->
-      <div class="space-y-4">
-        <h3 class="text-xl font-bold text-yellow-400">Kota Travels</h3>
-        <p class="text-gray-300">
-          A family-run Bhutanese travel agency sharing authentic journeys rooted in culture, sustainability, and adventure.
-        </p>
-        <div class="text-sm text-gray-400">
-          Founded 2024 • In loving memory of our father
-        </div>
-      </div>
-      
-      <!-- Quick Links -->
-      <div class="space-y-4">
-        <h4 class="text-lg font-semibold text-white">Quick Links</h4>
-        <ul class="space-y-2 text-gray-300">
-          <li><a href="/" class="hover:text-yellow-400 transition-colors">Home</a></li>
-          <li><a href="/about/" class="hover:text-yellow-400 transition-colors">About Us</a></li>
-          <li><a href="/packages/" class="hover:text-yellow-400 transition-colors">Tour Packages</a></li>
-          <li><a href="/contact/" class="hover:text-yellow-400 transition-colors">Contact</a></li>
-        </ul>
-      </div>
-      
-      <!-- Contact Info -->
-      <div class="space-y-4">
-        <h4 class="text-lg font-semibold text-white">Get in Touch</h4>
-        <div class="space-y-2 text-gray-300">
-          <div class="flex items-center">
-            <span class="text-yellow-400 mr-2">📧</span>
-            <span>kotatravels@yahoo.com</span>
-          </div>
-          <div class="flex items-center">
-            <span class="text-yellow-400 mr-2">📱</span>
-            <span> +66 65 008 2600 | +975 17982521 </span>
-          </div>
-          <div class="flex items-center">
-            <span class="text-yellow-400 mr-2">📍</span>
-            <span>Thimphu, Bhutan</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Bottom Bar -->
-    <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
-      <p>&copy; {{ "" | date("yyyy") }} {{ site.name }}. All rights reserved. | Sustainable Tourism • Cultural Appreciation • Family Values • Adventure </p>
-    </div>
+{# =============================================================
+   Footer Organism - footer.njk
+
+   Figma specs (footer component):
+     Size:     1512210px, padding: 0 100px, gap: 120px
+     Layout:   row, justify-content: space-between, align-items: flex-start
+
+   Logo:       200123px - order 0
+   Quick Links: column, gap: 20px - Home, Our Tours, Our Story, Contact Us
+   Our Tours:   column, gap: 20px - Cultural, Wellness, Cycling, Trekking
+   Get In Touch: column, gap: 20px - Email, WhatsApp, Instagram
+
+   Section headers: Outfit 600 24px/30px, color #000000 - subtitle-2
+   Links:           Outfit 400 20px/25px, color #4B5563 - body-2
+============================================================= #}
+
+<footer class="footer">
+
+  <a class="footer__logo" href="/" aria-label="Kota Travels home">
+    <img src="/assets/images/logo.png" alt="Kota Travels" />
+  </a>
+
+  <div class="footer__col">
+    <h4 class="footer__heading">Quick Links</h4>
+    <a class="footer__link" href="/">Home</a>
+    <a class="footer__link" href="/tours">Our Tours</a>
+    <a class="footer__link" href="/our-story">Our Story</a>
+    <a class="footer__link" href="/contact">Contact Us</a>
   </div>
+
+  <div class="footer__col">
+    <h4 class="footer__heading">Our Tours</h4>
+    <a class="footer__link" href="/tours/cultural">Cultural</a>
+    <a class="footer__link" href="/tours/wellness">Wellness</a>
+    <a class="footer__link" href="/tours/cycling">Cycling</a>
+    <a class="footer__link" href="/tours/trekking">Trekking</a>
+  </div>
+
+  <div class="footer__col">
+    <h4 class="footer__heading">Get In Touch</h4>
+    <a class="footer__link" href="mailto:hello@kotatravels.com">Email</a>
+    <a class="footer__link" href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="footer__link" href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+
 </footer>

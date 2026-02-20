@@ -1,0 +1,225 @@
+/* =============================================================
+   Book This Tour Modal — book-modal.css
+   Source of truth: Figma CSS + design screenshot
+
+   Figma specs:
+     Form card:   795px wide, padding: 60px, gap: 30px
+                  bg: #FFFFFF, border-radius: 30px
+     Title:       Outfit 600 40px/50px, #23C9A9 — heading-2
+     Tour banner: 675×88px, bg #FFF6ED, radius: 10px, padding: 20px
+                  Icon circle: 44×44px, gradient bg, radius: 20px
+                  Tour name: subtitle-2 600 24px, gradient text
+                  Duration:  body-2 400 20px, gradient text
+============================================================= */
+
+
+/* ─────────────────────────────────────────────────────────────
+   OVERLAY
+───────────────────────────────────────────────────────────── */
+
+.book-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-nav-x);          /* 60px breathing room */
+}
+
+.book-modal--open {
+  display: flex;
+}
+
+.book-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   CONTAINER
+───────────────────────────────────────────────────────────── */
+
+.book-modal__container {
+  position: relative;
+  z-index: 1;
+  max-height: 90vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.book-modal__container::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   CLOSE BUTTON
+───────────────────────────────────────────────────────────── */
+
+.book-modal__close {
+  position: absolute;
+  top: var(--space-card-pad);           /* 20px */
+  right: var(--space-card-pad);         /* 20px */
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--color-text-muted);
+
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.book-modal__close:hover {
+  color: var(--color-text);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   FORM CARD
+───────────────────────────────────────────────────────────── */
+
+.book-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-section-gap);        /* 30px */
+
+  width: 795px;
+  padding: 60px;
+
+  background: var(--color-surface);     /* #FFFFFF */
+  border-radius: 30px;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   HEADING
+───────────────────────────────────────────────────────────── */
+
+.book-form__heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-icon-pad);           /* 10px */
+}
+
+/* heading-2 — Outfit 600 40px/50px, kota-green */
+.book-form__title {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);    /* 600 */
+  font-size: 40px;
+  line-height: 50px;
+  color: var(--color-text-green);       /* #23C9A9 */
+}
+
+.book-form__subtitle {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);     /* 400 */
+  font-size: var(--text-sm);            /* 20px */
+  line-height: var(--lh-sm);            /* 25px */
+  color: var(--color-text);             /* #4B5563 */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   TOUR INFO BANNER
+   Figma: bg #FFF6ED, radius 10px, padding 20px, gap 20px
+   Row: icon circle + text column
+───────────────────────────────────────────────────────────── */
+
+.book-form__banner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-card-pad);           /* 20px */
+
+  width: 100%;
+  padding: var(--space-card-pad);       /* 20px */
+
+  background: #FFF6ED;
+  border-radius: var(--radius-input);   /* 10px */
+}
+
+/* Gradient circle icon — 44×44px */
+.book-form__banner-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 20px;
+
+  background: var(--kota-gradient-vertical);
+}
+
+.book-form__banner-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Text column */
+.book-form__banner-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-icon-gap);           /* 4px — tight stack */
+  flex: 1;
+}
+
+/* Tour name — subtitle-2, gradient */
+.book-form__banner-title {
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);    /* 600 — subtitle-2 */
+  font-size: var(--text-md);            /* 24px */
+  line-height: var(--lh-md);            /* 30px */
+
+  background: var(--kota-gradient-vertical);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Duration — body-2, gradient */
+.book-form__banner-duration {
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);     /* 400 — body-2 */
+  font-size: var(--text-sm);            /* 20px */
+  line-height: var(--lh-sm);            /* 25px */
+
+  background: var(--kota-gradient-vertical);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   TWO-COLUMN ROW
+───────────────────────────────────────────────────────────── */
+
+.book-form__row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--space-section-pad);        /* 40px */
+  width: 100%;
+}
+
+.book-form__row .input-field {
+  flex: 1;
+}

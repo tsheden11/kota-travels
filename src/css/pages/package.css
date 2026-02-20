@@ -1,0 +1,96 @@
+/* =============================================================
+   Packages Page — packages.css
+   Source of truth: Figma CSS export (Our Tours page)
+
+   Figma specs:
+     Page:     column, padding: 60px 0, gap: 40px
+     Heading:  column, center, padding: 0 60px, gap: 20px
+     Cards:    row, space-between, padding: 0 60px
+============================================================= */
+
+
+/* ─────────────────────────────────────────────────────────────
+   PAGE WRAPPER
+───────────────────────────────────────────────────────────── */
+
+.page-packages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-section-pad);        /* 40px */
+  padding: var(--space-nav-x) 0;        /* 60px top and bottom */
+  background: var(--color-surface);     /* #FFFFFF */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   SECTION 1 — PAGE HEADING
+───────────────────────────────────────────────────────────── */
+
+.packages-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0 var(--space-nav-x);        /* 0 60px */
+}
+
+.packages-heading__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-card-pad);           /* 20px */
+  width: 100%;
+  max-width: 1392px;
+}
+
+/* heading-1 — Outfit 600 50px/63px */
+.packages-heading__title {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);    /* 600 */
+  font-size: var(--text-xl);            /* 50px */
+  line-height: var(--lh-xl);            /* 63px */
+  text-align: center;
+}
+
+.packages-heading__title--black {
+  color: var(--color-text-dark);        /* #000000 */
+}
+
+.packages-heading__title--green {
+  color: var(--color-text-green);       /* #23C9A9 */
+}
+
+/* body-2 — Outfit 400 20px/25px */
+.packages-heading__body {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);     /* 400 */
+  font-size: var(--text-sm);            /* 20px */
+  line-height: var(--lh-sm);            /* 25px */
+  color: var(--color-text);             /* #4B5563 */
+  text-align: center;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   SECTION 2 — PACKAGE CARDS GRID
+───────────────────────────────────────────────────────────── */
+
+.packages-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0 var(--space-nav-x);        /* 0 60px */
+}
+
+.packages-grid__inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1392px;
+}

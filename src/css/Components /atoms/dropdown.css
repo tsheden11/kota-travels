@@ -1,34 +1,149 @@
-.dropdown {
-  width: 100%;
-  height: var(--input-height);
+/* =============================================================
+   Dropdown Atom — dropdown.css
+   Source of truth: Figma CSS export (Dropdown component)
 
-  padding: 0 var(--space-md);
+   Figma specs:
+     Size:          220×50px, padding: 12px, gap: 4px
+     Border:        1px solid #BABABA
+     Border-radius: 10px
+     Font:          Outfit 400 20px/25px
+     Placeholder:   color #BABABA
+     Selected text: color #4B5563
+     Chevron:       custom SVG right-aligned, flips 180deg when focused/open
+     Focused:       border removed, chevron rotates
+============================================================= */
 
+
+/* ─────────────────────────────────────────────────────────────
+   FIELD WRAPPER
+   Same label-row pattern as input — consistent across all
+   form atoms.
+───────────────────────────────────────────────────────────── */
+
+.dropdown-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-icon-pad);          /* 10px */
+}
+
+.dropdown-field__label-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.dropdown-field__label {
   font-family: var(--font-primary);
+  font-weight: var(--font-regular);    /* 400 */
+  font-size: var(--text-sm);           /* 20px */
+  line-height: var(--lh-sm);           /* 25px */
+  color: var(--color-text);            /* #4B5563 */
+}
+
+.dropdown-field__required {
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);
   font-size: var(--text-sm);
+  line-height: var(--lh-sm);
 
-  color: var(--color-text);
-  background: var(--color-surface);
-
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-
-  outline: none;
-
-  cursor: pointer;
-
-  appearance: none;
-
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%236B7280' stroke-width='2'/%3E%3C/svg%3E");
-
-  background-repeat: no-repeat;
-  background-position: right var(--space-md) center;
+  background: var(--kota-gradient-vertical);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 
-/* Focus */
+/* ─────────────────────────────────────────────────────────────
+   WRAPPER
+   Houses the <select> and the custom chevron SVG.
+   The chevron is a background-image on the wrapper so it
+   sits visually inside the box without blocking the select.
+───────────────────────────────────────────────────────────── */
 
+.dropdown-field__wrapper {
+  position: relative;
+  height: var(--input-height);         /* 50px */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   SELECT ELEMENT
+   appearance:none removes native OS styling.
+   padding-right: 40px reserves space for the chevron.
+───────────────────────────────────────────────────────────── */
+
+.dropdown {
+  width: 100%;
+  height: 100%;
+
+  padding: var(--space-input-pad);     /* 12px all sides */
+  padding-right: 40px;                 /* reserve room for chevron */
+
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);    /* 400 — body-2 */
+  font-size: var(--text-sm);           /* 20px */
+  line-height: var(--lh-sm);           /* 25px */
+  color: var(--color-text);            /* #4B5563 */
+
+  background: var(--color-surface);    /* #FFFFFF */
+  border: 1px solid var(--color-border); /* #BABABA */
+  border-radius: var(--radius-input);  /* 10px */
+
+  outline: none;
+  cursor: pointer;
+
+  /* Remove native dropdown arrow */
+  appearance: none;
+  -webkit-appearance: none;
+
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Placeholder state — when no option is selected */
+.dropdown:invalid,
+.dropdown option[value=""] {
+  color: var(--color-text-muted);      /* #BABABA */
+}
+
+/* Focused state — Figma shows border removed */
 .dropdown:focus {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px var(--color-primary-soft);
+  border-color: transparent;
+  box-shadow: 0 0 0 2px var(--color-focus-ring); /* rgba(128,221,214,0.4) */
+}
+
+.dropdown:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   CHEVRON
+   Custom SVG arrow via pseudo-element, right-aligned.
+   Figma: chevron points down by default, rotates 180deg when
+   focused (open state).
+   Using a pseudo on the wrapper since <select> can't have ::after.
+───────────────────────────────────────────────────────────── */
+
+.dropdown-field__wrapper::after {
+  content: "";
+  position: absolute;
+  right: var(--space-input-pad);       /* 12px from right edge */
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+
+  width: var(--icon-size);             /* 24px */
+  height: var(--icon-size);            /* 24px */
+
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%236B7280' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+
+  transition: transform 0.2s ease;
+}
+
+/* Chevron flips when select is focused (open) — matches Figma rotate(-180deg) */
+.dropdown-field__wrapper:focus-within::after {
+  transform: translateY(-50%) rotate(180deg);
 }

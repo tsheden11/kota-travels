@@ -1,6 +1,35 @@
-{# Tag component #}
-{% macro tag(text, variant="default") %}
-  <span class="tag tag--{{ variant }}">
-    {{ text }}
-  </span>
-{% endmacro %}
+{# =============================================================
+   Tag Atom - tag.njk
+
+   Parameters:
+     text    {string} - tag label (required)
+     icon    {string} - inline SVG string, shown on left (optional)
+
+   Figma: ONE tag style only.
+     Background:    rgba(255, 121, 0, 0.05) - light orange tint
+     Text:          gradient (180deg #FF0000  #FF7900) via background-clip
+     Size:          22445px
+     Padding:       10px 12px
+     Border-radius: 30px (pill)
+     Gap:           8px
+     Font:          Outfit 400 20px/25px
+============================================================= #}
+
+{%- macro tag({
+  text = "",
+  icon = ""
+}) -%}
+
+<span class="tag">
+
+  {% if icon %}
+    <span class="tag__icon" aria-hidden="true">
+      {{ icon | safe }}
+    </span>
+  {% endif %}
+
+  <span class="tag__text">{{ text }}</span>
+
+</span>
+
+{%- endmacro -%}

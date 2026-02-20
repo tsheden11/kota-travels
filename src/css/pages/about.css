@@ -1,0 +1,190 @@
+/* =============================================================
+   About / Our Story Page — about.css
+   Source of truth: Figma CSS export + design screenshots
+============================================================= */
+
+
+/* ─────────────────────────────────────────────────────────────
+   PAGE WRAPPER
+───────────────────────────────────────────────────────────── */
+
+.page-about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-section-pad);        /* 40px */
+  padding: var(--space-nav-x) 0;        /* 60px top and bottom */
+  background: var(--color-surface);
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   SECTION 1 — STORY
+───────────────────────────────────────────────────────────── */
+
+.about-story {
+  width: 100%;
+  padding: 0 var(--space-nav-x);        /* 0 60px */
+}
+
+.about-story__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-section-pad);        /* 40px */
+  max-width: 1392px;
+  margin: 0 auto;
+}
+
+/* heading-display — Outfit 600 60px/76px, kota-green */
+.about-story__title {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);    /* 600 */
+  font-size: var(--text-display);       /* 60px */
+  line-height: var(--lh-display);       /* 76px */
+  color: var(--color-text-green);       /* #23C9A9 */
+}
+
+/* Two column row */
+.about-story__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--space-section-pad);        /* 40px */
+  width: 100%;
+}
+
+/* Image — 558×585px, radius 20px */
+.about-story__image-wrapper {
+  width: 558px;
+  height: 585px;
+  flex-shrink: 0;
+  border-radius: var(--radius-card);    /* 20px */
+  overflow: hidden;
+}
+
+.about-story__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Text column */
+.about-story__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-card-pad);           /* 20px */
+}
+
+/* heading-3 — Outfit 600 36px/45px */
+.about-story__heading {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);    /* 600 */
+  font-size: var(--text-heading);       /* 36px */
+  line-height: var(--lh-heading);       /* 45px */
+  color: var(--color-text);             /* #4B5563 */
+}
+
+/* Inline green words inside heading */
+.about-story__heading--green {
+  color: var(--color-text-green);       /* #23C9A9 */
+}
+
+/* Body paragraphs group */
+.about-story__body-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-card-pad);           /* 20px between paragraphs */
+}
+
+/* body-2 — Outfit 400 20px/25px */
+.about-story__body {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);     /* 400 */
+  font-size: var(--text-sm);            /* 20px */
+  line-height: var(--lh-sm);            /* 25px */
+  color: var(--color-text);             /* #4B5563 */
+}
+
+/* Green highlighted body line */
+.about-story__body--green {
+  color: var(--color-text-green);       /* #23C9A9 */
+  font-weight: var(--font-semibold);    /* 600 — stands out */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   SECTION 2 — QUOTE + THREE IMAGES
+───────────────────────────────────────────────────────────── */
+
+.about-quote {
+  width: 100%;
+  padding: 0 var(--space-nav-x);        /* 0 60px */
+}
+
+.about-quote__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-section-pad);        /* 40px */
+  max-width: 1392px;
+  margin: 0 auto;
+}
+
+/* Text group — alternating green + body paragraphs */
+.about-quote__text-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-card-pad);           /* 20px */
+  width: 100%;
+}
+
+/* Green highlighted quote lines — Outfit 600 24px/30px */
+.about-quote__text {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);    /* 600 */
+  font-size: var(--text-md);            /* 24px */
+  line-height: var(--lh-md);            /* 30px */
+  color: var(--color-text-green);       /* #23C9A9 */
+}
+
+/* Regular body paragraph between green lines */
+.about-quote__body {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);     /* 400 — body-2 */
+  font-size: var(--text-sm);            /* 20px */
+  line-height: var(--lh-sm);            /* 25px */
+  color: var(--color-text);             /* #4B5563 */
+}
+
+/* Three images row — 460px tall */
+.about-quote__images {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-icon-pad);           /* 10px */
+  width: 100%;
+  height: 460px;
+}
+
+.about-quote__img {
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--radius-input);   /* 10px */
+}
+
+/* Figma exact widths */
+.about-quote__img--sm { width: 282px; flex-shrink: 0; }
+.about-quote__img--lg { width: 613px; flex-shrink: 0; }
+.about-quote__img--md { width: 441px; flex-shrink: 0; }

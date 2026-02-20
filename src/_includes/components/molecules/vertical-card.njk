@@ -1,0 +1,40 @@
+{# =============================================================
+   Vertical Card Molecule - vertical-card.njk
+
+   Parameters:
+     title       {string} - card title (required)
+     description {string} - body text (required)
+     icon        {string} - inline SVG string (optional)
+     accentColor {string} - "blue" | "green" (default: "blue")
+                            controls border color AND icon container bg
+
+   Figma specs (home page "Bhutan done differently" section):
+     Cards alternate between blue and green accent:
+     accentColor "green"  border #23C9A9, icon bg #23C9A9
+     accentColor "blue"   border #80DDD6, icon bg #80DDD6
+     Mixed combos also appear (green border + blue icon bg)
+      pass iconColor separately if needed in future
+============================================================= #}
+
+{%- macro verticalCard({
+  title = "",
+  description = "",
+  icon = "",
+  accentColor = "blue"
+}) -%}
+
+<div class="card-vertical card-vertical--{{ accentColor }}">
+
+  {% if icon %}
+    <div class="card-vertical__icon-container" aria-hidden="true">
+      {{ icon | safe }}
+    </div>
+  {% endif %}
+
+  <h3 class="card-vertical__title">{{ title }}</h3>
+
+  <p class="card-vertical__description">{{ description }}</p>
+
+</div>
+
+{%- endmacro -%}

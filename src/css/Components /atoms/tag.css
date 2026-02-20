@@ -1,42 +1,71 @@
+/* =============================================================
+   Tag Atom — tag.css
+   Source of truth: Figma CSS export (Tag component)
+
+   Figma specs:
+     Size:          224×45px, padding: 10px 12px, gap: 8px
+     Background:    rgba(255, 121, 0, 0.05) — "light-orange"
+     Border-radius: 30px (pill — same as buttons)
+     Font:          Outfit 400 20px/25px — body-2
+     Text color:    gradient (180deg #FF0000 → #FF7900) via background-clip
+     Icon:          24×24px SVG on the left
+
+   NOTE: Previous tag.css had 5 variants (default, primary, success,
+   danger, warning) — none of these exist in Figma. Removed.
+   There is ONE tag style in the design system.
+============================================================= */
+
+
+/* ─────────────────────────────────────────────────────────────
+   TAG
+───────────────────────────────────────────────────────────── */
+
 .tag {
   display: inline-flex;
+  flex-direction: row;
   align-items: center;
-  padding: 0 var(--space-sm);
-  height: 24px;
+  gap: var(--space-tag-gap);           /* 8px */
 
-  font-family: var(--font-primary);
-  font-size: var(--text-xs);
-  font-weight: var(--font-medium);
+  padding: var(--space-icon-pad) var(--space-input-pad); /* 10px 12px */
 
-  border-radius: var(--radius-pill);
+  background: var(--color-accent-bg);  /* rgba(255, 121, 0, 0.05) */
+  border-radius: var(--radius-pill);   /* 30px */
 
   white-space: nowrap;
 }
 
 
-/* Variants */
+/* ─────────────────────────────────────────────────────────────
+   TEXT
+   Gradient text — same technique as btn--secondary and btn--tertiary.
+───────────────────────────────────────────────────────────── */
 
-.tag--default {
-  background: var(--color-bg-soft);
-  color: var(--color-text);
+.tag__text {
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);    /* 400 — body-2 */
+  font-size: var(--text-sm);           /* 20px */
+  line-height: var(--lh-sm);           /* 25px */
+
+  background: var(--kota-gradient-vertical); /* linear-gradient(180deg, #FF0000, #FF7900) */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.tag--primary {
-  background: var(--color-primary-soft);
-  color: var(--color-primary);
+
+/* ─────────────────────────────────────────────────────────────
+   ICON (optional, left-aligned)
+───────────────────────────────────────────────────────────── */
+
+.tag__icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: var(--icon-size);             /* 24px */
+  height: var(--icon-size);            /* 24px */
 }
 
-.tag--success {
-  background: var(--color-success);
-  color: var(--color-text);
-}
-
-.tag--danger {
-  background: var(--color-danger-soft);
-  color: var(--color-danger);
-}
-
-.tag--warning {
-  background: var(--color-warning);
-  color: var(--color-text-light);
+.tag__icon svg {
+  width: 100%;
+  height: 100%;
 }

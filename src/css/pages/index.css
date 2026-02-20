@@ -1,0 +1,335 @@
+/* =============================================================
+   Home Page — home.css
+   Page-level section styles only.
+   Component styles live in their own CSS files.
+   Source of truth: Figma home page CSS export.
+============================================================= */
+
+
+/* ─────────────────────────────────────────────────────────────
+   SHARED — section heading pattern
+   Used across multiple sections on the home page.
+   Figma heading-1: Outfit 600 50px/63px
+   Two-line headings with alternating black / kota-green words.
+───────────────────────────────────────────────────────────── */
+
+.section-heading {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);    /* 600 */
+  font-size: var(--text-xl);            /* 50px */
+  line-height: var(--lh-xl);            /* 63px */
+}
+
+.section-heading__black {
+  color: var(--color-text-dark);        /* #000000 */
+}
+
+.section-heading__green {
+  color: var(--color-border-green);     /* #23C9A9 */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   SECTION 1 — HERO TEXT
+   Figma: Frame 7 — column, center, padding: 0 60px, gap: 40px
+   Inner: Frame 66 — column, center, gap: 20px (heading group)
+───────────────────────────────────────────────────────────── */
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 var(--space-nav-x);        /* 0 60px */
+  gap: var(--space-section-pad);        /* 40px */
+}
+
+.hero-text__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-section-pad);        /* 40px */
+  width: 100%;
+  max-width: 1392px;
+}
+
+.hero-text__heading-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-card-pad);           /* 20px */
+  width: 100%;
+}
+
+/* heading-display — Outfit 600 60px/76px */
+.hero-text__title {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);    /* 600 */
+  font-size: var(--text-display);       /* 60px */
+  line-height: var(--lh-display);       /* 76px */
+  text-align: center;
+}
+
+.hero-text__title--black {
+  color: var(--color-text-dark);        /* #000000 */
+}
+
+.hero-text__title--green {
+  color: var(--color-border-green);     /* #23C9A9 */
+}
+
+/* heading-3 — Outfit 600 36px/45px */
+.hero-text__subtitle {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);    /* 600 */
+  font-size: var(--text-heading);       /* 36px */
+  line-height: var(--lh-heading);       /* 45px */
+  color: var(--color-text-dark);        /* #000000 */
+  text-align: center;
+}
+
+/* body-2 — Outfit 400 20px/25px */
+.hero-text__body {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);     /* 400 */
+  font-size: var(--text-sm);            /* 20px */
+  line-height: var(--lh-sm);            /* 25px */
+  color: var(--color-text);             /* #4B5563 */
+  text-align: center;
+  max-width: 1392px;
+}
+
+/* Button row — Figma: Frame 6, gap: 20px */
+.hero-text__actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-card-pad);           /* 20px */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   SECTION 2 — HERO IMAGE
+   Figma: hero 1 — 1512×544px, full width
+───────────────────────────────────────────────────────────── */
+
+.hero-image {
+  width: 100%;
+  height: 544px;
+  overflow: hidden;
+}
+
+.hero-image__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   SECTION 3 — TOURS SECTION
+   Figma: Frame 28 — column, center, padding: 0 60px, gap: 40px
+───────────────────────────────────────────────────────────── */
+
+.tours-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 var(--space-nav-x);        /* 0 60px */
+  gap: var(--space-section-pad);        /* 40px */
+}
+
+.tours-section__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-section-pad);        /* 40px */
+  width: 100%;
+  max-width: 1392px;
+}
+
+.tours-section__heading-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.tours-section__body {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);     /* 400 — body-2 */
+  font-size: var(--text-sm);            /* 20px */
+  line-height: var(--lh-sm);            /* 25px */
+  color: var(--color-text);             /* #4B5563 */
+  width: 100%;
+}
+
+/* 4 tour images — Figma: Frame 32, space-between, padding: 0 60px */
+.tour-images {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0 var(--space-nav-x);        /* 0 60px */
+}
+
+.tour-images__item {
+  width: 320px;
+  height: 440px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: var(--radius-card);    /* 20px */
+}
+
+.tour-images__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--radius-card);    /* 20px */
+}
+
+/* 4 section cards — Figma: Frame 21, space-between, gap: 60px */
+.tour-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-nav-x);              /* 60px */
+  width: 100%;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   SECTION 4 — WHY US
+   Figma: Frame 92 — column, padding: 0 60px, gap: 60px
+───────────────────────────────────────────────────────────── */
+
+.why-us {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 var(--space-nav-x);        /* 0 60px */
+  gap: var(--space-nav-x);             /* 60px */
+}
+
+.why-us__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-nav-x);             /* 60px */
+  width: 100%;
+  max-width: 1392px;
+}
+
+.why-us__heading-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* 4 vertical cards — Figma: Frame 18, space-between, gap: 70px */
+.why-us__cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 70px;
+  width: 100%;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   SECTION 5 — CTA
+   Figma: Frame 34 — 1512×440px
+   Background image + black gradient overlay
+   Content centered absolutely over the image
+───────────────────────────────────────────────────────────── */
+
+.cta-section {
+  position: relative;
+  width: 100%;
+  height: 440px;
+  overflow: hidden;
+}
+
+/* Background image */
+.cta-section__bg {
+  position: absolute;
+  inset: 0;
+}
+
+.cta-section__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Gradient overlay — Figma: 180deg rgba(0,0,0,0) → #000000 */
+.cta-section__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+}
+
+/* Content sits above image + overlay */
+.cta-section__content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-section-pad);        /* 40px */
+  padding: 0 var(--space-nav-x);        /* 0 60px */
+}
+
+/* heading-1 — Outfit 600 50px/63px, white text */
+.cta-section__heading {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);    /* 600 */
+  font-size: var(--text-xl);            /* 50px */
+  line-height: var(--lh-xl);            /* 63px */
+  color: var(--color-text-dark);        /* Figma shows black — sits above dark overlay */
+  text-align: center;
+}
+
+.cta-section__actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-card-pad);           /* 20px */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   PAGE WRAPPER
+   Figma: outer page column, gap: 60px between all sections,
+   padding: 60px 0
+───────────────────────────────────────────────────────────── */
+
+.page-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-nav-x);             /* 60px between sections */
+  padding: var(--space-nav-x) 0;       /* 60px top and bottom */
+  background: var(--color-surface);    /* #FFFFFF */
+}
+
+.tours-section__heading-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}

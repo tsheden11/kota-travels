@@ -1,0 +1,339 @@
+/* =============================================================
+   Customize Your Own Modal — customize-modal.css
+   Source of truth: Figma CSS + design screenshots
+
+   Figma specs:
+     Form card:   795px wide, padding: 60px, gap: 30px
+                  bg: #FFFFFF, border-radius: 30px
+     Title:       Outfit 600 40px/50px, #23C9A9 — heading-2
+     Subtitle:    Outfit 400 20px/25px, #4B5563 — body-2
+     Checkbox:    317.5px × 50px, border-radius: 10px
+       Default:   bg #FFFFFF, border 1px #BABABA
+       Selected:  bg rgba(255,121,0,0.05), gradient text + border
+============================================================= */
+
+
+/* ─────────────────────────────────────────────────────────────
+   OVERLAY
+───────────────────────────────────────────────────────────── */
+
+.customize-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-nav-x);          /* 60px breathing room */
+}
+
+.customize-modal--open {
+  display: flex;
+}
+
+/* Semi-transparent backdrop */
+.customize-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   CONTAINER — scrollable, centers the card
+───────────────────────────────────────────────────────────── */
+
+.customize-modal__container {
+  position: relative;
+  z-index: 1;
+  max-height: 90vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  /* Hide scrollbar visually but keep functionality */
+  scrollbar-width: none;
+}
+
+.customize-modal__container::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   CLOSE BUTTON
+───────────────────────────────────────────────────────────── */
+
+.customize-modal__close {
+  position: absolute;
+  top: var(--space-card-pad);           /* 20px */
+  right: var(--space-card-pad);         /* 20px */
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--color-text-muted);       /* #BABABA */
+
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.customize-modal__close:hover {
+  color: var(--color-text);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   FORM CARD
+───────────────────────────────────────────────────────────── */
+
+.customize-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-section-gap);        /* 30px */
+
+  width: 795px;
+  padding: 60px;
+
+  background: var(--color-surface);     /* #FFFFFF */
+  border-radius: 30px;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   HEADING
+───────────────────────────────────────────────────────────── */
+
+.customize-form__heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-icon-pad);           /* 10px */
+}
+
+/* heading-2 — Outfit 600 40px/50px, kota-green */
+.customize-form__title {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);    /* 600 */
+  font-size: 40px;
+  line-height: 50px;
+  color: var(--color-text-green);       /* #23C9A9 */
+}
+
+/* body-2 */
+.customize-form__subtitle {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);     /* 400 */
+  font-size: var(--text-sm);            /* 20px */
+  line-height: var(--lh-sm);            /* 25px */
+  color: var(--color-text);             /* #4B5563 */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   TWO-COLUMN ROW
+───────────────────────────────────────────────────────────── */
+
+.customize-form__row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--space-section-pad);        /* 40px */
+  width: 100%;
+}
+
+/* Each input in a row stretches equally */
+.customize-form__row .input-field {
+  flex: 1;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   TRAVEL DATES GROUP
+   Label sits above the two date inputs
+───────────────────────────────────────────────────────────── */
+
+.customize-form__dates {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-icon-pad);           /* 10px */
+  width: 100%;
+}
+
+.customize-form__dates-label-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.customize-form__dates-label {
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);     /* 400 — body-2 */
+  font-size: var(--text-sm);            /* 20px */
+  line-height: var(--lh-sm);            /* 25px */
+  color: var(--color-text);             /* #4B5563 */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   SHARED LABEL + REQUIRED ASTERISK
+───────────────────────────────────────────────────────────── */
+
+.customize-form__label-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.customize-form__label {
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);     /* 400 */
+  font-size: var(--text-sm);            /* 20px */
+  line-height: var(--lh-sm);            /* 25px */
+  color: var(--color-text);             /* #4B5563 */
+}
+
+/* Gradient asterisk — matches input atom */
+.customize-form__required {
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);
+  font-size: var(--text-sm);
+  line-height: var(--lh-sm);
+
+  background: var(--kota-gradient-vertical);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   EXPERIENCES SECTION
+───────────────────────────────────────────────────────────── */
+
+.customize-form__experiences {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-icon-pad);           /* 10px */
+  width: 100%;
+}
+
+/* 2×2 checkbox grid */
+.customize-form__checkbox-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-card-pad);           /* 20px */
+  width: 100%;
+}
+
+/* Error state — red outline around grid */
+.customize-form__checkbox-grid--error .customize-form__checkbox-item {
+  border-color: var(--kota-red);
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   CHECKBOX ITEM
+   Figma: 317.5×50px, row, padding: 12px, gap: 8px
+   Default:   bg #FFFFFF, border 1px #BABABA, radius 10px
+   Selected:  bg rgba(255,121,0,0.05), gradient text + border
+───────────────────────────────────────────────────────────── */
+
+.customize-form__checkbox-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-tag-gap);            /* 8px */
+
+  padding: 12px;
+  height: 50px;
+
+  background: var(--color-surface);     /* #FFFFFF */
+  border: 1px solid var(--color-border); /* #BABABA */
+  border-radius: var(--radius-input);   /* 10px */
+
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+/* Hide the native checkbox */
+.customize-form__checkbox-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Custom checkbox icon container */
+.customize-form__checkbox-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: var(--color-border);           /* #BABABA default */
+  transition: color 0.15s ease;
+}
+
+/* The checkmark path — hidden by default */
+.customize-form__check-mark {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+/* Label text */
+.customize-form__checkbox-label {
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);     /* 400 — body-2 */
+  font-size: var(--text-sm);            /* 20px */
+  line-height: var(--lh-sm);            /* 25px */
+  color: var(--color-text);             /* #4B5563 — default */
+  transition: color 0.15s ease;
+}
+
+/* ── SELECTED STATE ── */
+.customize-form__checkbox-input:checked + .customize-form__checkbox-box + .customize-form__checkbox-label {
+  /* Gradient text */
+  background: var(--kota-gradient-vertical);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.customize-form__checkbox-item:has(.customize-form__checkbox-input:checked) {
+  background: var(--color-accent-bg);   /* rgba(255,121,0,0.05) */
+  border-color: var(--kota-orange);
+}
+
+.customize-form__checkbox-item:has(.customize-form__checkbox-input:checked)
+  .customize-form__checkbox-box {
+  color: var(--kota-orange);
+}
+
+.customize-form__checkbox-item:has(.customize-form__checkbox-input:checked)
+  .customize-form__check-mark {
+  opacity: 1;
+}
+
+/* Hover on unchecked */
+.customize-form__checkbox-item:hover:not(:has(.customize-form__checkbox-input:checked)) {
+  border-color: var(--color-border-green);
+}
+
+/* Focused input (date type) — shows calendar icon in orange */
+.input-field input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.5;
+  cursor: pointer;
+  filter: invert(55%) sepia(60%) saturate(500%) hue-rotate(340deg);
+}

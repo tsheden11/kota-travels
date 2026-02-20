@@ -1,150 +1,196 @@
-/* Kota Travels Design Tokens */
-
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+/* =============================================================
+   KOTA TRAVELS — DESIGN TOKENS
+   Source of truth: Figma CSS export (Components page)
+   Every value below is traced to a specific Figma component.
+   Values NOT from Figma are clearly marked [INFERRED].
+   ============================================================= */
 
 :root {
 
-  /* ========================
+  /* ─────────────────────────────────────────────────────────
      COLORS
-  ======================== */
+     Named exactly as labeled in Figma comments.
+     NOTE: #8A38F5 appears in Figma but is ANNOTATION-ONLY
+     (dashed component borders in Figma UI) — not a design color.
+  ───────────────────────────────────────────────────────── */
 
-  /* Brand */
-  --color-primary: #2D7A78;
-  --color-primary-light: #5FD3BC;
-  --color-primary-soft: #A8E6D9;
-  --color-primary-muted: #6FB8AC;
+  /* Raw brand palette */
+  --kota-red:         #FF0000;
+  --kota-orange:      #FF7900;
+  --kota-white:       #FFFFFF;
+  --kota-black:       #000000;
+  --kota-grey:        #4B5563;              /* "grey" — nav links, body text, input text */
+  --kota-light-grey:  #BABABA;              /* "light-grey" — input/dropdown borders, placeholder text */
+  --kota-blue:        #80DDD6;              /* "kota-blue" — vertical card border + icon container bg */
+  --kota-green:       #23C9A9;              /* "kota-light-green" — horizontal card border + icon container bg */
+  --kota-selected:    #FFEDE3;              /* multiple-selection selected state bg */
+  --kota-orange-tint: rgba(255, 121, 0, 0.05); /* "light-orange" — tag bg, Quick Info section bg */
 
-  /* Accent */
-  --color-accent-blue: #7FD8D8;
-  --color-accent-orange: #FF9F43;
-  --color-accent-orange-light: #FFB88C;
+  /* Gradients
+     Two directions — Figma uses them for different purposes:
+       90deg  → button background fills (left-to-right)
+       180deg → gradient text via -webkit-background-clip (top-to-bottom)
+     IMPORTANT: Use `background` shorthand, not `background-color`.
+     `background-color` does not support gradients. */
+  --kota-gradient:          linear-gradient(90deg,  #FF0000 0%, #FF7900 100%);
+  --kota-gradient-vertical: linear-gradient(180deg, #FF0000 0%, #FF7900 100%);
 
-  /* Status */
-  --color-success: #7FFF7F;
-  --color-danger: #FF5252;
-  --color-danger-soft: #FF9999;
-  --color-warning: #FF7A5C;
+  /* Focus ring — kota-blue at 40% opacity [INFERRED] */
+  --kota-focus-ring: rgba(128, 221, 214, 0.4);
 
-  /* Neutral */
-  --color-black: #000000;
-  --color-grey-700: #374151;
-  --color-grey-600: #4B5563;
-  --color-grey: #6B7280;
-  --color-grey-light: #D1D5DB;
-  --color-grey-soft: #F3F4F6;
-  --color-white: #FFFFFF;
+  /* ── Semantic color aliases ──
+     Use these in component CSS, not raw --kota-* values.
+     This keeps components decoupled from the raw palette. */
 
-  /* Text */
-  --color-text: var(--color-black);
-  --color-text-muted: var(--color-grey);
-  --color-text-light: var(--color-white);
-
-  /* Background */
-  --color-bg: var(--color-white);
-  --color-bg-soft: var(--color-grey-soft);
-  --color-surface: var(--color-white);
-
-  /* Borders */
-  --color-border: var(--color-grey-light);
-  --color-border-strong: var(--color-grey);
+  --color-surface:      var(--kota-white);
+  --color-text:         var(--kota-grey);
+  --color-text-dark:    var(--kota-black);
+  --color-text-light:   var(--kota-white);
+  --color-text-muted:   var(--kota-light-grey);   /* placeholder text */
+  --color-border:       var(--kota-light-grey);   /* default input/form border */
+  --color-border-blue:  var(--kota-blue);         /* vertical card, icon bg */
+  --color-border-green: var(--kota-green);        /* horizontal card, icon bg */
+  --color-selected-bg:  var(--kota-selected);
+  --color-accent-bg:    var(--kota-orange-tint);
+  --color-focus-ring:   var(--kota-focus-ring);
 
 
-  /* ========================
+  /* ─────────────────────────────────────────────────────────
      TYPOGRAPHY
-  ======================== */
+     Figma uses ONE font family (Outfit) with 3 weights.
+     There are 6 text styles. Sizes OVERLAP between styles —
+     always pair size token with the correct weight token.
 
-  --font-primary: "Outfit", system-ui, sans-serif;
+     ┌──────────────┬────────┬──────┬─────────┬─────────────────────────────────────┐
+     │ Style        │ Weight │ Size │ Line-ht │ Used in                             │
+     ├──────────────┼────────┼──────┼─────────┼─────────────────────────────────────┤
+     │ body-2       │  400   │ 20px │  25px   │ Body text, form labels, footer links │
+     │ subtitle-3   │  500   │ 20px │  25px   │ Horizontal card: Contact Title       │
+     │ small-btn    │  500   │ 20px │  25px   │ Regular + card button text           │
+     │ subtitle-2   │  600   │ 24px │  30px   │ Card titles, footer section headers  │
+     │ btn-primary  │  500   │ 24px │  30px   │ Large button text                    │
+     │ subtitle-1   │  500   │ 30px │  38px   │ Section titles, nav links            │
+     └──────────────┴────────┴──────┴─────────┴─────────────────────────────────────┘
 
-  --text-xs: 12px;
-  --text-sm: 14px;
-  --text-md: 16px;
-  --text-lg: 20px;
-  --text-xl: 24px;
-  --text-2xl: 32px;
-  --text-3xl: 40px;
+     body-2 vs subtitle-3/small-btn → same size (20px), different weight (400 vs 500)
+     subtitle-2 vs btn-primary      → same size (24px), different weight (600 vs 500)
+     Always use weight token alongside size token to get the right style.
+  ───────────────────────────────────────────────────────── */
 
-  --font-light: 300;
-  --font-regular: 400;
-  --font-medium: 500;
-  --font-semibold: 600;
-  --font-bold: 700;
+  --font-primary:  'Outfit', sans-serif;
+  /* Load in base.njk <head>:
+     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet"> */
 
-  --line-tight: 1.2;
-  --line-normal: 1.5;
-  --line-loose: 1.75;
+  /* Weights */
+  --font-regular:  400;   /* body-2 */
+  --font-medium:   500;   /* subtitle-1, subtitle-3, btn-primary, small-btn */
+  --font-semibold: 600;   /* subtitle-2 */
 
+  /* Sizes — use with matching line-height */
+  --text-sm: 20px;   /* body-2 / subtitle-3 / small-btn */
+  --text-md: 24px;   /* subtitle-2 / btn-primary */
+  --text-lg: 30px;   /* subtitle-1 / nav links */
 
-  /* ========================
+  /* Line heights — always pair with the matching size token */
+  --lh-sm: 25px;   /* --text-sm */
+  --lh-md: 30px;   /* --text-md */
+  --lh-lg: 38px;   /* --text-lg */
+  
+  /* Heading sizes — from Home page Figma (not in component sheet) */
+  --text-display: 60px;  /* heading-display — hero title "Travel Bhutan, Made Simple." */
+  --lh-display:   76px;
+
+  --text-xl:      50px;  /* heading-1 — section headings "Travel designed around..." */
+  --lh-xl:        63px;
+  
+  --text-heading: 36px;  /* heading-3 — subheadings "No Overwhelming Packages..." */
+  --lh-heading:   45px;
+
+  /* ─────────────────────────────────────────────────────────
      SPACING
-  ======================== */
+     Every padding: and gap: value extracted from Figma.
+     Numeric scale (--space-N) + semantic aliases for components.
+  ───────────────────────────────────────────────────────── */
 
-  --space-xxs: 4px;
-  --space-xs: 8px;
-  --space-sm: 12px;
-  --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 32px;
-  --space-2xl: 48px;
-  --space-3xl: 64px;
+  --space-1:    4px;   /* gap: icon-to-text in tertiary btn; small internal gaps */
+  --space-2:    8px;   /* gap: multi-select options; horizontal card content */
+  --space-3:   10px;   /* gap: icon container inner pad; vertical card; nav padding-y */
+  --space-4:   12px;   /* padding: inputs, dropdowns, multi-select (all sides) */
+  --space-5:   16px;   /* padding-y: ALL button variants (large and regular) */
+  --space-6:   18px;   /* padding-y: nav link container (padding: 18px 0px) */
+  --space-7:   20px;   /* padding/gap: card internal padding; large btn padding-x; image card gap */
+  --space-8:   30px;   /* gap: Quick Contact internal element gap */
+  --space-9:   40px;   /* gap: nav link gap; padding: Quick Info/Contact outer padding */
+  --space-10:  60px;   /* padding-x: nav bar (padding: 10px 60px) */
+  --space-11: 100px;   /* padding-x: footer bar (padding: 0px 100px) */
+  --space-12: 120px;   /* gap: footer between major column groups */
+
+  /* Semantic aliases — use these in component CSS */
+  --space-icon-gap:    var(--space-1);   /*   4px — icon-to-text spacing */
+  --space-tag-gap:     var(--space-2);   /*   8px — between tag/multiselect items */
+  --space-icon-pad:    var(--space-3);   /*  10px — icon circle internal padding */
+  --space-input-pad:   var(--space-4);   /*  12px — input/dropdown/multiselect padding */
+  --space-btn-y:       var(--space-5);   /*  16px — button vertical padding */
+  --space-nav-y:       var(--space-6);   /*  18px — nav link container padding-y */
+  --space-card-pad:    var(--space-7);   /*  20px — card internal padding */
+  --space-btn-x-lg:    var(--space-7);   /*  20px — large button horizontal padding */
+  --space-section-gap: var(--space-8);   /*  30px — Quick Contact internal gap */
+  --space-section-pad: var(--space-9);   /*  40px — section outer padding; nav link gap */
+  --space-nav-x:       var(--space-10);  /*  60px — nav horizontal padding */
+  --space-footer-x:    var(--space-11);  /* 100px — footer horizontal padding */
+  --space-footer-gap:  var(--space-12);  /* 120px — footer column gap */
 
 
-  /* ========================
-     RADIUS
-  ======================== */
+  /* ─────────────────────────────────────────────────────────
+     BORDER RADIUS
+     Figma uses exactly THREE design radius values.
+     5px appears in Figma ONLY on annotation/dashed borders — not a design value.
+  ───────────────────────────────────────────────────────── */
 
-  --radius-xs: 4px;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-  --radius-pill: 9999px;
+  --radius-sm: 10px;   /* inputs, dropdowns, multi-select, horizontal card */
+  --radius-md: 20px;   /* vertical card, image card, icon containers (44px circles) */
+  --radius-lg: 30px;   /* ALL buttons, tags, Quick Info section, Quick Contact section */
 
-
-  /* ========================
-     SHADOWS
-  ======================== */
-
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-  --shadow-md: 0 6px 20px rgba(0,0,0,0.08);
-  --shadow-lg: 0 12px 32px rgba(0,0,0,0.12);
+  /* Semantic aliases */
+  --radius-input: var(--radius-sm);   /* 10px */
+  --radius-card:  var(--radius-md);   /* 20px */
+  --radius-pill:  var(--radius-lg);   /* 30px */
 
 
-  /* ========================
-     COMPONENT TOKENS
-  ======================== */
+  /* ─────────────────────────────────────────────────────────
+     COMPONENT SIZES
+     Exact dimensions from Figma specs.
+     Use for fixed-size components; fluid layouts should rely
+     on the spacing tokens above rather than these sizes.
+  ───────────────────────────────────────────────────────── */
 
   /* Buttons */
-  --button-height-sm: 32px;
-  --button-height-md: 40px;
-  --button-height-lg: 52px;
+  --btn-height-lg: 60px;   /* Large button (Figma: 260×60px, padding: 16px 20px) */
+  --btn-height-md: 40px;   /* Regular/card button (Figma: 220×40px, padding: 16px) */
 
-  /* Inputs */
-  --input-height: 44px;
+  /* Form controls */
+  --input-height:  50px;   /* inputs, dropdowns, multi-select — all 220×50px in Figma */
 
-  /* Layout */
-  --container-max-width: 1200px;
+  /* Icons */
+  --icon-container: 44px;  /* icon circle container (44×44px, padding: 10px inside) */
+  --icon-size:      24px;  /* SVG icon size inside container */
 
-}
+  /* Navigation */
+  --nav-height:  143px;
+  --nav-logo-w:  200px;
+  --nav-logo-h:  123px;
 
 
-/* ========================
-   BASE STYLES
-======================== */
+  /* ─────────────────────────────────────────────────────────
+     SHADOWS
+     Figma components do NOT use box-shadow.
+     Cards use colored solid borders (kota-blue, kota-green,
+     light-grey) for visual separation — not shadows.
+     These are [INFERRED] values for interactive states only.
+     Do NOT replace Figma's colored borders with shadows.
+  ───────────────────────────────────────────────────────── */
 
-html {
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-}
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);   /* [INFERRED] */
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);  /* [INFERRED] */
 
-body {
-  font-family: var(--font-primary);
-  line-height: var(--line-normal);
-  color: var(--color-text);
-  background: var(--color-bg);
-}
-
-.icon {
-  display: inline-block;
-  width: 1.25rem;
-  height: 1.25rem;
 }

@@ -1,0 +1,129 @@
+/* =============================================================
+   Hero Carousel Molecule — hero-carousel.css
+   Source of truth: Figma CSS export (Package Detail page)
+
+   Figma specs:
+     Size:    1512×480px, full width
+     Images:  full cover, no border radius
+     Arrows:  absolute positioned, left/right sides, white icon
+     Dots:    centered below, 10px circles
+              inactive: #BABABA
+              active:   gradient (180deg #FF0000 → #FF7900)
+============================================================= */
+
+
+/* ─────────────────────────────────────────────────────────────
+   CAROUSEL WRAPPER
+───────────────────────────────────────────────────────────── */
+
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   TRACK + SLIDES
+───────────────────────────────────────────────────────────── */
+
+.hero-carousel__track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-carousel__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.hero-carousel__slide--active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hero-carousel__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   ARROWS
+───────────────────────────────────────────────────────────── */
+
+.hero-carousel__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: var(--radius-pill);    /* 30px */
+  color: var(--color-text-light);       /* #FFFFFF */
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.hero-carousel__arrow:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-carousel__arrow--prev {
+  left: var(--space-card-pad);          /* 20px */
+}
+
+.hero-carousel__arrow--next {
+  right: var(--space-card-pad);         /* 20px */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   DOTS
+───────────────────────────────────────────────────────────── */
+
+.hero-carousel__dots {
+  position: absolute;
+  bottom: var(--space-card-pad);        /* 20px from bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-tag-gap);            /* 8px */
+}
+
+.hero-carousel__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  background: var(--color-text-muted);  /* #BABABA — inactive */
+  transition: background 0.2s ease;
+}
+
+/* Active dot — gradient fill */
+.hero-carousel__dot--active {
+  background: var(--kota-gradient-vertical);
+}

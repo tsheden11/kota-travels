@@ -1,4 +1,26 @@
-{# Button Atom Component #}
+{# =============================================================
+   Button Atom - button.njk
+
+   Parameters:
+     text      {string}  - button label (required)
+     variant   {string}  - "primary" | "secondary" | "tertiary"  (default: "primary")
+     size      {string}  - "lg" | "md"                           (default: "md")
+     type      {string}  - "button" | "submit" | "reset"         (default: "button")
+     disabled  {boolean} - disables the button                   (default: false)
+     icon      {string}  - inline SVG string (optional)
+     fullWidth {boolean} - stretches to 100% width               (default: false)
+     attrs     {string}  - extra HTML attributes e.g. data-*     (default: "")
+
+   Figma variants mapped:
+     "primary"    gradient bg, white text
+     "secondary"  white bg, gradient text
+     "tertiary"   no bg/border, gradient text, text + icon only
+
+   Figma sizes mapped:
+     "lg"  60px height, 24px font, padding 16px 20px
+     "md"  40px height, 20px font, padding 16px
+============================================================= #}
+
 {%- macro button({
   text = "",
   variant = "primary",
@@ -6,29 +28,24 @@
   type = "button",
   disabled = false,
   icon = "",
-  fullWidth = false
+  fullWidth = false,
+  attrs = ""
 }) -%}
 
 <button
   type="{{ type }}"
-  class="
-    btn
-    btn--{{ variant }}
-    btn--{{ size }}
-    {% if fullWidth %}btn--full{% endif %}
-  "
+  class="btn btn--{{ variant }} btn--{{ size }}{% if fullWidth %} btn--full{% endif %}"
   {% if disabled %}disabled{% endif %}
+  {{ attrs | safe }}
 >
-  
+
   {% if icon %}
-    <span class="btn__icon">
+    <span class="btn__icon" aria-hidden="true">
       {{ icon | safe }}
     </span>
   {% endif %}
 
-  <span class="btn__text">
-    {{ text }}
-  </span>
+  <span class="btn__text">{{ text }}</span>
 
 </button>
 

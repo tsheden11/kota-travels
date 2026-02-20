@@ -1,42 +1,67 @@
 ---
-title: Our Packages
-layout: base
+layout: layouts/base.njk
+title: Our Packages - Kota Travels
 ---
 
-<!-- Hero Section -->
-<section class="section-hero">
-  <div class="container-content text-center">
-    <h1 class="heading-1 text-white mb-4">Our Packages</h1>
-    <p class="text-xl text-blue-100 mx-auto">
-      Discover Bhutan through authentic experiences crafted by our family for yours
-    </p>
-  </div>
-</section>
+{% from "components/atoms/button.njk" import button %}
+{% from "components/molecules/image-card.njk" import imageCard %}
+{% from "components/organisms/cta-section.njk" import ctaSection %}
 
-<!-- Current Packages -->
-<section class="section-white">
-  <div class="container-content">
-    <!-- Packages Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      {% for package in packages %}
-        {% include "components/card.njk" %}
+<div class="page-packages">
+
+  {# ============================================================
+     SECTION 1 - PAGE HEADING
+     Figma: column, center-aligned, gap: 20px, padding: 0 60px
+  ============================================================ #}
+
+  <section class="packages-heading">
+    <div class="packages-heading__inner">
+      <h1 class="packages-heading__title">
+        <span class="packages-heading__title--black">Our </span>
+        <span class="packages-heading__title--green">Packages</span>
+      </h1>
+      <p class="packages-heading__body">
+        Choose the journey that speaks to you - each one fully
+        customizable to your pace, interests, and travel style.
+      </p>
+    </div>
+  </section>
+
+
+  {# ============================================================
+     SECTION 2 - PACKAGE CARDS
+     Figma: row, space-between, padding: 0 60px
+     Loops over packages data
+  ============================================================ #}
+
+  <section class="packages-grid">
+    <div class="packages-grid__inner">
+      {% for slug, package in packages %}
+        {{ imageCard({
+          title: package.title,
+          description: package.tagline,
+          image: package.images[0],
+          imageAlt: package.title,
+          buttonText: "View Tour",
+          buttonHref: "/packages/" + package.slug
+        }) }}
       {% endfor %}
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Custom Tours CTA -->
-<section class="section-cta">
-  <div class="container-content text-center">
-    <h2 class="heading-2 text-white mb-4">Don't See What You're Looking For?</h2>
-    <p class="text-xl mb-8 text-orange-100">Design a Bhutan experience that fits your pace, passions, and purpose.</p>
-    <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
-      <button class="btn-white-orange open-trip-planner">
-        Customize Your Tour
-      </button>
-    </div>
-  </div>
-</section>
 
-<!-- Include Customize Form Modal -->
-{% include "components/customizeForm.njk" %}
+  {# ============================================================
+     SECTION 3 - CTA
+  ============================================================ #}
+
+  {{ ctaSection({
+    heading: "Don't see what you're looking for?",
+    subtext: "We customize every tour to suit your interests, pace, and travel style. Get in touch and let's build your perfect Bhutan journey.",
+    primaryBtn: "Contact Us",
+    primaryHref: "/contact",
+    secondaryBtn: "Customize Your Own",
+    secondaryModal: "customize",
+    image: "/images/rice-fields.jpg"
+  }) }}
+
+</div>

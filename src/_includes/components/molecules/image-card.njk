@@ -1,0 +1,70 @@
+{# =============================================================
+   Image Card Molecule - image-card.njk
+
+   Parameters:
+     title       {string} - card title (required)
+     description {string} - body text (required)
+     image       {string} - image src URL (required)
+     imageAlt    {string} - image alt text (default: "")
+     icon        {string} - inline SVG for icon container (optional)
+     buttonText  {string} - primary button label (default: "Book Now")
+     buttonHref  {string} - link URL for button (default: "#")
+
+   Figma specs (Image Card component):
+     Size:          320521px, padding: 0 0 20px, gap: 20px
+     Border:        1px solid #80DDD6 (kota-blue)
+     Border-radius: 20px
+
+   Image:      320257px, radius: 20px 20px 0 0
+   Title row:  title (left) + icon container (right), space-between
+   Title:      Outfit 600 24px/30px, color #000000 - subtitle-2
+   Body:       Outfit 400 20px/25px, color #4B5563 - body-2
+   Button:     primary, md size - right aligned
+============================================================= #}
+
+{% from "components/atoms/button.njk" import button %}
+
+{%- macro imageCard({
+  title = "",
+  description = "",
+  image = "",
+  imageAlt = "",
+  icon = "",
+  buttonText = "Book Now",
+  buttonHref = "#"
+}) -%}
+
+<div class="card-image">
+
+  <div class="card-image__image-wrapper">
+    <img
+      class="card-image__image"
+      src="{{ image }}"
+      alt="{{ imageAlt }}"
+    />
+  </div>
+
+  <div class="card-image__body">
+
+    <div class="card-image__title-row">
+      <h3 class="card-image__title">{{ title }}</h3>
+      {% if icon %}
+        <div class="card-image__icon-container" aria-hidden="true">
+          {{ icon | safe }}
+        </div>
+      {% endif %}
+    </div>
+
+    <p class="card-image__description">{{ description }}</p>
+
+    <div class="card-image__action">
+      <a href="{{ buttonHref }}">
+        {{ button({ text: buttonText, variant: "primary", size: "md" }) }}
+      </a>
+    </div>
+
+  </div>
+
+</div>
+
+{%- endmacro -%}

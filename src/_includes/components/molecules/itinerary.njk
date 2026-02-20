@@ -1,0 +1,159 @@
+{# =============================================================
+   Itinerary Molecule - itinerary.njk
+
+   Parameters:
+     items  {array} - itinerary day objects from packages.json
+              Each item:
+                day, title, description, meals, accommodation
+                workshop?   {bool}   - shows "Hands-on Experience" tag
+                stats?      {array}  - [{ icon, value }] generic stat pills
+                statsImage? {string} - path to elevation/profile image
+                statsImageAlt? {string}
+============================================================= #}
+
+{%- macro itinerary({ items = [] }) -%}
+
+<div class="itinerary">
+  {% for item in items %}
+    <div class="itinerary__item{% if loop.first %} is-open{% endif %}">
+
+      {#  HEADER ROW (clickable)  #}
+      <button
+        class="itinerary__header"
+        aria-expanded="{% if loop.first %}true{% else %}false{% endif %}"
+        aria-controls="itinerary-day-{{ item.day }}"
+      >
+        <div class="itinerary__header-left">
+          <span class="itinerary__day">Day {{ item.day }}</span>
+          <span class="itinerary__title">{{ item.title }}</span>
+
+          {# Workshop tag #}
+          {% if item.workshop %}
+            <span class="itinerary__tag">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 2C9.5 5 5 8 5 13a7 7 0 0014 0c0-5-4.5-8-7-11z" stroke="#FF7900" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 22v-4M9 18h6" stroke="#FF7900" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              <span>Hands-on Experience</span>
+            </span>
+          {% endif %}
+        </div>
+
+        {# Chevron #}
+        <svg class="itinerary__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M19 10L12 17L5 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      {#  EXPANDED BODY  #}
+      <div
+        class="itinerary__body"
+        id="itinerary-day-{{ item.day }}"
+        {% if not loop.first %}hidden{% endif %}
+      >
+        {% if item.description %}
+          <p class="itinerary__description">{{ item.description }}</p>
+        {% endif %}
+
+        {#  Generic stats row - renders for any tour type  #}
+        {% if item.stats and item.stats.length %}
+          <div class="itinerary__stats">
+            {% for stat in item.stats %}
+              <div class="itinerary__stat">
+
+                {# Icon - keyed to stat.icon string #}
+                {% if stat.icon == "distance" %}
+                  <svg class="itinerary__stat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M3 12h18M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                {% elif stat.icon == "elevation-up" %}
+                  <svg class="itinerary__stat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                {% elif stat.icon == "elevation-down" %}
+                  <svg class="itinerary__stat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M12 5v14M19 12l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                {% elif stat.icon == "duration" %}
+                  <svg class="itinerary__stat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                {% else %}
+                  {# Fallback - generic info dot #}
+                  <svg class="itinerary__stat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 11v5M12 8h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                {% endif %}
+
+                <span class="itinerary__stat-value">{{ stat.value }}</span>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {#  Elevation / activity profile image - optional  #}
+        {% if item.statsImage %}
+          <div class="itinerary__stats-image-wrap">
+            <img
+              class="itinerary__stats-image"
+              src="{{ item.statsImage }}"
+              alt="{{ item.statsImageAlt if item.statsImageAlt else 'Activity profile for Day ' + item.day }}"
+              loading="lazy"
+            />
+          </div>
+        {% endif %}
+
+        {#  Meals + Accommodation  #}
+        <div class="itinerary__meta">
+          {% if item.meals %}
+            <span class="itinerary__meta-item">
+              <strong>Meals:</strong> {{ item.meals }}
+            </span>
+          {% endif %}
+          {% if item.accommodation and item.accommodation != "N/A" %}
+            <span class="itinerary__meta-item">
+              <strong>Accommodation:</strong> {{ item.accommodation }}
+            </span>
+          {% endif %}
+        </div>
+      </div>
+
+      {#  DIVIDER  #}
+      <div class="itinerary__divider" aria-hidden="true"></div>
+
+    </div>
+  {% endfor %}
+</div>
+
+<script>
+(function () {
+  var items = document.querySelectorAll('.itinerary__item');
+
+  items.forEach(function (item) {
+    var btn  = item.querySelector('.itinerary__header');
+    var body = item.querySelector('.itinerary__body');
+
+    btn.addEventListener('click', function () {
+      var isOpen = item.classList.contains('is-open');
+
+      // Close all
+      items.forEach(function (i) {
+        i.classList.remove('is-open');
+        i.querySelector('.itinerary__header').setAttribute('aria-expanded', 'false');
+        i.querySelector('.itinerary__body').hidden = true;
+      });
+
+      // Toggle clicked one open (unless it was already open)
+      if (!isOpen) {
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+        body.hidden = false;
+      }
+    });
+  });
+})();
+</script>
+
+{%- endmacro -%}

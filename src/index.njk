@@ -1,121 +1,200 @@
 ---
-layout: base
-title: Home
+layout: layouts/base.njk
+title: Kota Travels - Travel Bhutan, Made Simple
 ---
 
-<!-- Hero Section -->
-<section class="pt-18 pb-10 text-center">
+{% from "components/atoms/button.njk" import button %}
+{% from "components/molecules/section-card.njk" import sectionCard %}
+{% from "components/molecules/vertical-card.njk" import verticalCard %}
+{% from "components/organisms/cta-section.njk" import ctaSection %}
 
-  <!-- TEXT CONTENT FIRST -->
-  <div class="container-content mx-auto">
-    <h1 class="heading-display mb-6 font-medium">
-      BHUTAN, DONE <span class="text-kota-dark-green">RIGHT.</span>
-    </h1>
+<div class="page-home">
 
-    <p class="heading-1 font-medium mb-4 text-body-gray">
-      AS GOOD AS BHUTAN GETS!
-    </p>
+  {# ============================================================
+     SECTION 1 - HERO TEXT
+  ============================================================ #}
 
-    <p class="text-lg mb-8 text-body-gray">
-      Founded in loving memory of our late father, Kota, Kota Travels is a Bhutanese family-run travel agency.
-      Having lived abroad and seen the world, we’ve come to appreciate that there’s truly no place like Bhutan —
-      and we’re honored to share its beauty and spirit with you.
-    </p>
+  <section class="hero-text">
+    <div class="hero-text__inner">
 
-    <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center mb-20">
-      <a href="/packages/" class="btn-primary">
-        Explore Our Packages
-      </a>
-      <a href="/contact/" class="btn-secondary open-trip-planner">
-        Customize Your Journey
-      </a>
+      <div class="hero-text__heading-group">
+        <h1 class="hero-text__title">
+          <span class="hero-text__title--black">Travel Bhutan, </span>
+          <span class="hero-text__title--green">Made Simple</span>
+          <span class="hero-text__title--black">.</span>
+        </h1>
+        <h2 class="hero-text__subtitle">
+          No Overwhelming Packages. Just Your Kind of Journey.
+        </h2>
+        <p class="hero-text__body">
+          We keep things intentionally simple with a carefully curated set of
+          journeys based on your interests - cultural, wellness, cycling, or
+          trekking - all fully customizable to suit your pace and preferences.
+        </p>
+      </div>
+
+      <div class="hero-text__actions">
+        {{ button({ text: "Explore Packages", variant: "primary", size: "lg" }) }}
+        {{ button({text: "Customize Your Own",variant: "secondary",size: "lg",attrs: 'data-open-modal="customize"'}) }}
+      </div>
+
     </div>
-  </div>
+  </section>
 
-  <!-- IMAGE BELOW TEXT -->
-  <div class="mt-12">
-    <picture>
-      <source srcset="/images/hero-1600.webp" media="(min-width: 1024px)">
-      <source srcset="/images/hero-800.webp" media="(min-width: 640px)">
-      <img 
-        src="/images/hero-400.webp"
-        alt="Bhutan landscape"
-        class="w-full h-[70vh] object-cover rounded-xl shadow-lg"
-        fetchpriority="high"
-      >
-    </picture>
-  </div>
-  <!-- Include Customize Form Modal -->
-{% include "components/customizeForm.njk" %}
 
-<!-- Why Travel with Kota Travels -->
-<section class="py-16 bg-white">
-  <div class="container-content">
-    <h2 class="heading-2 text-center mb-12">Why Kota Travels?</h2>
+  {# ============================================================
+     SECTION 2 - HERO IMAGE
+  ============================================================ #}
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+  <section class="hero-image">
+    <img
+      class="hero-image__img"
+      src="/images/hero.jpg"
+      alt="Scenic view of Bhutan"
+    />
+  </section>
 
-      <!-- Card 1 -->
-      <div class="package-card">
-        <div class="p-6 text-center">
-          <div class="icon-circle-blue mx-auto mb-4">
-            <span>🌏</span>
-          </div>
-          <h4 class="heading-4 mb-3">Local expertise with a global perspective</h4>
-          <p class="text-body text-sm">We blend local knowledge with global standards in authentic Bhutanese adventures</p>
+
+  {# ============================================================
+     SECTION 3 - TOURS SECTION
+  ============================================================ #}
+
+  <section class="tours-section">
+    <div class="tours-section__inner">
+
+      {# Heading row - title left, button right #}
+      <div class="tours-section__heading-row">
+        <div class="tours-section__heading-group">
+          <h2 class="section-heading">
+            <span class="section-heading__black">Travel designed around what </span>
+            <span class="section-heading__green">moves you</span>
+            <span class="section-heading__black">.</span>
+          </h2>
+          <h2 class="section-heading">
+            <span class="section-heading__green">Your way, </span>
+            <span class="section-heading__black">every step of the journey.</span>
+          </h2>
+        </div>
+        {{ button({ text: "Explore Packages", variant: "primary", size: "lg" }) }}
+      </div>
+
+      {# Body #}
+      <p class="tours-section__body">
+        Each of our tours takes you to Bhutan's most iconic landmarks, but you
+        choose the focus - immerse in culture, recharge with wellness, cycle
+        scenic routes, or trek stunning trails. The experience is entirely yours
+        to shape: your adventure, your pace, your way. Have a special place or
+        activity in mind? Want to stay longer or shorter? Thinking of combining
+        two tour styles? Let us know, and we'll customize your tour to make it
+        happen.
+      </p>
+
+      {# 4 tour images #}
+      <div class="tour-images">
+        <div class="tour-images__item">
+          <img src="/images/cultural.jpg" alt="Cultural tour in Bhutan" class="tour-images__img" />
+        </div>
+        <div class="tour-images__item">
+          <img src="/images/wellness.jpg" alt="Wellness tour in Bhutan" class="tour-images__img" />
+        </div>
+        <div class="tour-images__item">
+          <img src="/images/cycling.jpg" alt="Cycling tour in Bhutan" class="tour-images__img" />
+        </div>
+        <div class="tour-images__item">
+          <img src="/images/trekking.jpg" alt="Trekking tour in Bhutan" class="tour-images__img" />
         </div>
       </div>
 
-      <!-- Card 2 -->
-      <div class="package-card">
-        <div class="p-6 text-center">
-          <div class="icon-circle-orange mx-auto mb-4">
-            <span>🏔️</span>
-          </div>
-          <h4 class="heading-4 mb-3">Adventure, sports & wellness tourism</h4>
-          <p class="text-body text-sm">From cultural immersion to mountain adventures and peaceful retreats, every journey is designed to awaken your spirit of exploration</p>
-        </div>
+      {# 4 section cards #}
+      <div class="tour-cards">
+        {{ sectionCard({
+          title: "Cultural",
+          description: "Explore historical landmarks at the heart of Bhutan, and discover its rich traditions.",
+          buttonText: "See More ",
+          buttonHref: "/packages/slow-tour"
+        }) }}
+        {{ sectionCard({
+          title: "Wellness",
+          description: "Rejuvenate your body and mind through relaxation and mindfulness activities.",
+          buttonText: "See More ",
+          buttonHref: "/packages/relaxation-tour"
+        }) }}
+        {{ sectionCard({
+          title: "Cycling",
+          description: "Discover hidden trails and stunning destinations on your favorite ride.",
+          buttonText: "See More ",
+          buttonHref: "/packages/mountain-biking"
+        }) }}
+        {{ sectionCard({
+          title: "Trekking",
+          description: "Embark on guided hikes and nature trails to experience the great outdoors.",
+          buttonText: "See More ",
+          buttonHref: "/packages/trekking"
+        }) }}
       </div>
 
-      <!-- Card 3 -->
-      <div class="package-card">
-        <div class="p-6 text-center">
-          <div class="icon-circle-green mx-auto mb-4">
-            <span>🌱</span>
-          </div>
-          <h4 class="heading-4 mb-3">Sustainability and cultural respect</h4>
-          <p class="text-body text-sm">Responsible tourism that preserves Bhutan's pristine environment and traditions</p>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="package-card">
-        <div class="p-6 text-center">
-          <div class="icon-circle-yellow mx-auto mb-4">
-            <span>🏡</span>
-          </div>
-          <h4 class="heading-4 mb-3">Hospitality you can trust</h4>
-          <p class="text-body text-sm">Family-run business treating every guest like family</p>
-        </div>
-      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Call to Action -->
-<section class="section-cta">
-    <h2 class="heading-2 mb-4">Ready to Plan Your Bhutan Journey?</h2>
-    <p class="text-xl mb-8 text-orange-100">An adventure of a lifetime awaits</p>
-    <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
-      <a href="/packages/" class="btn-white-orange">
-        Explore Packages
-      </a>
-      <a href="/contact/" class="btn-outline">
-        Contact Us Today
-      </a>
+
+  {# ============================================================
+     SECTION 4 - WHY US
+  ============================================================ #}
+
+  <section class="why-us">
+    <div class="why-us__inner">
+
+      <div class="why-us__heading-group">
+        <h2 class="section-heading">
+          <span class="section-heading__black">Bhutan, done </span>
+          <span class="section-heading__green">differently</span>
+          <span class="section-heading__black">.</span>
+        </h2>
+        <h2 class="section-heading">
+          <span class="section-heading__black">Experience it the way it's </span>
+          <span class="section-heading__green">meant </span>
+          <span class="section-heading__black">to be.</span>
+        </h2>
+      </div>
+
+      <div class="why-us__cards">
+        {{ verticalCard({
+          title: "Lived. Known. Shared.",
+          description: "We don't just visit Bhutan - we live it. Every experience is grounded in firsthand insight, carefully shared to reflect Bhutan in its truest form.",
+          accentColor: "green"
+        }) }}
+        {{ verticalCard({
+          title: "Simple by Design.",
+          description: "Journeys designed around what you love and how you want to experience Bhutan. Just choose what interests you, and we'll take care of the rest.",
+          accentColor: "green"
+        }) }}
+        {{ verticalCard({
+          title: "Adventure, your way.",
+          description: "100% customizable. Your pace. Your preferences. Your journey - from start to finish. Because the world was never meant to be explored one way.",
+          accentColor: "blue"
+        }) }}
+        {{ verticalCard({
+          title: "Care you can count on.",
+          description: "Family-run hospitality that makes Bhutan feel like a second home, so you can explore with peace of mind, comfort, and care at every step.",
+          accentColor: "blue"
+        }) }}
+      </div>
+
     </div>
-</section>
+  </section>
 
-{% import 'components/button.njk' as Button %}
-{% import 'components/card.njk' as Card %}
-{% import 'components/badge.njk' as Badge %}
+
+  {# ============================================================
+     SECTION 5 - CTA
+  ============================================================ #}
+
+  {{ ctaSection({
+    heading: "Ready to experience Bhutan your way?",
+    primaryBtn: "Explore Packages",
+    primaryHref: "/packages",
+    secondaryBtn: "Customize Your Own",
+    secondaryModal: "customize",
+    image: "/images/rice-fields.jpg"
+  }) }}
+
+</div>

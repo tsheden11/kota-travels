@@ -1,7 +1,0 @@
-{# Checkbox component #}
-{%- macro checkbox(label='', name='') -%}
-  <div class="form-check">
-    <input type="checkbox" id="{{ name }}" name="{{ name }}" />
-    {% if label %}<label for="{{ name }}">{{ label }}</label>{% endif %}
-  </div>
-{%- endmacro -%}
