@@ -1,22 +1,22 @@
 /* =============================================================
    Footer Organism — footer.css
-   Source of truth: Figma CSS export (footer component)
+   Source of truth: Figma CSS export
 
-   Figma specs:
+   Figma specs (Frame 43):
      Size:    1512×210px
-     Padding: 0 100px
+     Padding: 0px 100px
      Gap:     120px
      Layout:  row, justify-content: space-between, align-items: flex-start
 
-   Logo:           200×123px
-   Column gap:     20px between each item in a column
-   Section header: Outfit 600 24px/30px, color #000000 — subtitle-2
-   Links:          Outfit 400 20px/25px, color #4B5563 — body-2
+   Logo:     200×123px
+   Columns:  gap: 20px between items
+   Heading:  Outfit 600 24px/30px — subtitle-2
+   Links:    Outfit 400 20px/25px — body-2, color #4B5563
 ============================================================= */
 
 
 /* ─────────────────────────────────────────────────────────────
-   FOOTER
+   FOOTER WRAPPER
 ───────────────────────────────────────────────────────────── */
 
 .footer {
@@ -25,12 +25,11 @@
   justify-content: space-between;
   align-items: flex-start;
 
-  padding: 0 var(--space-footer-x);     /* 0 100px */
-  gap: var(--space-footer-gap);         /* 120px */
-
-  background: var(--color-surface);     /* #FFFFFF */
+  min-height: 210px;
+  gap: var(--space-footer-gap);
+  background: var(--color-surface);
+  padding: 0 var(--space-footer-x) var(--space-page-y);
 }
-
 
 /* ─────────────────────────────────────────────────────────────
    LOGO
@@ -38,11 +37,13 @@
 
 .footer__logo {
   flex-shrink: 0;
+  display: flex;
+  align-items: center;                    /* vertically centre logo in 210px row */
 }
 
 .footer__logo img {
-  width: var(--nav-logo-w);             /* 200px */
-  height: var(--nav-logo-h);            /* 123px */
+  width: var(--nav-logo-w);              /* 200px */
+  height: var(--nav-logo-h);             /* 123px */
   object-fit: contain;
   display: block;
 }
@@ -56,7 +57,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-card-pad);           /* 20px */
+  padding: 0;
+  gap: var(--space-card-pad);            /* Figma: 20px */
 }
 
 
@@ -67,10 +69,10 @@
 .footer__heading {
   margin: 0;
   font-family: var(--font-primary);
-  font-weight: var(--font-semibold);    /* 600 — subtitle-2 */
-  font-size: var(--text-md);            /* 24px */
-  line-height: var(--lh-md);            /* 30px */
-  color: var(--color-text-dark);        /* #000000 */
+  font-weight: var(--font-semibold);     /* 600 */
+  font-size: var(--text-md);             /* 24px */
+  line-height: var(--lh-md);             /* 30px */
+  color: var(--color-text-dark);         /* #000000 */
 }
 
 
@@ -80,10 +82,10 @@
 
 .footer__link {
   font-family: var(--font-primary);
-  font-weight: var(--font-regular);     /* 400 — body-2 */
-  font-size: var(--text-sm);            /* 20px */
-  line-height: var(--lh-sm);            /* 25px */
-  color: var(--color-text);             /* #4B5563 */
+  font-weight: var(--font-regular);      /* 400 */
+  font-size: var(--text-sm);             /* 20px */
+  line-height: var(--lh-sm);             /* 25px */
+  color: var(--color-text);              /* #4B5563 */
   text-decoration: none;
   transition: opacity 0.2s ease;
 }

@@ -2,4 +2,138 @@
 layout: layouts/base.njk
 title: Our Story - Kota Travels
 ---
-<p>test</p>
+
+{% from "components/organisms/cta-section.njk" import ctaSection %}
+
+<div class="page-about">
+
+  {# ============================================================
+     SECTION 1 - STORY
+     Figma: column, padding: 0 60px, gap: 40px
+     Title: heading-display 60px, kota-green
+     Two column: image left (558x585px) + text right
+  ============================================================ #}
+
+  <section class="about-story">
+    <div class="about-story__inner">
+
+      {# Page title #}
+      <h1 class="about-story__title">Our Story</h1>
+
+      {# Two column - image + text #}
+      <div class="about-story__row">
+
+        <div class="about-story__image-wrapper">
+          <img
+            class="about-story__image"
+            src="/images/our-story.jpg"
+            alt="Kota Travels founders"
+          />
+        </div>
+
+        <div class="about-story__content">
+
+          {# Heading with inline colored words #}
+          <h2 class="about-story__heading">
+            Kota Travels was founded in
+            <span class="about-story__heading--green">loving memory</span>
+            of our father,
+            <span class="about-story__heading--green">Kota</span>,
+            whose passion for adventure shaped the way we see travel.
+          </h2>
+
+          {# Body - separate paragraphs #}
+          <div class="about-story__body-group">
+            <p class="about-story__body">
+              He lived and experienced Bhutan as a traveler at heart, riding
+              through Bhutan on his favorite motorbike, discovering hidden routes,
+              local stories, and moments that never make it into guidebooks.
+            </p>
+            <p class="about-story__body">
+              The name Kota means "little boy" - a reminder of how travel should
+              feel. Curious. Carefree. Open. Free from limitations or rigid
+              itineraries. Just as a child explores the world with wonder, we
+              believe Bhutan should be experienced with the same sense of freedom
+              and joy.
+            </p>
+            <p class="about-story__body">
+              That belief stayed with us:
+            </p>
+            <p class="about-story__body about-story__body--green">
+              Everyone deserves to explore the world in the way their heart desires.
+            </p>
+            <p class="about-story__body">
+              As a family, we have lived in different countries and experienced
+              the world from many perspectives. We returned to Bhutan with one
+              clear purpose: To share Bhutan as it truly is, through local eyes.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  {# ============================================================
+     SECTION 2 - QUOTE + THREE IMAGES
+  ============================================================ #}
+
+  <section class="about-quote">
+    <div class="about-quote__inner">
+
+      <div class="about-quote__text-group">
+        <p class="about-quote__text">
+          Journeys shaped by those who know the country best - those who call it home.
+          Bhutan, best told by locals.
+        </p>
+        <p class="about-quote__body">
+          At the heart of Kota Travels are family values - care, respect, and
+          genuine hospitality. We don't simply plan journeys; we welcome you as
+          we would a guest in our home, offering warmth, attention, and the
+          freedom to travel guided by what your heart is drawn to.
+        </p>
+        <p class="about-quote__text">
+          We believe this is how Bhutan is meant to be experienced.
+        </p>
+      </div>
+
+      {# Three images #}
+      <div class="about-quote__images">
+        <img
+          class="about-quote__img about-quote__img--sm"
+          src="/images/story-1.jpg"
+          alt="Bhutan travel moment"
+        />
+        <img
+          class="about-quote__img about-quote__img--lg"
+          src="/images/story-2.jpg"
+          alt="Bhutan travel moment"
+        />
+        <img
+          class="about-quote__img about-quote__img--md"
+          src="/images/story-3.jpg"
+          alt="Bhutan travel moment"
+        />
+      </div>
+
+    </div>
+  </section>
+
+
+  {# ============================================================
+     SECTION 3 - CTA
+  ============================================================ #}
+
+{{ ctaSection(
+  heading="Ready to experience Bhutan your way?",
+  primaryBtn="Explore Packages",
+  primaryHref="/packages",
+  secondaryBtn="Customize Your Own",
+  secondaryModal="customize",
+  image="/images/cultural-tour-footer.jpg"
+) }}
+
+</div>

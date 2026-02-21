@@ -1,38 +1,6 @@
-{# =============================================================
-   CTA Section Organism - cta-section.njk
-
-   Parameters:
-     heading       {string} - main heading text (required)
-     subtext       {string} - smaller body text below heading (optional)
-
-     primaryBtn    {string} - primary button label (required)
-     primaryModal  {string} - modal id to open e.g. "customize" | "book"
-                              if omitted, renders as a link (optional)
-     primaryHref   {string} - used only when primaryModal is not set (default: "#")
-
-     secondaryBtn  {string} - secondary button label (required)
-     secondaryModal {string} - modal id to open e.g. "customize" | "book"
-                               if omitted, renders as a link (optional)
-     secondaryHref {string} - used only when secondaryModal is not set (default: "#")
-
-     image         {string} - background image path (required)
-     imageAlt      {string} - bg image alt text (default: "")
-============================================================= #}
-
 {% from "components/atoms/button.njk" import button %}
 
-{%- macro ctaSection({
-  heading = "",
-  subtext = "",
-  primaryBtn = "",
-  primaryModal = "",
-  primaryHref = "#",
-  secondaryBtn = "",
-  secondaryModal = "",
-  secondaryHref = "#",
-  image = "",
-  imageAlt = ""
-}) -%}
+{%- macro ctaSection(heading="", subtext="", primaryBtn="", primaryModal="", primaryHref="#", secondaryBtn="", secondaryModal="", secondaryHref="#", image="", imageAlt="") -%}
 
 <section class="cta-section">
 
@@ -52,31 +20,19 @@
 
     <div class="cta-section__actions">
 
-      {# Primary - modal if primaryModal is set, otherwise a link #}
       {% if primaryModal %}
-        {{ button({
-          text: primaryBtn,
-          variant: "primary",
-          size: "lg",
-          attrs: 'data-open-modal="' + primaryModal + '"'
-        }) }}
+        {{ button(text=primaryBtn, variant="primary", size="lg", attrs='data-open-modal="' + primaryModal + '"') }}
       {% else %}
         <a href="{{ primaryHref }}">
-          {{ button({ text: primaryBtn, variant: "primary", size: "lg" }) }}
+          {{ button(text=primaryBtn, variant="primary", size="lg") }}
         </a>
       {% endif %}
 
-      {# Secondary - modal if secondaryModal is set, otherwise a link #}
       {% if secondaryModal %}
-        {{ button({
-          text: secondaryBtn,
-          variant: "secondary",
-          size: "lg",
-          attrs: 'data-open-modal="' + secondaryModal + '"'
-        }) }}
+        {{ button(text=secondaryBtn, variant="secondary", size="lg", attrs='data-open-modal="' + secondaryModal + '"') }}
       {% else %}
         <a href="{{ secondaryHref }}">
-          {{ button({ text: secondaryBtn, variant: "secondary", size: "lg" }) }}
+          {{ button(text=secondaryBtn, variant="secondary", size="lg") }}
         </a>
       {% endif %}
 

@@ -1,110 +1,48 @@
-{# =============================================================
-   Customize Your Own Modal - customize-modal.njk
-
-   Usage: Include once in base.njk (before </body>).
-   Trigger: Any element with data-open-modal="customize"
-
-   Figma specs:
-     Form card:    7951205px, padding: 60px, gap: 30px
-                   bg: #FFFFFF, border-radius: 30px
-     Title:        Outfit 600 40px/50px, #23C9A9 - heading-2
-     Subtitle:     Outfit 400 20px/25px, #4B5563 - body-2
-     Fields gap:   30px between rows
-     Submit btn:   full width, gradient, 60px height
-============================================================= #}
-
 {% from "components/atoms/input.njk" import input %}
 {% from "components/atoms/dropdown.njk" import dropdown %}
 {% from "components/atoms/button.njk" import button %}
 
-{#  MODAL OVERLAY  #}
 <div class="customize-modal" id="customizeModal" aria-modal="true" role="dialog" aria-labelledby="customizeModalTitle" aria-hidden="true">
 
   <div class="customize-modal__backdrop"></div>
 
   <div class="customize-modal__container">
 
-    {# Close button #}
     <button class="customize-modal__close" aria-label="Close modal">
       <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
       </svg>
     </button>
 
-    {# Form card #}
-    <form
-      class="customize-form"
-      name="customize"
-      method="POST"
-      data-netlify="true"
-      novalidate
-    >
+    <form class="customize-form" name="customize" method="POST" data-netlify="true" novalidate>
       <input type="hidden" name="form-name" value="customize" />
 
-      {#  HEADING  #}
       <div class="customize-form__heading">
         <h2 class="customize-form__title" id="customizeModalTitle">Let's Design Your Journey</h2>
         <p class="customize-form__subtitle">We'll get back to you within 24 hours.</p>
       </div>
 
-      {#  ROW 1: Full Name + Email  #}
       <div class="customize-form__row">
-        {{ input({
-          name: "fullName",
-          label: "Full Name",
-          required: true,
-          placeholder: "Full Name"
-        }) }}
-        {{ input({
-          name: "email",
-          label: "Email",
-          required: true,
-          type: "email",
-          placeholder: "Email"
-        }) }}
+        {{ input(name="fullName", label="Full Name", required=true, placeholder="Full Name") }}
+        {{ input(name="email", label="Email", required=true, type="email", placeholder="Email") }}
       </div>
 
-      {#  ROW 2: Phone + Number of Travelers  #}
       <div class="customize-form__row">
-        {{ input({
-          name: "phone",
-          label: "Phone Number",
-          required: true,
-          type: "tel",
-          placeholder: "+00 000 000 0000"
-        }) }}
-        {{ input({
-          name: "travelers",
-          label: "Number of Travelers",
-          required: true,
-          type: "number",
-          placeholder: "1"
-        }) }}
+        {{ input(name="phone", label="Phone Number", required=true, type="tel", placeholder="+00 000 000 0000") }}
+        {{ input(name="travelers", label="Number of Travelers", required=true, type="number", placeholder="1") }}
       </div>
 
-      {#  ROW 3: Preferred Travel Dates  #}
       <div class="customize-form__dates">
         <div class="customize-form__dates-label-row">
           <span class="customize-form__dates-label">Preferred Travel Dates</span>
           <span class="customize-form__required" aria-hidden="true">*</span>
         </div>
         <div class="customize-form__row">
-          {{ input({
-            name: "dateFrom",
-            label: "From",
-            required: true,
-            type: "date"
-          }) }}
-          {{ input({
-            name: "dateTo",
-            label: "To",
-            required: true,
-            type: "date"
-          }) }}
+          {{ input(name="dateFrom", label="From", required=true, type="date") }}
+          {{ input(name="dateTo", label="To", required=true, type="date") }}
         </div>
       </div>
 
-      {#  ROW 4: Experiences Multi-Select  #}
       <div class="customize-form__experiences">
         <div class="customize-form__label-row">
           <span class="customize-form__label">What experiences are you interested in?</span>
@@ -154,46 +92,24 @@
         </div>
       </div>
 
-      {#  ROW 5: Message Textarea  #}
-      {{ input({
-        name: "message",
-        label: "Questions, preferences, special requests - anything you'd like us to know.",
-        required: true,
-        type: "textarea",
-        placeholder: "Places you'd love to visit, special occasions, trip length, accommodation preferences, accessibility or dietary needs, or anything else you'd like to share.",
-        rows: 165
-      }) }}
+      {{ input(name="message", label="Questions, preferences, special requests - anything you'd like us to know.", required=true, type="textarea", placeholder="Places you'd love to visit, special occasions, trip length, accommodation preferences, accessibility or dietary needs, or anything else you'd like to share.", rows=165) }}
 
-      {#  ROW 6: How did you hear about us  #}
-      {{ dropdown({
-        name: "referral",
-        label: "How did you hear about us?",
-        required: true,
-        options: [
-          { value: "", label: "Please Select" },
-          { value: "google", label: "Google Search" },
-          { value: "instagram", label: "Instagram" },
-          { value: "facebook", label: "Facebook" },
-          { value: "friend", label: "Friend or Family" },
-          { value: "other", label: "Other" }
-        ]
-      }) }}
+      {{ dropdown(name="referral", label="How did you hear about us?", required=true, options=[
+        { value: "", label: "Please Select" },
+        { value: "google", label: "Google Search" },
+        { value: "instagram", label: "Instagram" },
+        { value: "facebook", label: "Facebook" },
+        { value: "friend", label: "Friend or Family" },
+        { value: "other", label: "Other" }
+      ]) }}
 
-      {#  SUBMIT  #}
-      {{ button({
-        text: "Submit",
-        variant: "primary",
-        size: "lg",
-        type: "submit",
-        fullWidth: true
-      }) }}
+      {{ button(text="Submit", variant="primary", size="lg", type="submit", fullWidth=true) }}
 
     </form>
 
   </div>
 </div>
 
-{#  MODAL JS  #}
 <script>
   (function () {
     const modal    = document.getElementById('customizeModal');
@@ -203,7 +119,6 @@
 
     if (!modal) return;
 
-    // Open triggers - any element with data-open-modal="customize"
     document.querySelectorAll('[data-open-modal="customize"]').forEach(function (el) {
       el.addEventListener('click', function (e) {
         e.preventDefault();
@@ -215,10 +130,7 @@
       modal.setAttribute('aria-hidden', 'false');
       modal.classList.add('customize-modal--open');
       document.body.style.overflow = 'hidden';
-      // Focus first input for accessibility
-      setTimeout(function () {
-        modal.querySelector('input')?.focus();
-      }, 100);
+      setTimeout(function () { modal.querySelector('input')?.focus(); }, 100);
     }
 
     function closeModal() {
@@ -229,21 +141,14 @@
 
     closeBtn?.addEventListener('click', closeModal);
     backdrop?.addEventListener('click', closeModal);
-
-    // Close on Escape key
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && modal.classList.contains('customize-modal--open')) {
-        closeModal();
-      }
+      if (e.key === 'Escape' && modal.classList.contains('customize-modal--open')) closeModal();
     });
 
-    // Form validation
     if (form) {
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         let valid = true;
-
-        // Check text/email/tel/date/number/textarea required fields
         form.querySelectorAll('input[required]:not([type="checkbox"]), select[required], textarea[required]').forEach(function (field) {
           const wrapper = field.closest('.input-field, .dropdown-field');
           if (!field.value.trim()) {
@@ -253,21 +158,16 @@
             wrapper?.classList.remove('input-field--error');
           }
         });
-
-        // Check at least one experience checkbox
         const checked = form.querySelectorAll('input[name="experiences"]:checked');
-        const grid    = form.querySelector('.customize-form__checkbox-grid');
+        const grid = form.querySelector('.customize-form__checkbox-grid');
         if (checked.length === 0) {
           valid = false;
           grid?.classList.add('customize-form__checkbox-grid--error');
         } else {
           grid?.classList.remove('customize-form__checkbox-grid--error');
         }
-
         if (valid) form.submit();
       });
-
-      // Clear error on interaction
       form.querySelectorAll('input, select, textarea').forEach(function (field) {
         field.addEventListener('input', function () {
           field.closest('.input-field, .dropdown-field')?.classList.remove('input-field--error');
@@ -279,6 +179,5 @@
         });
       });
     }
-
   })();
 </script>

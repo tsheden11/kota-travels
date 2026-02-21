@@ -1,49 +1,27 @@
-{# =============================================================
-   Hero Carousel Molecule - hero-carousel.njk
-
-   Parameters:
-     images  {array}  - list of image src strings (required)
-     alt     {string} - base alt text for images (default: "")
-
-   Figma specs (Package Detail page):
-     Size:       1512480px, full width
-     Images:     full cover, no radius
-     Dots:       centered below image, active dot gradient filled
-     Arrows:     left/right, positioned absolute on image sides
-============================================================= #}
-
-{%- macro heroCarousel({ images = [], alt = "" }) -%}
+{%- macro heroCarousel(images=[], alt="") -%}
 
 <div class="hero-carousel" aria-label="Package images">
 
-  {# Images #}
   <div class="hero-carousel__track">
     {% for image in images %}
       <div class="hero-carousel__slide{% if loop.first %} hero-carousel__slide--active{% endif %}">
-        <img
-          class="hero-carousel__img"
-          src="{{ image }}"
-          alt="{{ alt }} {{ loop.index }}"
-        />
+        <img class="hero-carousel__img" src="{{ image }}" alt="{{ alt }} {{ loop.index }}" />
       </div>
     {% endfor %}
   </div>
 
-  {# Arrow - Previous #}
   <button class="hero-carousel__arrow hero-carousel__arrow--prev" aria-label="Previous image">
     <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
     </svg>
   </button>
 
-  {# Arrow - Next #}
   <button class="hero-carousel__arrow hero-carousel__arrow--next" aria-label="Next image">
     <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
     </svg>
   </button>
 
-  {# Dot navigation #}
   <div class="hero-carousel__dots" role="tablist">
     {% for image in images %}
       <button
@@ -57,14 +35,13 @@
 
 </div>
 
-{# Behaviour #}
 <script>
   (function() {
-    const track   = document.querySelector('.hero-carousel__track');
-    const slides  = document.querySelectorAll('.hero-carousel__slide');
-    const dots    = document.querySelectorAll('.hero-carousel__dot');
-    const prev    = document.querySelector('.hero-carousel__arrow--prev');
-    const next    = document.querySelector('.hero-carousel__arrow--next');
+    const track  = document.querySelector('.hero-carousel__track');
+    const slides = document.querySelectorAll('.hero-carousel__slide');
+    const dots   = document.querySelectorAll('.hero-carousel__dot');
+    const prev   = document.querySelector('.hero-carousel__arrow--prev');
+    const next   = document.querySelector('.hero-carousel__arrow--next');
 
     if (!track || slides.length === 0) return;
 

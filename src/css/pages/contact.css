@@ -1,0 +1,164 @@
+/* =============================================================
+   Contact Page — contact.css
+   Source of truth: Figma CSS export (MacBook Pro 14" - Contact Us)
+
+   Page:    column, padding: 60px 0px, gap: 40px
+   Section: padding: 0px 60px, gap: 40px
+   Form:    flex:1, padding: 40px, gap: 30px between rows
+   Cards:   414px wide, gap: 28px
+============================================================= */
+
+
+/* ─────────────────────────────────────────────────────────────
+   PAGE WRAPPER
+───────────────────────────────────────────────────────────── */
+
+.page-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 60px 0 0;                      /* Figma: 60px top, no bottom — CTA handles it */
+  gap: var(--space-section-gap);          /* 40px */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   SECTION WRAPPER
+───────────────────────────────────────────────────────────── */
+
+.contact-section {
+  width: 100%;
+}
+
+.contact-section__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-section-gap);
+  padding: 0 60px;
+  max-width: 1392px;        /* Figma: 1512px - 60px padding each side */
+  margin: 0 auto;           /* centres the inner content on wide screens */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   HEADING BLOCK
+   Figma: column, gap: 20px
+   Title:    60px, kota-light-green
+   Subtitle: 24px, grey
+───────────────────────────────────────────────────────────── */
+
+.contact-section__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.contact-section__title {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);
+  font-size: 60px;                        /* Figma: heading-display */
+  line-height: 76px;
+  color: var(--kota-green);              /* Figma: #23C9A9 */
+}
+
+.contact-section__subtitle {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);
+  font-size: var(--text-lg);             /* Figma: body-1 24px */
+  line-height: var(--lh-lg);
+  color: var(--color-text);              /* Figma: #4B5563 */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   TWO COLUMN ROW
+   Figma: row, space-between, form ~900px | cards 414px
+───────────────────────────────────────────────────────────── */
+
+.contact-section__row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 60px;
+  width: 100%;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   CONTACT FORM
+   Figma: padding: 40px, gap: 30px
+   background: rgba(128,221,214,0.05)
+   border: 1px solid #80DDD6, border-radius: 20px
+───────────────────────────────────────────────────────────── */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;                   /* all children full width */
+  padding: 40px;
+  gap: 30px;                              /* Figma: gap 30px between rows */
+
+  flex: 1;                               /* fills space beside cards */
+  min-width: 0;                          /* prevents flex overflow */
+  background: rgba(128, 221, 214, 0.05); /* Figma: light-blue tint */
+  border: 1px solid var(--kota-blue);    /* Figma: #80DDD6 */
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+/* Full Name + Email side by side */
+.contact-form__row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 40px;                             /* Figma: gap 40px */
+  width: 100%;
+}
+
+.contact-form__row .input-field {
+  flex: 1;                               /* equal width side by side */
+  min-width: 0;
+}
+
+/* All direct input/dropdown/button children stretch full width */
+.contact-form > .input-field,
+.contact-form > .dropdown-field,
+.contact-form > .btn {
+  width: 100%;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   GET IN TOUCH CARDS (right column)
+   Figma: column, gap: 28px, width: 414px
+───────────────────────────────────────────────────────────── */
+
+.contact-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;                             /* Figma: gap 28px */
+  width: 414px;
+  flex-shrink: 0;                        /* never shrink below 414px */
+}
+
+.contact-cards__title {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);     /* 600 — subtitle-2 */
+  font-size: var(--text-md);             /* 24px */
+  line-height: var(--lh-md);            /* 30px */
+  color: var(--color-text-dark);         /* #000000 */
+}
+
+/* Cards stretch to fill the 414px column */
+.contact-cards .horizontal-card {
+  width: 100%;
+  box-sizing: border-box;
+}

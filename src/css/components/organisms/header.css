@@ -1,0 +1,191 @@
+/* =============================================================
+   Navbar — header.css
+============================================================= */
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px var(--space-nav-x);
+  height: var(--nav-height);
+  background: var(--color-surface);
+  position: relative;
+  z-index: 100;
+}
+
+.navbar__container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__logo img {
+  width: var(--nav-logo-w);
+  height: var(--nav-logo-h);
+  object-fit: contain;
+  display: block;
+}
+
+/* Desktop nav */
+.navbar__nav-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-section-pad);
+}
+
+.navbar__links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-section-pad);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__link {
+  font-family: var(--font-primary);
+  font-weight: var(--font-medium);
+  font-size: var(--text-lg);
+  line-height: var(--lh-lg);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.navbar__link:hover {
+  opacity: 0.7;
+}
+
+.navbar__link--active {
+  background: var(--kota-gradient-vertical);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hamburger — hidden on desktop */
+.navbar__hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text);
+  padding: 4px;
+}
+
+
+/* =============================================================
+   Mobile backdrop
+============================================================= */
+
+.mobile-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 200;
+}
+
+.mobile-backdrop--visible {
+  display: block;
+}
+
+
+/* =============================================================
+   Mobile slide-out menu — hidden by default
+============================================================= */
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100vh;
+  background: var(--color-surface);
+  z-index: 300;
+  flex-direction: column;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu--open {
+  display: flex;
+}
+
+.mobile-menu__inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--space-card-pad);
+}
+
+.mobile-menu__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-section-pad);
+}
+
+.mobile-menu__title {
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-md);
+  color: var(--color-text-dark);
+}
+
+.mobile-menu__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text);
+  padding: 4px;
+}
+
+.mobile-menu__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-card-pad);
+}
+
+.mobile-menu__link {
+  font-family: var(--font-primary);
+  font-weight: var(--font-medium);
+  font-size: var(--text-md);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.mobile-menu__footer {
+  margin-top: auto;
+  padding-top: var(--space-card-pad);
+}
+
+.mobile-menu__tagline {
+  font-family: var(--font-primary);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+
+/* =============================================================
+   Responsive — show hamburger on mobile
+============================================================= */
+
+@media (max-width: 768px) {
+  .navbar__nav-wrapper {
+    display: none;
+  }
+
+  .navbar__hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

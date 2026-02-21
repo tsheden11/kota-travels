@@ -1,51 +1,18 @@
-{# =============================================================
-   Section Card Molecule - section-card.njk
-
-   Parameters:
-     title       {string} - section title (required)
-     description {string} - body text (required)
-     icon        {string} - inline SVG for icon container (optional)
-     buttonText  {string} - tertiary button label (default: "")
-     buttonHref  {string} - link URL (default: "#")
-
-   Figma specs (Section component, Property 1=Default):
-     Layout:        column, centered, gap: 10px
-     Size:          296179px
-
-   Icon container: 4444px, bg #80DDD6, radius 20px, centered
-   Title:          Outfit 600 24px/30px, color #000000 - subtitle-2
-   Body:           Outfit 400 20px/25px, color #4B5563, text-align: center
-   Button:         tertiary md, gradient text - "Learn more" style
-============================================================= #}
-
 {% from "components/atoms/button.njk" import button %}
 
-{%- macro sectionCard({
-  title = "",
-  description = "",
-  icon = "",
-  buttonText = "",
-  buttonHref = "#"
-}) -%}
+{%- macro sectionCard(title="", description="", icon="", buttonText="", buttonHref="#") -%}
 
 <div class="section-card">
-
   {% if icon %}
-    <div class="section-card__icon-container" aria-hidden="true">
-      {{ icon | safe }}
-    </div>
+    <div class="section-card__icon-container" aria-hidden="true">{{ icon | safe }}</div>
   {% endif %}
-
   <h3 class="section-card__title">{{ title }}</h3>
-
   <p class="section-card__description">{{ description }}</p>
-
   {% if buttonText %}
     <a href="{{ buttonHref }}">
-      {{ button({ text: buttonText, variant: "tertiary", size: "md" }) }}
+      {{ button(text=buttonText, variant="tertiary", size="md") }}
     </a>
   {% endif %}
-
 </div>
 
 {%- endmacro -%}

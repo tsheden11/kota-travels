@@ -1,32 +1,9 @@
-{# =============================================================
-   Multi-select Atom - multi-select.njk
-
-   Parameters:
-     name    {string} - field name (required)
-     options {array}  - list of { value, label, icon } objects
-     selected {array} - list of selected values (default: [])
-
-   Figma specs (Multiple Selection component):
-     Size:          22050px, padding: 12px, gap: 8px
-     Unselected:    bg #FFFFFF, border: 1px solid #BABABA, radius: 10px
-     Selected:      bg #FFEDE3, no border, radius: 10px
-     Text unselected: Outfit 400 20px/25px, color #4B5563
-     Text selected:   Outfit 400 20px/25px, gradient text (180deg)
-     Icon:          2424px left of text
-============================================================= #}
-
-{%- macro multiSelect({
-  name = "",
-  options = [],
-  selected = []
-}) -%}
+{%- macro multiSelect(name="", options=[], selected=[]) -%}
 
 <div class="multi-select" role="group" aria-label="{{ name }}">
   {% for option in options %}
     {%- set isSelected = option.value in selected -%}
-    <label
-      class="multi-select__option{% if isSelected %} multi-select__option--selected{% endif %}"
-    >
+    <label class="multi-select__option{% if isSelected %} multi-select__option--selected{% endif %}">
       <input
         class="multi-select__input"
         type="checkbox"
@@ -34,13 +11,9 @@
         value="{{ option.value }}"
         {% if isSelected %}checked{% endif %}
       />
-
       {% if option.icon %}
-        <span class="multi-select__icon" aria-hidden="true">
-          {{ option.icon | safe }}
-        </span>
+        <span class="multi-select__icon" aria-hidden="true">{{ option.icon | safe }}</span>
       {% endif %}
-
       <span class="multi-select__text">{{ option.label }}</span>
     </label>
   {% endfor %}

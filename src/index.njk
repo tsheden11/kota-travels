@@ -34,8 +34,8 @@ title: Kota Travels - Travel Bhutan, Made Simple
       </div>
 
       <div class="hero-text__actions">
-        {{ button({ text: "Explore Packages", variant: "primary", size: "lg" }) }}
-        {{ button({text: "Customize Your Own",variant: "secondary",size: "lg",attrs: 'data-open-modal="customize"'}) }}
+        {{ button(text="Explore Packages", variant="primary", size="lg") }}
+        {{ button(text="Customize Your Own", variant="secondary", size="lg", attrs='data-open-modal="customize"') }}
       </div>
 
     </div>
@@ -62,7 +62,6 @@ title: Kota Travels - Travel Bhutan, Made Simple
   <section class="tours-section">
     <div class="tours-section__inner">
 
-      {# Heading row - title left, button right #}
       <div class="tours-section__heading-row">
         <div class="tours-section__heading-group">
           <h2 class="section-heading">
@@ -75,10 +74,9 @@ title: Kota Travels - Travel Bhutan, Made Simple
             <span class="section-heading__black">every step of the journey.</span>
           </h2>
         </div>
-        {{ button({ text: "Explore Packages", variant: "primary", size: "lg" }) }}
+        {{ button(text="Explore Packages", variant="primary", size="lg") }}
       </div>
 
-      {# Body #}
       <p class="tours-section__body">
         Each of our tours takes you to Bhutan's most iconic landmarks, but you
         choose the focus - immerse in culture, recharge with wellness, cycle
@@ -89,7 +87,6 @@ title: Kota Travels - Travel Bhutan, Made Simple
         happen.
       </p>
 
-      {# 4 tour images #}
       <div class="tour-images">
         <div class="tour-images__item">
           <img src="/images/cultural.jpg" alt="Cultural tour in Bhutan" class="tour-images__img" />
@@ -105,32 +102,11 @@ title: Kota Travels - Travel Bhutan, Made Simple
         </div>
       </div>
 
-      {# 4 section cards #}
       <div class="tour-cards">
-        {{ sectionCard({
-          title: "Cultural",
-          description: "Explore historical landmarks at the heart of Bhutan, and discover its rich traditions.",
-          buttonText: "See More ",
-          buttonHref: "/packages/slow-tour"
-        }) }}
-        {{ sectionCard({
-          title: "Wellness",
-          description: "Rejuvenate your body and mind through relaxation and mindfulness activities.",
-          buttonText: "See More ",
-          buttonHref: "/packages/relaxation-tour"
-        }) }}
-        {{ sectionCard({
-          title: "Cycling",
-          description: "Discover hidden trails and stunning destinations on your favorite ride.",
-          buttonText: "See More ",
-          buttonHref: "/packages/mountain-biking"
-        }) }}
-        {{ sectionCard({
-          title: "Trekking",
-          description: "Embark on guided hikes and nature trails to experience the great outdoors.",
-          buttonText: "See More ",
-          buttonHref: "/packages/trekking"
-        }) }}
+        {{ sectionCard(title="Cultural", description="Explore historical landmarks at the heart of Bhutan, and discover its rich traditions.", buttonText="See More", buttonHref="/packages/slow-tour") }}
+        {{ sectionCard(title="Wellness", description="Rejuvenate your body and mind through relaxation and mindfulness activities.", buttonText="See More", buttonHref="/packages/relaxation-tour") }}
+        {{ sectionCard(title="Cycling", description="Discover hidden trails and stunning destinations on your favorite ride.", buttonText="See More", buttonHref="/packages/mountain-biking") }}
+        {{ sectionCard(title="Trekking", description="Embark on guided hikes and nature trails to experience the great outdoors.", buttonText="See More", buttonHref="/packages/trekking") }}
       </div>
 
     </div>
@@ -158,26 +134,10 @@ title: Kota Travels - Travel Bhutan, Made Simple
       </div>
 
       <div class="why-us__cards">
-        {{ verticalCard({
-          title: "Lived. Known. Shared.",
-          description: "We don't just visit Bhutan - we live it. Every experience is grounded in firsthand insight, carefully shared to reflect Bhutan in its truest form.",
-          accentColor: "green"
-        }) }}
-        {{ verticalCard({
-          title: "Simple by Design.",
-          description: "Journeys designed around what you love and how you want to experience Bhutan. Just choose what interests you, and we'll take care of the rest.",
-          accentColor: "green"
-        }) }}
-        {{ verticalCard({
-          title: "Adventure, your way.",
-          description: "100% customizable. Your pace. Your preferences. Your journey - from start to finish. Because the world was never meant to be explored one way.",
-          accentColor: "blue"
-        }) }}
-        {{ verticalCard({
-          title: "Care you can count on.",
-          description: "Family-run hospitality that makes Bhutan feel like a second home, so you can explore with peace of mind, comfort, and care at every step.",
-          accentColor: "blue"
-        }) }}
+        {{ verticalCard(title="Lived. Known. Shared.", description="We don't just visit Bhutan - we live it. Every experience is grounded in firsthand insight, carefully shared to reflect Bhutan in its truest form.", accentColor="green") }}
+        {{ verticalCard(title="Simple by Design.", description="Journeys designed around what you love and how you want to experience Bhutan. Just choose what interests you, and we'll take care of the rest.", accentColor="green") }}
+        {{ verticalCard(title="Adventure, your way.", description="100% customizable. Your pace. Your preferences. Your journey - from start to finish. Because the world was never meant to be explored one way.", accentColor="blue") }}
+        {{ verticalCard(title="Care you can count on.", description="Family-run hospitality that makes Bhutan feel like a second home, so you can explore with peace of mind, comfort, and care at every step.", accentColor="blue") }}
       </div>
 
     </div>
@@ -188,13 +148,13 @@ title: Kota Travels - Travel Bhutan, Made Simple
      SECTION 5 - CTA
   ============================================================ #}
 
-  {{ ctaSection({
-    heading: "Ready to experience Bhutan your way?",
-    primaryBtn: "Explore Packages",
-    primaryHref: "/packages",
-    secondaryBtn: "Customize Your Own",
-    secondaryModal: "customize",
-    image: "/images/rice-fields.jpg"
-  }) }}
+  {{ ctaSection(
+    heading="Ready to experience Bhutan your way?",
+    primaryBtn="Explore Packages",
+    primaryHref="/packages",
+    secondaryBtn="Customize Your Own",
+    secondaryModal="customize",
+    image="/images/rice-fields.jpg"
+  ) }}
 
 </div>

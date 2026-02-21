@@ -25,6 +25,9 @@
   --kota-green:       #23C9A9;              /* "kota-light-green" — horizontal card border + icon container bg */
   --kota-selected:    #FFEDE3;              /* multiple-selection selected state bg */
   --kota-orange-tint: rgba(255, 121, 0, 0.05); /* "light-orange" — tag bg, Quick Info section bg */
+  --kota-dark-green:  #108773;              /* darker green — itinerary stats, tour overview */
+  --kota-light-green: rgba(16, 135, 115, 0.06); /* subtle green tint — itinerary bg, stat bar */
+  
 
   /* Gradients
      Two directions — Figma uses them for different purposes:
@@ -52,6 +55,8 @@
   --color-border-green: var(--kota-green);        /* horizontal card, icon bg */
   --color-selected-bg:  var(--kota-selected);
   --color-accent-bg:    var(--kota-orange-tint);
+  /* Add after --color-accent-bg */
+   --color-text-green: var(--kota-green);    /* green text — about page, package detail titles */
   --color-focus-ring:   var(--kota-focus-ring);
 
 
@@ -180,6 +185,9 @@
   --nav-logo-w:  200px;
   --nav-logo-h:  123px;
 
+  /* Footer */
+  --space-footer-x:   60px;   /* Figma: padding 0px 100px */
+  --space-page-y: 60px;   /* Figma: outer page container padding top/bottom */
 
   /* ─────────────────────────────────────────────────────────
      SHADOWS

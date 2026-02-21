@@ -1,13 +1,13 @@
 <header class="navbar">
   <div class="navbar__container">
+
+    {# Logo — left side #}
+    <a href="/" class="navbar__logo" aria-label="Kota Travels home">
+      <img src="/images/Logo.svg" alt="Kota Travels" />
+    </a>
+
+    {# Desktop nav links — right side #}
     <nav class="navbar__nav-wrapper">
-
-      {# Logo #}
-      <a href="/" class="navbar__logo" aria-label="Kota Travels home">
-        <img src="/images/Logo.svg" alt="Kota Travels" />
-      </a>
-
-      {# Desktop nav links #}
       <ul class="navbar__links">
         {% for item in navLinks %}
           <li>
@@ -20,20 +20,15 @@
           </li>
         {% endfor %}
       </ul>
-
-      {# Mobile hamburger #}
-      <button
-        id="mobile-menu-button"
-        class="navbar__hamburger"
-        aria-label="Toggle menu"
-      >
-        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-
     </nav>
+
+    {# Mobile hamburger — right side on mobile #}
+    <button id="mobile-menu-button" class="navbar__hamburger" aria-label="Toggle menu">
+      <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+
   </div>
 </header>
 
@@ -48,8 +43,7 @@
       <span class="mobile-menu__title">Menu</span>
       <button id="mobile-menu-close" class="mobile-menu__close" aria-label="Close menu">
         <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M6 18L18 6M6 6l12 12"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
         </svg>
       </button>
     </div>
@@ -58,9 +52,7 @@
       <ul class="mobile-menu__links">
         {% for item in navLinks %}
           <li>
-            <a href="{{ item.url }}" class="mobile-menu__link">
-              {{ item.name }}
-            </a>
+            <a href="{{ item.url }}" class="mobile-menu__link">{{ item.name }}</a>
           </li>
         {% endfor %}
       </ul>

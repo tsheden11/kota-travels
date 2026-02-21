@@ -1,55 +1,15 @@
-{# =============================================================
-   Horizontal Card Atom - horizontal-card.njk
-
-   Parameters:
-     title   {string} - contact/feature title (required)
-     text    {string} - supporting line below title (required)
-     icon    {string} - inline SVG string shown in icon container (optional)
-
-   Figma specs (Horizontal Card component):
-     Size:          34098px
-     Padding:       20px
-     Gap:           20px (between icon container and content)
-     Background:    #FFFFFF
-     Border:        1px solid #23C9A9 (kota-green)
-     Border-radius: 10px
-
-   Icon container:
-     Size:          4444px
-     Background:    #23C9A9 (kota-green)
-     Border-radius: 20px
-     Padding:       10px
-     Icon SVG:      2424px, border: 2px solid #FFFFFF
-
-   Content:
-     Gap:           8px between title and text
-     title (subtitle-3): Outfit 500 20px/25px, color #4B5563
-     text  (body-2):     Outfit 400 20px/25px, color #4B5563
-
-   NOTE: The current implementation had image, tags, and a button.
-   Those belong to the Image Card component - a separate component
-   in Figma. This is the small compact contact/feature card only.
-============================================================= #}
-
-{%- macro horizontalCard({
-  title = "",
-  text = "",
-  icon = ""
-}) -%}
+{%- macro horizontalCard(title="", text="", icon="") -%}
 
 <div class="card-horizontal">
-
   {% if icon %}
     <div class="card-horizontal__icon-container" aria-hidden="true">
       {{ icon | safe }}
     </div>
   {% endif %}
-
   <div class="card-horizontal__content">
     <p class="card-horizontal__title">{{ title }}</p>
     <p class="card-horizontal__text">{{ text }}</p>
   </div>
-
 </div>
 
 {%- endmacro -%}

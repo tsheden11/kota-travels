@@ -1,29 +1,4 @@
-{# =============================================================
-   Dropdown Atom - dropdown.njk
-
-   Parameters:
-     name     {string} - select name attribute (required)
-     label    {string} - label text shown above (required)
-     required {boolean} - shows gradient asterisk after label (default: false)
-     options  {array}  - list of { value, label } objects (default: [])
-     selected {string} - value of pre-selected option (default: "")
-     disabled {boolean} - disables the dropdown (default: false)
-
-   Figma states mapped:
-     placeholder       no option selected, #BABABA placeholder text
-     focused           open, chevron flips 180deg, no border
-     selected          option chosen, #4B5563 text, border visible
-     focused-selected  open with a value already chosen
-============================================================= #}
-
-{%- macro dropdown({
-  name = "",
-  label = "",
-  required = false,
-  options = [],
-  selected = "",
-  disabled = false
-}) -%}
+{%- macro dropdown(name="", label="", required=false, options=[], selected="", disabled=false) -%}
 
 <div class="dropdown-field">
 

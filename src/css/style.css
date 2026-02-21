@@ -1,84 +1,66 @@
-
 /* ========================================
-   FONTS
+   ALL IMPORTS MUST COME FIRST
 ======================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;600;700&display=swap');
-
-
-/* ========================================
-   DESIGN TOKENS (FIGMA VARIABLES)
-======================================== */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 @import "./design-tokens.css";
+
+/* Atoms */
+@import "./components/atoms/button.css";
+@import "./components/atoms/tag.css";
+@import "./components/atoms/input.css";
+@import "./components/atoms/dropdown.css";
+
+/* Molecules */
+@import "./components/molecules/horizontal-card.css";
+@import "./components/molecules/hero-carousel.css";
+@import "./components/molecules/itinerary.css";
+@import "./components/molecules/image-card.css";
+@import "./components/molecules/vertical-card.css";
+@import "./components/molecules/section-card.css";
+
+/* Organisms */
+@import "./components/organisms/cta-section.css";
+@import "./components/organisms/customize-modal.css";
+@import "./components/organisms/book-modal.css";
+@import "./components/organisms/header.css";
+@import "./components/organisms/footer.css";
+
+/* Pages */
+@import "./pages/index.css";
+@import "./pages/package.css";
+@import "./pages/package-detail.css";
+@import "./pages/about.css";
+@import "./pages/contact.css";
 
 
 /* ========================================
    BASE STYLES
-   Only global styles go here
 ======================================== */
 
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
 
-  html {
-    font-size: 16px;
-    -webkit-font-smoothing: antialiased;
-  }
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  margin: 0;
+}
 
-  body {
-    font-family: var(--font-primary);
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    line-height: var(--line-normal);
-    margin: 0;
-  }
+img {
+  display: block;
+  max-width: 100%;
+}
 
-  img {
-    display: block;
-    max-width: 100%;
-  }
-
-
-/* ========================================
-   ATOMS
-   Small reusable components
-======================================== */
-
-@import "./atoms/button.css";
-@import "./atoms/tag.css";
-@import "./atoms/input.css";
-@import "./atoms/dropdown.css";
-
-
-
-/* ========================================
-   MOLECULES
-   Larger components (later)
-======================================== */
-@import "./molecules/horizontal-card.css";
-@import "./molecules/hero-carousel.css";
-@import "./molecules/itinerary.css";
-
-
-/*
-@import "./molecules/card.css";
-@import "./molecules/navbar.css";
-*/
-
-
-/* ========================================
-   ORGANISMS
-   Full sections (later)
-======================================== */
-@import './components/organisms/cta-section.css';
-@import "./organisms/customize-modal.css";
-@import "./organisms/book-modal.css";
-/*
-@import "./organisms/hero.css";
-@import "./organisms/footer.css";
-*/
-
-@import "./pages/index.css";
-@import "./pages/packages.css";
-@import "./pages/package-detail.css";
-@import "./pages/about.css";
-
+/* ── Shared page container ── */
+.container {
+  width: 100%;
+  max-width: 1392px;        /* Figma: 1512px - 60px padding each side */
+  margin: 0 auto;
+  padding: 0 60px;
+  box-sizing: border-box;
+}

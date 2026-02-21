@@ -27,7 +27,7 @@ title: Contact Us - Kota Travels
       {# Two column layout #}
       <div class="contact-section__row">
 
-        {#  LEFT - Contact Form  #}
+        {# LEFT - Contact Form #}
         <form
           class="contact-form"
           name="contact"
@@ -39,93 +39,70 @@ title: Contact Us - Kota Travels
 
           {# Row 1 - Full Name + Email side by side #}
           <div class="contact-form__row">
-            {{ input({
-              name: "name",
-              label: "Full Name",
-              required: true,
-              placeholder: "Full Name"
-            }) }}
-            {{ input({
-              name: "email",
-              label: "Email",
-              required: true,
-              type: "email",
-              placeholder: "Email"
-            }) }}
+            {{ input(name="name", label="Full Name", required=true, placeholder="Full Name") }}
+            {{ input(name="email", label="Email", required=true, type="email", placeholder="Email") }}
           </div>
 
           {# Row 2 - Phone Number #}
-          {{ input({
-            name: "phone",
-            label: "Phone Number",
-            required: true,
-            type: "tel",
-            placeholder: "+00 000 000 0000"
-          }) }}
+          {{ input(name="phone", label="Phone Number", required=true, type="tel", placeholder="+00 000 000 0000") }}
 
           {# Row 3 - Message textarea #}
-          {{ input({
-            name: "message",
-            label: "Questions, preferences, special requests - anything you'd like us to know.",
-            required: true,
-            type: "textarea",
-            placeholder: "Places you'd love to visit, special occasions, trip length, accommodation preferences, accessibility or dietary needs, or anything else you'd like to share.",
-            rows: 165
-          }) }}
+          {{ input(
+            name="message",
+            label="Questions, preferences, special requests - anything you'd like us to know.",
+            required=true,
+            type="textarea",
+            placeholder="Places you'd love to visit, special occasions, trip length, accommodation preferences, accessibility or dietary needs, or anything else you'd like to share.",
+            rows=8
+          ) }}
 
           {# Row 4 - How did you hear about us #}
-          {{ dropdown({
-            name: "referral",
-            label: "How did you hear about us?",
-            required: true,
-            options: [
-              { value: "google", label: "Google" },
+          {{ dropdown(
+            name="referral",
+            label="How did you hear about us?",
+            required=true,
+            options=[
+              { value: "google",    label: "Google" },
               { value: "instagram", label: "Instagram" },
-              { value: "facebook", label: "Facebook" },
-              { value: "friend", label: "Friend or Family" },
-              { value: "other", label: "Other" }
+              { value: "facebook",  label: "Facebook" },
+              { value: "friend",    label: "Friend or Family" },
+              { value: "other",     label: "Other" }
             ]
-          }) }}
+          ) }}
 
           {# Submit button - full width #}
-          {{ button({
-            text: "Submit",
-            variant: "primary",
-            size: "lg",
-            type: "submit",
-            fullWidth: true
-          }) }}
+          {{ button(text="Submit", variant="primary", size="lg", type="submit", fullWidth=true) }}
 
         </form>
 
-        {#  RIGHT - Get In Touch cards  #}
+        {# RIGHT - Get In Touch cards #}
         <div class="contact-cards">
 
           <h2 class="contact-cards__title">Get In Touch</h2>
 
-          {{ horizontalCard({
-            title: "Email",
-            text: "kotatravels@gmail.com",
-            icon: '<svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>'
-          }) }}
+          {{ horizontalCard(
+            title="Email",
+            text="kotatravels@gmail.com",
+            icon='<svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>'
+          ) }}
 
-          {{ horizontalCard({
-            title: "WhatsApp",
-            text: "+66 650082600",
-            icon: '<svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.878-1.438A9.956 9.956 0 0012 22c5.523 0 10-4.477 10-10S17.522 2 11.999 2z"/></svg>'
-          }) }}
+          {{ horizontalCard(
+            title="WhatsApp",
+            text="+66 650082600",
+            icon='<svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.878-1.438A9.956 9.956 0 0012 22c5.523 0 10-4.477 10-10S17.522 2 11.999 2z"/></svg>'
+          ) }}
 
-          {{ horizontalCard({
-            title: "Instagram",
-            text: "@kotatravelsbhutan",
-            icon: '<svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>'
-          }) }}
+          {{ horizontalCard(
+            title="Instagram",
+            text="@kotatravelsbhutan",
+            icon='<svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>'
+          ) }}
 
-          {{ horizontalCard({
-            title: "Location",
-            text: "Thimphu, Bhutan (By Appointment Only)",
-            icon: '<svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>'
-          }) }}
+          {{ horizontalCard(
+            title="Location",
+            text="Thimphu, Bhutan (By Appointment Only)",
+            icon='<svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>'
+          ) }}
 
         </div>
 
@@ -139,14 +116,14 @@ title: Contact Us - Kota Travels
      SECTION 2 - CTA
   ============================================================ #}
 
-  {{ ctaSection({
-    heading: "Ready to experience Bhutan your way?",
-    primaryBtn: "Explore Packages",
-    primaryHref: "/packages",
-    secondaryBtn: "Customize Your Own",
-    secondaryModal: "customize",
-    image: "/images/pexels-phuntsho-wangdi-134453878-28641112.jpg"
-  }) }}
+  {{ ctaSection(
+    heading="Ready to experience Bhutan your way?",
+    primaryBtn="Explore Packages",
+    primaryHref="/packages",
+    secondaryBtn="Customize Your Own",
+    secondaryModal="customize",
+    image="/images/pexels-phuntsho-wangdi-134453878-28641112.jpg"
+  ) }}
 
 </div>
 

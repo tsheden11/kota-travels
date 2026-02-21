@@ -1,36 +1,10 @@
-{# =============================================================
-   Quick Panel Organism - quick-panel.njk
-   Combines Quick Info (left) and Quick Contact (right)
-
-   quickInfo parameters:
-     title   {string} - gradient title e.g. "Quick Info"
-     rows    {array}  - list of { label, value } info rows
-     primaryBtn   {string} - primary button text
-     secondaryBtn {string} - secondary button text
-     note    {string} - small body text below buttons
-
-   quickContact parameters:
-     title    {string} - gradient title e.g. "Get In Touch"
-     subtitle {string} - small body text below title
-     btnText  {string} - secondary button label
-
-   Figma specs:
-     Quick Info:    490898px, padding: 40px, gap: 20px
-                    bg: rgba(255,121,0,0.05), radius: 30px
-     Quick Contact: 490243px, padding: 40px, gap: 30px
-                    bg: #FFFFFF, radius: 30px
-
-   Title (both):   Outfit 500 30px/38px, gradient text - subtitle-1
-   Info label:     Outfit 400 20px/25px, color #4B5563 - body-2
-   Info value:     Outfit 600 24px/30px, color #4B5563 - subtitle-2
-   Note/subtitle:  Outfit 400 20px/25px, color #4B5563 - body-2
-============================================================= #}
-
 {% from "components/atoms/button.njk" import button %}
+
+{%- macro quickPanel(quickInfo={}, quickContact={}, contactCards="") -%}
 
 <div class="quick-panel">
 
-  {#  Quick Info (left)  #}
+  {# Quick Info (left) #}
   <div class="quick-info">
 
     <h2 class="quick-panel__title">{{ quickInfo.title }}</h2>
@@ -44,8 +18,8 @@
       {% endfor %}
     </div>
 
-    {{ button({ text: quickInfo.primaryBtn, variant: "primary", size: "lg", fullWidth: true }) }}
-    {{ button({ text: quickInfo.secondaryBtn, variant: "secondary", size: "lg", fullWidth: true }) }}
+    {{ button(text=quickInfo.primaryBtn, variant="primary", size="lg", fullWidth=true) }}
+    {{ button(text=quickInfo.secondaryBtn, variant="secondary", size="lg", fullWidth=true) }}
 
     {% if quickInfo.note %}
       <p class="quick-info__note">{{ quickInfo.note }}</p>
@@ -53,23 +27,19 @@
 
   </div>
 
-  {#  Quick Contact (right, stacked)  #}
+  {# Quick Contact (right) #}
   <div class="quick-contact-wrapper">
 
     <div class="quick-contact">
-
       <div class="quick-contact__header">
         <h2 class="quick-panel__title">{{ quickContact.title }}</h2>
         {% if quickContact.subtitle %}
           <p class="quick-contact__subtitle">{{ quickContact.subtitle }}</p>
         {% endif %}
       </div>
-
-      {{ button({ text: quickContact.btnText, variant: "secondary", size: "lg", fullWidth: true }) }}
-
+      {{ button(text=quickContact.btnText, variant="secondary", size="lg", fullWidth=true) }}
     </div>
 
-    {# Horizontal contact cards slot - pass rendered cards here #}
     {% if contactCards %}
       <div class="quick-contact__cards">
         {{ contactCards | safe }}
@@ -79,3 +49,5 @@
   </div>
 
 </div>
+
+{%- endmacro -%}
